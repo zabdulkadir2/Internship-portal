@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CampusConnect</title>
+    <!-- Link to the provided CSS file -->
+    <link rel="stylesheet" href="../index-styles/index.css" />
+    <!-- Font Awesome for social media icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      xintegrity="sha512-ieCDyF4QYVlXF0Kz5a6eGgA5Q/t0O8aNnN9F1iX2j3aV5eO7pB5sC5xL5w5O5h5aO5Q5E5g5n5Q5i5b5q5A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+     <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- 🌐 Navbar -->
+    <nav class="nav-container">
+      <div class="logo"><h1>CampusConnect</h1></div>
+      <ul class="nav-links">
+        <li><a href="#home" class="nav_link active">Home</a></li>
+        <li><a href="#about" class="nav_link active">About</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#success" >Success Stories</a></li>
+        <li><a href="#contact" >Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+        <!-- Dropdown menu for registration -->
+        <li class="dropdown">
+          <a href="#" >Register </a>
+          <ul>
+            <li><a href="register-student.html">As Student</a></li>
+            <li><a href="register-company.html">As Company</a></li>
+            <li><a href="register-mentor.html">As Mentor</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- 🎓 Student Hero Section -->
+<section id="home" class="hero-block">
+  <div class="hero-content-container">
+    <div class="page-hero-text">
+      <h1>Bridge the Gap Between Campus and Career</h1>
+      <p>
+        Discover internships, connect with mentors, and take the first step
+        toward your future with the support you need to thrive.
+      </p>
+      <div class="hero-actions">
+        <a href="register-student.html" class="btn btn-primary">Join as Student</a>
+        <a href="#how-it-works" class="btn btn-secondary">Learn More</a>
+      </div>
+    </div>
+    <div class="page-hero-image-container">
+      <img
+        class="hero-image"
+        src="../assets/images/hero-image.jpg"
+        alt="Student studying with a laptop"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- 👨‍🏫 Mentor Hero Section -->
+<section class="hero-block">
+  <div class="hero-content-container">
+    <div class="page-hero-image-container">
+      <img
+        class="hero-image"
+        src="../assets/images/mentor-student.jpg"
+        alt="Mentor giving advice to a student"
+      />
+    </div>
+    <div class="page-hero-text">
+      <h1>Share Your Experience. Shape a Future.</h1>
+      <p>
+        Mentor the next generation of talent by guiding students through
+        real-world decisions, projects, and career goals.
+      </p>
+      <div class="hero-actions">
+        <a href="register-mentor.html" class="btn btn-primary">Join as Mentor</a>
+        <a href="#how-it-works" class="btn btn-secondary">Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 🏢 Company Hero Section -->
+<section class="hero-block">
+  <div class="hero-content-container">
+    <div class="page-hero-text">
+      <h1>Find Fresh Talent and Give Back</h1>
+      <p>
+        Connect with skilled students and provide meaningful internship
+        experiences that shape tomorrow’s professionals.
+      </p>
+      <div class="hero-actions">
+        <a href="register-company.html" class="btn btn-primary">Join as Company</a>
+        <a href="#how-it-works" class="btn btn-secondary">Learn More</a>
+      </div>
+    </div>
+    <div class="page-hero-image-container">
+      <img
+        class="hero-image"
+        src="../assets/images/company-team.jpg"
+        alt="Team collaborating in an office"
+      />
+    </div>
+  </div>
+</section>
+
+
+
+
+
+    <!-- ℹ️ About CampusConnect -->
+    <section id="about" class="about-section ">
+      <div class="about-container">
+        <div class="about-text">
+          <h2>About CampusConnect</h2>
+          <p>
+            CampusConnect is a web platform designed to connect students,
+            mentors, and employers for internships, mentorship, and career
+            growth. Whether you're a student looking for direction, a mentor
+            eager to give back, or a company seeking talent, CampusConnect
+            brings people together to build futures.
+          </p>
+
+          <!-- Subsections with alternating layout -->
+          <div class="mission-vision">
+            <div class="mission">
+              <h3>🌱 Our Mission</h3>
+              <p>
+                To empower students by connecting them with trusted mentors and
+                career opportunities, helping them transition confidently from
+                classroom to career.
+              </p>
+            </div>
+            <div class="vision">
+              <h3>🎯 Our Vision</h3>
+              <p>
+                To become the leading platform that nurtures future
+                professionals through meaningful mentorship, collaboration, and
+                hands-on experience.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⚙️ How It Works -->
+    <section id="how-it-works" class="how-it-works-section">
+      <div class="how-it-works-container">
+        <h2>How It Works</h2>
+        <div class="steps-grid">
+          <div class="step">
+            <img src="../assets/icons/profile.svg" alt="Create Profile Icon" />
+            <h3>Create a Profile</h3>
+            <p>Tell us who you are and what you’re looking for.</p>
+          </div>
+          <div class="step">
+            <img src="../assets/icons/connect.svg" alt="Connect Icon" />
+            <h3>Connect with Mentors or Companies</h3>
+            <p>Easily match based on your goals and interests.</p>
+          </div>
+          <div class="step">
+            <img src="../assets/icons/app_registration.svg" alt="Apply Icon" />
+            <h3>Apply for Internships</h3>
+            <p>Get access to verified and valuable opportunities.</p>
+          </div>
+          <div class="step">
+            <img src="../assets/icons/grow.svg" alt="Grow Icon" />
+            <h3>Get Guidance and Grow</h3>
+            <p>Receive support from experienced mentors.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ Why Choose Us -->
+    <section class="benefits-section">
+  <div class="benefits-container">
+    <h2>Why Choose CampusConnect?</h2>
+    <p class="benefits-intro">
+      We’re more than just a platform. CampusConnect is a dynamic community where students, mentors, and employers collaborate to unlock real-world success. Here’s what makes us stand out:
+    </p>
+    <div class="benefits-grid">
+      <div class="benefit">
+        ✅ <strong>Verified Mentors & Alumni</strong><br />
+        Gain guidance from trusted professionals and alumni who’ve walked your path and are ready to support your journey.
+      </div>
+      <div class="benefit">
+        📊 <strong>Internship Tracking Tools</strong><br />
+        Stay organized with tools that help you track your applications, deadlines, and progress from one place.
+      </div>
+      <div class="benefit">
+        🧠 <strong>Skill Assessment Features</strong><br />
+        Evaluate and improve your abilities through self-assessments, feedback, and soft skills checklists tailored to your goals.
+      </div>
+      <div class="benefit">
+        🎯 <strong>Personalized Opportunity Matching</strong><br />
+        Get connected to internships and mentors that align with your interests, background, and career aspirations.
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- 👩‍💼 Featured Mentors / Companies -->
+    <section class="featured-section">
+      <div class="featured-container">
+        <h2>Featured Mentors & Companies</h2>
+        <div class="card-grid">
+          <div class="card">
+            <img src="../assets/images/mentor-Ama.jpg" alt="Mentor Ama Boateng" />
+            <h3>Ama Boateng</h3>
+            <p class="role">Software Engineer, Google</p>
+            <p class="bio">
+              “Mentoring CS students to land top tech internships.”
+            </p>
+          </div>
+          <div class="card">
+            <img src="../assets/images/company-logo.jpg" alt="Company SoftTech Inc." />
+            <h3>Kwaku Mensah</h3>
+            <p class="role">CTO, StartupX</p>
+            <p class="bio">
+              “Helping bridge the gap between school and startup careers.”
+            </p>
+          </div>
+          <div class="card">
+            <img src="../assets/images/mentor-kwame.jpg" alt="Mentor Kwame Boateng" />
+            <h3>Kwame Boateng</h3>
+            <p class="role">Data Analyst, IBM</p>
+            <p class="bio">
+              “Passionate about data and helping students break into tech
+              careers.”
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 💬 Success Stories / Testimonials -->
+    <section id="success" class="testimonials-section">
+      <div class="testimonials-container">
+        <h2>Success Stories</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              “I got an internship through CampusConnect in just 3 weeks! The
+              mentorship helped me prepare for interviews.”
+            </p>
+            <h3 class="testimonial-name">— Adjoa, KNUST Student</h3>
+          </div>
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              “Being a mentor has helped me give back and connect with talented
+              youth.”
+            </p>
+            <h3 class="testimonial-name">— Selorm, Senior Developer</h3>
+          </div>
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              “We hired two interns through the platform — both exceeded
+              expectations.”
+            </p>
+            <h3 class="testimonial-name">— Lydia, HR Manager</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 📣 Join This Network Banner -->
+    <section class="cta-section">
+      <div class="cta-container">
+        <h2>Ready to connect, grow, and succeed?</h2>
+        <p class="cta-subtext">
+          Join thousands of students, mentors, and companies shaping the future
+          together.
+        </p>
+        <a href="/register" class="cta-button">Register Now</a>
+      </div>
+    </section>
+
+    <!-- 📬 Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="contact-container">
+        <h2>Contact Us</h2>
+        <p class="contact-subtext">
+          We'd love to hear from you. Reach out with any questions or feedback!
+        </p>
+        <form class="contact-form">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea placeholder="Your Message" required></textarea>
+          <button type="submit" class="btn bt-primary">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- 📎 Footer -->
+    <footer class="footer-section">
+      <div class="footer-container">
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="/terms">Terms</a>
+          <a href="/privacy">Privacy</a>
+        </div>
+        <div class="footer-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

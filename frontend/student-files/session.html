@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Sessions | CampusConnect</title>
+    <!-- Google Fonts: Poppins for headings, Open Sans for body text -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for social media icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      xintegrity="sha512-ieCDyF4QYVlXF0Kz5a6eGgA5Q/t0O8aNnN9F1iX2j3aV5eO7pB5sC5xL5w5O5h5aO5Q5E5g5n5Q5i5b5q5A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Link to the dedicated CSS file for this page -->
+    <link rel="stylesheet" href="../student-styles/session.css" />
+  </head>
+  <body>
+    <!-- Navbar Section - Reused for consistency -->
+    <nav class="nav-container">
+      <div class="logo">
+        <h1>CampusConnect</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="internship.html">Internships</a></li>
+        <li><a href="mentors.html">Mentors</a></li>
+        <li><a href="applications.html">My Applications</a></li>
+        <li><a href="schedule.html">My Schedule</a></li>
+        <li><a href="#my-sessions">My Sessions</a></li>
+        <li><a href="student-profile.html">Profile</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </nav>
+
+    <!-- Page Hero / Header Section -->
+    <section class="page-hero">
+      <div class="page-hero-block">
+        <div class="page-hero-text">
+          <h2>My Mentorship Sessions</h2>
+          <p>
+            Review, join, or reschedule your past and upcoming mentorship
+            sessions.
+          </p>
+        </div>
+        <!-- Hero image removed as requested -->
+      </div>
+    </section>
+
+    <!-- Filter or Search Section -->
+    <section class="sessions-filter-section">
+      <h2>Find Your Sessions</h2>
+      <div class="filter-container">
+        <input
+          type="text"
+          placeholder="Search by mentor or topic..."
+          class="search-input"
+        />
+        <input type="date" class="date-picker" />
+        <select class="filter-select">
+          <option value="">Filter by Status</option>
+          <option value="upcoming">Upcoming</option>
+          <option value="completed">Completed</option>
+          <option value="cancelled">Cancelled</option>
+        </select>
+        <button class="btn btn-secondary apply-filters-button">
+          Apply Filters
+        </button>
+      </div>
+    </section>
+
+    <!-- Sessions Table or Grid (Core Section) -->
+    <section class="sessions-list-section">
+      <h2>Upcoming & Recent Sessions</h2>
+      <div class="session-cards-grid">
+        <!-- Session Card 1: Upcoming Confirmed -->
+        <div class="session-card">
+          <p class="session-date-time">July 28, 2025 — 3:00 PM GMT</p>
+          <h3 class="session-topic">CV Review with Kwame Mensah</h3>
+          <p class="session-platform">📍 Google Meet</p>
+          <p class="session-status status-confirmed">🟢 Confirmed</p>
+          <div class="session-actions">
+            <a href="#" class="btn btn-primary join-now-btn">Join Now</a>
+            <button class="action-button reschedule-btn">Reschedule</button>
+            <button class="action-button cancel-btn">Cancel</button>
+          </div>
+        </div>
+
+        <!-- Session Card 2: Upcoming Pending -->
+        <div class="session-card">
+          <p class="session-date-time">August 5, 2025 — 10:00 AM GMT</p>
+          <h3 class="session-topic">
+            Career Path Discussion with Amina Suleiman
+          </h3>
+          <p class="session-platform">📍 Zoom</p>
+          <p class="session-status status-pending">⏳ Pending Confirmation</p>
+          <div class="session-actions">
+            <button class="action-button reschedule-btn">Reschedule</button>
+            <button class="action-button cancel-btn">Cancel</button>
+          </div>
+        </div>
+
+        <!-- Session Card 3: Completed Session -->
+        <div class="session-card">
+          <p class="session-date-time">July 15, 2025 — 2:00 PM GMT</p>
+          <h3 class="session-topic">Interview Prep with Dr. Emeka Okoro</h3>
+          <p class="session-platform">📍 Microsoft Teams</p>
+          <p class="session-status status-completed">✅ Completed</p>
+          <div class="session-actions">
+            <button class="action-button view-summary-btn">View Summary</button>
+            <button class="action-button provide-feedback-btn">
+              Provide Feedback
+            </button>
+          </div>
+        </div>
+
+        <!-- Session Card 4: Cancelled Session -->
+        <div class="session-card">
+          <p class="session-date-time">July 10, 2025 — 4:00 PM GMT</p>
+          <h3 class="session-topic">Portfolio Review with Sarah Mensah</h3>
+          <p class="session-platform">📍 Google Meet</p>
+          <p class="session-status status-cancelled">❌ Cancelled</p>
+          <div class="session-actions">
+            <button class="action-button view-summary-btn">View Reason</button>
+          </div>
+        </div>
+
+        <!-- Session Card 5: Upcoming Confirmed -->
+        <div class="session-card">
+          <p class="session-date-time">August 12, 2025 — 1:00 PM GMT</p>
+          <h3 class="session-topic">Networking Strategies with David Osei</h3>
+          <p class="session-platform">📍 Google Meet</p>
+          <p class="session-status status-confirmed">🟢 Confirmed</p>
+          <div class="session-actions">
+            <a href="#" class="btn btn-primary join-now-btn">Join Now</a>
+            <button class="action-button reschedule-btn">Reschedule</button>
+            <button class="action-button cancel-btn">Cancel</button>
+          </div>
+        </div>
+      </div>
+      <div class="section-footer-link">
+        <a href="#" class="btn btn-secondary">Load More Sessions</a>
+      </div>
+    </section>
+
+    <!-- Consistent Footer - Reused for consistency -->
+    <footer class="footer-section">
+      <div class="footer-container">
+        <!-- Quick Links -->
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="footer-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+          <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

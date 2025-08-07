@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Dashboard | CampusConnect</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for social media icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      xintegrity="sha512-ieCDyF4QYVlXF0Kz5a6eGgA5Q/t0O8aNnN9F1iX2j3aV5eO7pB5sC5xL5w5O5h5aO5Q5E5g5n5Q5i5b5q5A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../student-styles/index.css" />
+  </head>
+  <body>
+    <!-- Navbar Section - UPDATED -->
+    <nav class="nav-container">
+      <div class="logo"><h1>CampusConnect</h1></div>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="internship.html">Internships</a></li>
+        <li><a href="mentorship.html">Mentors</a></li>
+        <li><a href="applications.html">My Applications</a></li>
+        <li><a href="schedule.html">My Schedule</a></li>
+        <li><a href="session.html">My Sessions</a></li>
+        <li><a href="student-profile.html">Profile</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </nav>
+
+    <!-- hero section -->
+    <section class="hero">
+      <div class="hero-block">
+        <div class="hero-text">
+          <h2>Welcome back, <span id="student-name">[Student Name]</span>!</h2>
+          <p>
+            Your journey to a brighter future starts here. Explore tailored
+            opportunities and connect with a supportive community.
+          </p>
+          <a href="#internships" class="btn discover-btn"
+            >Discover Internships</a
+          >
+          <a href="#mentors" class="btn mentor-btn">Find a Mentor</a>
+        </div>
+        <div class="hero-image">
+          <img
+            src="../assets/images/hero-image.jpg"
+            alt="Student engaging with online learning"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- stats section -->
+    <section class="stats-section">
+      <h2>Your Progress At A Glance</h2>
+      <div class="stats-cards-grid">
+        <div class="stats-card">
+          <h3>5</h3>
+          <p>Applications Submitted</p>
+        </div>
+        <div class="stats-card">
+          <h3>2</h3>
+          <p>Mentors Connected</p>
+        </div>
+        <div class="stats-card">
+          <h3>3</h3>
+          <p>Internships Saved</p>
+        </div>
+        <div class="stats-card">
+          <h3>1</h3>
+          <p>Active Mentorship</p>
+        </div>
+      </div>
+    </section>
+    <!-- internship listing -->
+    <section class="internships-section" id="internships">
+      <h2>Recent Internship Listings</h2>
+      <div class="internship-cards-grid">
+        <div class="internship-card">
+          <h3>Frontend Developer Intern</h3>
+          <p class="company-info">Tech Innovations Inc. · Remote · 3 Months</p>
+          <p class="description">
+            Gain hands-on experience building user interfaces with cutting-edge
+            technologies.
+          </p>
+          <a href="#" class="btn-accent-yellow">Apply Now</a>
+        </div>
+        <div class="internship-card">
+          <h3>Digital Marketing Assistant</h3>
+          <p class="company-info">Growth Sparks Agency · Accra · 6 Weeks</p>
+          <p class="description">
+            Help craft engaging campaigns and analyze market trends for real
+            clients.
+          </p>
+          <a href="#" class="btn-accent-yellow">Apply Now</a>
+        </div>
+        <div class="internship-card">
+          <h3>Data Analyst Internship</h3>
+          <p class="company-info">Insightful Solutions · Kumasi · 4 Months</p>
+          <p class="description">
+            Dive deep into data, extracting valuable insights to drive business
+            decisions.
+          </p>
+          <a href="#" class="btn-accent-yellow">Apply Now</a>
+        </div>
+        <div class="internship-card">
+          <h3>UI/UX Design Intern</h3>
+          <p class="company-info">Creative Minds Studio · Remote · 2 Months</p>
+          <p class="description">
+            Participate in design sprints, user research, and prototyping for
+            new applications.
+          </p>
+          <a href="#" class="btn-accent-yellow">Apply Now</a>
+        </div>
+      </div>
+      <div class="section-footer-link">
+        <a href="internship.html" class="btn internship-btn"
+          >View All Internships</a
+        >
+      </div>
+    </section>
+    <!-- mentors section -->
+    <section class="mentors-section" id="mentors">
+      <h2>Suggested Mentors for You</h2>
+      <div class="mentor-cards-grid">
+        <div class="mentor-card">
+          <img src="../assets/images/mentor-Amina.jpg" alt="Amina Suleiman" />
+          <h3>Amina Suleiman</h3>
+          <p class="mentor-role">UX Designer at Google</p>
+          <a href="#" class="btn-accent-teal">Connect</a>
+        </div>
+        <div class="mentor-card">
+          <img src="../assets/images/mentor-kwame.jpg" alt="Kwame Boateng" />
+          <h3>Kwame Boateng</h3>
+          <p class="mentor-role">Software Engineer at Andela</p>
+          <a href="#" class="btn-accent-teal">Connect</a>
+        </div>
+        <div class="mentor-card">
+          <img src="../assets/images/mentor-emeka.jpg" alt="Dr. Emeka Okoro" />
+          <h3>Dr. Emeka Okoro</h3>
+          <p class="mentor-role">AI Researcher at IBM</p>
+          <a href="#" class="btn-accent-teal">Connect</a>
+        </div>
+        <div class="mentor-card">
+          <img src="../assets/images/mentor-sarah.jpg" alt="Sarah Mensah" />
+          <h3>Sarah Mensah</h3>
+          <p class="mentor-role">Product Manager at Microsoft</p>
+          <a href="#" class="btn-accent-teal">Connect</a>
+        </div>
+      </div>
+      <div class="section-footer-link">
+        <a href="mentors.html" class="btn btn-explore">Explore All Mentors</a>
+      </div>
+    </section>
+    <!-- Annouccement section -->
+    <section class="announcement-section">
+      <h2>📢 Announcements & News</h2>
+      <ul class="announcement-list">
+        <li>
+          **New Feature:** Direct Messaging with mentors is now live! Start
+          chatting.
+        </li>
+        <li>
+          **Event Alert:** Virtual Career Fair for Tech & Engineering on
+          **August 15th, 2025**. Register now!
+        </li>
+        <li>
+          **Tip of the Week:** Learn to craft a powerful resume with our new
+          <a href="#">Resume Guide</a>.
+        </li>
+        <li>
+          **Opportunity:** Fresh internship opportunities added in **Creative
+          Arts & Media**.
+        </li>
+      </ul>
+    </section>
+    <!-- appointment section -->
+    <section class="appointments-section" id="appointments">
+      <h2>🗓️ Upcoming Appointments & Events</h2>
+      <div class="appointment-cards-grid">
+        <div class="appointment-card">
+          <h3>Mentorship Session with Amina Suleiman</h3>
+          <p class="appointment-details">Date: July 10, 2025</p>
+          <p class="appointment-details">Time: 2:00 PM GMT</p>
+          <p class="appointment-details">
+            Location: Google Meet <a href="#" class="join-link">Join Call</a>
+          </p>
+        </div>
+        <div class="appointment-card">
+          <h3>Interview Prep Workshop</h3>
+          <p class="appointment-details">Date: July 18, 2025</p>
+          <p class="appointment-details">Time: 10:00 AM GMT</p>
+          <p class="appointment-details">
+            Location: Campus Lecture Hall 3
+            <a href="#" class="view-details-link">View Details</a>
+          </p>
+        </div>
+        <div class="appointment-card">
+          <h3>Application Deadline: Tech Innovations Inc.</h3>
+          <p class="appointment-details">Date: July 25, 2025</p>
+          <p class="appointment-details warning">Action: Review & Submit!</p>
+        </div>
+      </div>
+      <div class="section-footer-link">
+        <a href="#" class="btn btn-schedule">View My Full Schedule</a>
+      </div>
+    </section>
+    <!-- quick links section -->
+    <section class="quick-links-section">
+      <h2>Quick Access</h2>
+      <div class="quick-links-grid">
+        <a href="#" class="quick-link-card">
+          <img src="../assets/icons/profile-edit.svg" alt="Edit Profile Icon" />
+          <span>Edit Profile</span>
+        </a>
+        <a href="#" class="quick-link-card">
+          <img
+            src="../assets/icons/applications.svg"
+            alt="My Applications Icon"
+          />
+          <span>My Applications</span>
+        </a>
+        <a href="#" class="quick-link-card">
+          <img src="../assets/icons/saved.svg" alt="Saved Items Icon" />
+          <span>Saved Internships</span>
+        </a>
+        <a href="#" class="quick-link-card">
+          <img src="../assets/icons/resources.svg" alt="Resources Icon" />
+          <span>Learning Resources</span>
+        </a>
+      </div>
+    </section>
+    <!-- feedback section -->
+    <section class="feedback-section">
+      <h2>We Value Your Feedback!</h2>
+      <p class="feedback-intro">
+        Help us improve CampusConnect by taking a moment to share your
+        experience.
+      </p>
+      <form class="feedback-form">
+        <textarea
+          placeholder="Your suggestions, thoughts, or any issues you've encountered..."
+          rows="6"
+          required
+        ></textarea>
+        <button type="submit" class="btn-primary">Submit Feedback</button>
+      </form>
+    </section>
+    <!-- footer section -->
+    <footer class="footer-section">
+      <div class="footer-container">
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+        </div>
+        <div class="footer-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

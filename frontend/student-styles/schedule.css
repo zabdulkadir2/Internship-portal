@@ -1,0 +1,355 @@
+/* General CSS for consistency across CampusConnect pages */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: #334155; /* Base text color */
+    background-color: #F9FAFB; /* Consistent light background */
+}
+
+/* Base styles for sections to ensure consistent padding and max-width */
+section {
+    padding: 4rem 2rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+section h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    color: #1E3A8A;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+/* Reusable Button Styles - Consistent with other CampusConnect pages */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #1E3A8A;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0F172A;
+}
+
+.btn-secondary {
+    background-color: #FBBF24;
+    color: #1E293B;
+}
+
+.btn-secondary:hover {
+    background-color: #f59e0b;
+}
+
+/* Specific button styles for actions within event cards */
+.action-button {
+    background-color: #2DD4BF;
+    color: #0F172A;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 0.5rem;
+}
+
+.action-button:hover {
+    background-color: #14B8A6;
+    color: #ffffff;
+}
+
+.action-button.reschedule-btn {
+    background-color: #FBBF24;
+    color: #1E293B;
+}
+
+.action-button.reschedule-btn:hover {
+    background-color: #f59e0b;
+    color: #ffffff;
+}
+
+.action-button.cancel-btn {
+    background-color: #EF4444; /* Red for danger/cancel actions */
+    color: #ffffff;
+}
+
+.action-button.cancel-btn:hover {
+    background-color: #DC2626;
+}
+
+.action-button.view-details-btn { /* Changed from view-details-btn to match HTML */
+    background-color: #94A3B8; /* Grey for less urgent actions */
+    color: #ffffff;
+}
+
+.action-button.view-details-btn:hover { /* Changed from view-details-btn to match HTML */
+    background-color: #64748B;
+}
+
+
+.join-now-btn { /* Specific style for "Join Now" links/buttons */
+    background-color: #1E3A8A;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem; /* Slightly larger for primary action */
+    font-size: 0.95rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.join-now-btn:hover {
+    background-color: #0F172A;
+}
+
+
+.section-footer-link {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* ========== NAVBAR CONTAINER - Consistent with other pages ========== */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.logo h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: #1E3A8A;
+    margin: 0;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #0F172A;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #1E3A8A;
+}
+
+/* Page Header / Hero Section - Adapted for no image */
+.page-hero {
+    padding-top: 8rem; /* Account for fixed navbar */
+    padding-bottom: 4rem;
+    background-color: #F9FAFB;
+    display: flex; /* Ensure flex properties apply */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    text-align: center; /* Center text within the block */
+}
+
+.page-hero-block {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center text and elements */
+    gap: 1rem; /* Reduced gap since there's no image */
+    max-width: 800px; /* Constrain width of text */
+    margin: 0 auto; /* Center the block */
+}
+
+.page-hero-text {
+    flex: none; /* No longer flex-grow 1 */
+    max-width: 100%; /* Take full width of parent block */
+    padding: 0; /* Remove extra padding */
+}
+
+.page-hero-text h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #1E3A8A;
+    font-size: 2.25rem;
+    margin-bottom: 0.5rem; /* Reduced margin */
+    text-align: center; /* Ensure heading is centered */
+}
+
+.page-hero-text p {
+    color: #334155;
+    font-size: 1.1rem;
+    margin-bottom: 0; /* No margin at the bottom of the paragraph */
+    line-height: 1.6;
+    text-align: center; /* Ensure paragraph is centered */
+}
+
+/* Removed .page-hero-image styles */
+/* Removed @media (min-width: 768px) block for .page-hero-block, .page-hero-text, .page-hero-image */
+
+
+/* Upcoming Events Section - Card-based display */
+.upcoming-events-section {
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.events-list-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.event-card {
+    background-color: #F9FAFB;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.event-date-time {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    color: #64748B;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.event-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    color: #1E3A8A;
+    margin-bottom: 0.75rem;
+}
+
+.event-details {
+    font-family: 'Open Sans', sans-serif;
+    color: #475569;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    flex-grow: 1; /* Allows details to take up space */
+}
+
+.event-status {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    width: fit-content; /* Make background fit content */
+    margin-bottom: 1rem;
+}
+
+.status-confirmed { background-color: #D1FAE5; color: #065F46; } /* Green */
+.status-pending { background-color: #FFFBEB; color: #B45309; } /* Orange */
+.status-deadline { background-color: #FEE2E2; color: #991B1B; } /* Red */
+
+.event-actions {
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap on small screens */
+    gap: 0.75rem;
+    margin-top: auto; /* Push actions to the bottom */
+}
+
+.event-actions .btn,
+.event-actions .action-button {
+    flex-grow: 1; /* Allow buttons to grow */
+    min-width: 120px; /* Minimum width for buttons */
+}
+
+
+@media (min-width: 768px) {
+    .events-list-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .events-list-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* Consistent Footer - Reused from other pages */
+.footer-section {
+    background-color: #0F172A;
+    color: #ffffff;
+    padding: 2rem 1.5rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    color: #E2E8F0;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #FBBF24;
+}
+
+.footer-socials {
+    margin-bottom: 1rem;
+}
+
+.footer-socials a {
+    font-size: 1.3rem;
+    margin: 0 0.5rem;
+    text-decoration: none;
+    color: #E2E8F0;
+    transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: #FBBF24;
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: #94A3B8;
+}

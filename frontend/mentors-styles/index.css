@@ -1,0 +1,375 @@
+/* General CSS for consistency across CampusConnect pages */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: #334155; /* Base text color */
+    background-color: #F9FAFB; /* Consistent light background */
+   
+}
+
+/* Base styles for sections to ensure consistent padding and max-width */
+section {
+    padding: 4rem 2rem; /* Consistent padding with student dashboard */
+    font-family: 'Open Sans', sans-serif;
+}
+
+.section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    color: #1E3A8A;
+    margin-bottom: 2.5rem; /* Consistent margin with student dashboard */
+    text-align: center;
+}
+
+/* Reusable Button Styles - Consistent with other CampusConnect pages */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #1E3A8A;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0F172A;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #FBBF24;
+    color: #1E293B;
+}
+
+.btn-secondary:hover {
+    background-color: #f59e0b;
+    transform: translateY(-2px);
+}
+
+.section-footer-link {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* ========== NAVBAR CONTAINER - Consistent with other pages ========== */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.logo h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: #1E3A8A;
+    margin: 0;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #0F172A;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #1E3A8A;
+}
+
+/* ========== HERO SECTION - Styled to match student dashboard's hero ========== */
+.hero-section {
+    padding-top: 7rem; /* Consistent padding with student dashboard */
+    padding-bottom:4rem;
+    background-color: #F9FAFB;/* Consistent background with student dashboard */
+   
+}
+
+.hero-block { /* Mimics student's .hero-block for consistent layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1200px; /* Consistent max-width with student dashboard's .hero-block */
+    margin: 0 auto; /* Center the content within the hero section */
+}
+
+.hero-content {
+    flex: 1; /* Allows content to take available space */
+    max-width: 600px; /* Consistent max-width with student dashboard's hero-text */
+    text-align: center; /* Default for mobile */
+}
+
+.hero-headline {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.25rem; /* Consistent font size with student dashboard */
+    color: #1E3A8A;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+.hero-headline  #mentor-name {
+    color: #FBBF24; /* Highlight student name */
+}
+.hero-subtext {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem; /* Consistent font size with student dashboard */
+    color: #334155;
+    margin-bottom: 2rem;
+    line-height: 1.6; /* Consistent line-height */
+}
+
+.hero-image {
+    flex: 1; /* Allows image to take available space */
+    text-align: center;
+}
+
+.hero-image img {
+    max-width: 500px; /* Consistent max-width with student dashboard */
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Consistent shadow with student dashboard */
+}
+
+@media (min-width: 768px) {
+    .hero-block { /* Apply desktop flex styles to hero-block */
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .hero-content {
+        text-align: left; /* Ensure text is left-aligned on desktop */
+        padding-right: 2rem; /* Consistent with student dashboard */
+    }
+    .hero-image {
+        text-align: right; /* Consistent with student dashboard */
+        padding-left: 2.5rem; /* Consistent with student dashboard */
+    }
+}
+
+/* ========== QUICK STATS SECTION - Styled to match student dashboard's stats section ========== */
+.quick-stats-section {
+    background-color: #ffffff; /* Consistent background with student dashboard */
+    padding: 4rem 2rem; /* Consistent padding with student dashboard */
+    text-align: center; /* Ensures the whole section content (including title) is centered */
+}
+
+.stat-cards-grid {
+    display: flex;
+    /*grid-template-columns: 1fr;  Default to single column for mobile */
+    gap: 1.5rem; /* Consistent gap with student dashboard */
+    max-width: 1000px; /* Consistent max-width with student dashboard */
+    margin: 0 auto; /* Ensures the grid is centered horizontally within the section */
+   align-items: center;
+   justify-content: center;
+   
+    
+}
+
+.stat-card {
+    background-color: #F9FAFB; /* Consistent background with student dashboard */
+    padding: 1.5rem; /* Consistent padding with student dashboard */
+    border-radius: 10px; /* Consistent border-radius with student dashboard */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Consistent shadow with student dashboard */
+    text-align: center; /* Ensures content within the card is centered */
+}
+
+.stat-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem; /* Consistent font size with student dashboard */
+    color: #1E3A8A;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.stat-card p {
+    font-family: 'Open Sans', sans-serif;
+    color: #475569;
+    font-size: 1rem; /* Consistent font size with student dashboard */
+    margin: 0;
+}
+
+@media (min-width: 600px) {
+    .stat-cards-grid {
+        grid-template-columns: repeat(2, 1fr); /* Consistent with student dashboard */
+    }
+}
+
+@media (min-width: 900px) {
+    .stat-cards-grid {
+        grid-template-columns: repeat(4, 1fr); /* Consistent with student dashboard */
+    }
+}
+
+/* ========== UPCOMING SESSIONS PREVIEW ========== */
+.upcoming-sessions-section {
+    background-color: #ffffff;
+    padding: 3rem 2rem;
+}
+
+.session-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.session-card {
+    background-color: #F9FAFB;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.session-date-time {
+    font-weight: 600;
+    color: #1E3A8A;
+    font-size: 0.95rem;
+}
+
+.session-student, .session-platform {
+    color: #475569;
+    font-size: 0.9rem;
+}
+
+.session-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+/* ========== RECENT MENTEES SECTION ========== */
+.recent-mentees-section {
+    background-color: #F9FAFB;
+    padding: 3rem 2rem;
+}
+
+.mentee-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.mentee-card {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.mentee-profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+    border: 3px solid #1E3A8A; /* Accent border */
+}
+
+.mentee-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1E3A8A;
+    margin: 0;
+}
+
+.mentee-focus {
+    color: #475569;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+/* Consistent Footer - Reused from other pages */
+.footer-section {
+    background-color: #0F172A;
+    color: #ffffff;
+    padding: 2rem 1.5rem;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: auto; /* Pushes footer to the bottom */
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    color: #E2E8F0;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #FBBF24;
+}
+
+.footer-socials {
+    margin-bottom: 1rem;
+}
+
+.footer-socials a {
+    font-size: 1.3rem;
+    margin: 0 0.5rem;
+    text-decoration: none;
+    color: #E2E8F0;
+    transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: #FBBF24;
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: #94A3B8;
+}

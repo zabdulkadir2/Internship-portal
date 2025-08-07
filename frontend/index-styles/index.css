@@ -1,0 +1,758 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: #334155; /* Base text color */
+     background-color: #F9FAFB; /* Consistent light background */
+}
+
+section {
+    padding: 4rem 2rem;
+}
+
+
+
+h2, h3, h4 {
+    font-family: 'Poppins', sans-serif;
+    color: #1E3A8A; /* Deep dark blue for headings */
+}
+
+/* ======================================================
+  Navbar
+====================================================== */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.logo h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: #1E3A8A;
+    margin: 0;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #0F172A;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #1E3A8A;
+}
+.nav-links li a:active{
+    color: #1E3A8A;
+}
+.active{
+    color: #1E3A8A;
+}
+/* Dropdown Menu - Styled as a plain link */
+.dropdown {
+    position: relative;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+}
+
+.dropdown > a {
+    text-decoration: none;
+    color: #0F172A;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    transition: color 0.3s ease;
+}
+
+.dropdown > a::after {
+    content: " ▾";
+    font-size: 0.8rem;
+    color: #0F172A;
+}
+
+.dropdown:hover > a {
+    color: #1E3A8A;
+}
+
+.dropdown ul {
+    position: absolute;
+    top: 2.5rem;
+    right: 0;
+    background-color: #ffffff;
+    list-style: none;
+    padding: 0.5rem 0;
+    margin: 0;
+    border-radius: 6px;
+    display: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    min-width: 180px;
+}
+
+.dropdown:hover ul {
+    display: block;
+}
+
+.dropdown ul li a {
+    display: block;
+    padding: 0.6rem 1rem;
+    color: #0F172A;
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+}
+
+.dropdown ul li a:hover {
+    background-color: #f4f4f4;
+    color: #1E3A8A;
+}
+
+/* ======================================================
+   Hero Sections (with Controlled Alternating Layout)
+====================================================== */
+.hero-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 7rem 3rem;
+  background-color: #f9fAfB;
+}
+
+.hero-content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6.75rem;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-hero-text {
+  flex: 1;
+  text-align: center;
+  max-width: 600px;
+}
+
+.page-hero-text h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: #1E3A8A;
+}
+
+.page-hero-text p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.1rem;
+  color: #334155;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  /* flex-wrap: wrap; */
+  gap: 1rem;
+}
+
+.page-hero-image-container {
+  flex: 1;
+  text-align: center;
+}
+
+.hero-image {
+ max-width: 500px;
+ width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.06);
+}
+
+/* Responsive Image/Text Arrangement */
+@media (min-width: 992px) {
+  .hero-content-container {
+    flex-direction: row;
+  }
+
+  /* Student: text left, image right (default) */
+  .student-hero .hero-content-container {
+    flex-direction: row;
+  }
+
+  /* Mentor: image left, text right */
+  .mentor-hero .hero-content-container {
+    flex-direction: row;
+  }
+
+  /* Company: image right, text left */
+  .company-hero .hero-content-container {
+    flex-direction: row-reverse;
+  }
+
+  .page-hero-text {
+    text-align: left;
+  }
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary {
+  background-color: #1E3A8A;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #0F172A;
+}
+
+.btn-secondary {
+  background-color: #FBBF24;
+  color: #1E293B;
+}
+
+.btn-secondary:hover {
+  background-color: #f59e0b;
+}
+
+
+
+/* ======================================================
+  About Section
+====================================================== */
+.about-section {
+    background-color: #ffffff;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.about-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.about-text {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-text h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-text p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.mission-vision {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.mission, .vision {
+    background-color: #f4f4f4;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    text-align: center;
+}
+
+.mission h3, .vision h3 {
+    font-size: 1.25rem;
+    color: #002147;
+    margin-bottom: 0.75rem;
+}
+
+.mission p, .vision p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ======================================================
+  How It Works Section
+====================================================== */
+.how-it-works-section {
+    background-color: #f4f4f4;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.how-it-works-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.how-it-works-container h2 {
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
+}
+
+.steps-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+}
+
+.step {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.step img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+}
+
+.step h3 {
+    font-size: 1.25rem;
+    color: #002147;
+    margin-bottom: 0.5rem;
+}
+
+.step p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* ======================================================
+  Benefits Section
+====================================================== */
+.benefits-section {
+    background-color: #ffffff;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.benefits-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.benefits-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: #1E3A8A;
+}
+
+.benefits-intro {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto 2.5rem auto;
+    line-height: 1.6;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .benefits-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.benefit {
+    background-color: #f4f4f4;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    font-weight: 600;
+    color: #002147;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+/* ======================================================
+  Featured Section
+====================================================== */
+.featured-section {
+    padding: 4rem 2rem;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.featured-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.featured-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    border: 4px solid #F5A623;
+}
+
+.card h3 {
+    font-size: 1.25rem;
+    color: #002147;
+    margin-bottom: 0.3rem;
+}
+
+.card .role {
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.card .bio {
+    color: #555;
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* ======================================================
+  Testimonials Section
+====================================================== */
+.testimonials-section {
+    background-color: #ffffff;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.testimonials-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.testimonials-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.testimonial-card {
+    background-color: #f4f4f4;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-text {
+    font-size: 1rem;
+    color: #555;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.testimonial-name {
+    font-size: 1.1rem;
+    color: #002147;
+    font-weight: 600;
+}
+
+/* ======================================================
+  CTA Banner Section
+====================================================== */
+.cta-section {
+    background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('../assets/cta-bg.jpg') center/cover no-repeat;
+    position: relative;
+    color: #ffffff;
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.cta-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.cta-subtext {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #eee;
+}
+
+.cta-button {
+    background-color: #F5A623;
+    color: #002147;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: #d4881c;
+}
+
+/* ======================================================
+  Contact Section
+====================================================== */
+.contact-section {
+    background-color: #f4f4f4;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-subtext {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 1rem;
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #F5A623;
+}
+ .bt-primary {
+  background-color: #1E3A8A;
+  color: #fff;
+  border-radius: 8px;
+  border-style: none;
+}
+
+.bt-primary:hover {
+  background-color: #0F172A;
+}
+/* footer section */
+.footer-section {
+  background-color: #0F172A;
+  color: #ffffff;
+  padding: 2rem 1.5rem;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footer-links a {
+  color: #E2E8F0;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #FBBF24;
+}
+
+.footer-socials {
+  margin-bottom: 1rem;
+}
+
+.footer-socials a {
+  font-size: 1.3rem;
+  margin: 0 0.5rem;
+  text-decoration: none;
+  color: #E2E8F0;
+  transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+  color: #FBBF24;
+}
+
+.footer-bottom p {
+  font-size: 0.85rem;
+  color: #94A3B8;
+}
+
+/* ======================================================
+  Responsive Design
+====================================================== */
+@media (min-width: 768px) {
+    /* Hero sections on medium and larger screens */
+    .hero-content-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+    }
+
+    .hero-reverse .hero-content-container {
+      flex-direction: row-reverse;
+    }
+
+    .page-hero-text {
+        text-align: left;
+    }
+
+    .hero-actions {
+        justify-content: flex-start;
+    }
+
+    /* About section layout */
+    .about-text {
+        text-align: center;
+    }
+    .mission, .vision {
+        text-align: left;
+    }
+
+    .mission-vision {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+
+    .mission, .vision {
+        flex: 1;
+    }
+    
+    /* How It Works, Benefits, Featured, Testimonials grids */
+    .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .card-grid, .testimonials-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .steps-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1rem;
+        width: 100%;
+        align-items: flex-start;
+    }
+    .nav-links li a, .dropdown a {
+        display: block;
+        width: 100%;
+    }
+    .dropdown > a::after {
+        display: none;
+    }
+    .dropdown ul {
+        position: static;
+        display: none;
+        padding-left: 1rem;
+    }
+    .dropdown:focus-within ul {
+        display: block;
+    }
+    .dropdown a {
+        padding: 0.5rem;
+    }
+}

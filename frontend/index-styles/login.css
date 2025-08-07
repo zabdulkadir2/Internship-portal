@@ -1,0 +1,296 @@
+a/* General CSS for consistency and base styling */
+html, body {
+    height: 100%; /* Ensure html and body take full viewport height */
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: #334155; /* Base text color */
+    background-color: #F9FAFB; /* Light background */
+    min-height: 100vh;
+    overflow-y: auto; /* Allow scrolling if content overflows vertically */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main container for the login page layout */
+.login-container {
+    flex-grow: 1; /*- This was causing the container to fill all vertical space, preventing centering. */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding:2rem; /* Overall padding for the container */
+    box-sizing: border-box; /* Include padding in width/height */
+}
+
+/* The single card containing both the form and the graphic */
+.login-card {
+    display: flex; /* Arrange form and graphic side-by-side */
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    max-width: 1000px; /* Max width for the entire card */
+    width: 100%;
+    overflow: hidden; /* Ensures rounded corners are applied to children */
+    min-height: 40px; /* Added min-height to ensure card has enough vertical space */
+    /*margin: 2rem auto; KEY CHANGE: Added a margin to the card to ensure vertical space */
+}
+
+/* Left section: Login Form (now part of the card) */
+.login-form-section {
+    flex: 1; /* Takes up equal space with the graphic section */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem; /* Internal padding for the form content */
+    position: relative; /* For copyright positioning */
+}
+
+.login-header {
+    text-align: left;
+    width: 100%;
+    max-width: 400px; /* Max width for form elements */
+    margin-bottom: 2rem;
+}
+
+.welcome-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem;
+    color: #1E3A8A;
+    margin-bottom: 0.5rem;
+}
+
+.welcome-subtitle {
+    font-size: 1rem;
+    color: #64748B;
+    margin-bottom: 0;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    color: #334155;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form-group input {
+    padding: 0.8rem 1rem;
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #334155;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #1E3A8A; /* Blue accent on focus, consistent with portals */
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.2); /* Blue shadow */
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #475569;
+}
+
+.remember-me input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #1E3A8A; /* Blue checkbox, consistent with portals */
+    cursor: pointer;
+}
+
+.forgot-password {
+    color: #1E3A8A; /* Blue link, consistent with portals */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #0F172A; /* Darker blue on hover */
+}
+
+/* Reusable Button Styles */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    width: 100%; /* Full width for buttons */
+    box-sizing: border-box;
+}
+
+.btn-primary {
+    background-color: #1E3A8A; /* Blue primary button, consistent with portals */
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0F172A; /* Darker blue on hover */
+    transform: translateY(-2px);
+}
+
+.social-login {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 1.5rem;
+}
+
+.btn-google {
+    background-color: #ffffff;
+    color: #475569;
+    border: 1px solid #CBD5E1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.btn-google:hover {
+    background-color: #F1F5F9;
+    transform: translateY(-2px);
+}
+
+.google-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.signup-link {
+    font-size: 0.9rem;
+    color: #475569;
+    margin-bottom: 1.5rem;
+}
+
+.sign-up-now {
+    color: #1E3A8A; /* Blue link, consistent with portals */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.sign-up-now:hover {
+    color: #0F172A; /* Darker blue on hover */
+}
+
+.copyright {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 2rem;
+    font-size: 0.8rem;
+    color: #94A3B8;
+}
+
+/* Right section: Decorative Graphic (now part of the card) */
+.login-graphic-section {
+    flex: 1; /* Takes up equal space with the form section */
+    background-color: #F1F5F9; /* Light grey background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0; /* KEY CHANGE: Removed padding to allow image to cover full space */
+    box-sizing: border-box;
+    height: 100%; /* KEY CHANGE: Ensure the section has a defined height */
+    position: relative; /* For overlay content positioning */
+    overflow: hidden; /* KEY CHANGE: Hides any overflow from the image, clipping it to the parent's border-radius */
+}
+
+.login-graphic-image {
+    width: 100%; /* Ensure image scales within its container */
+    height: 100%; /* KEY CHANGE: Ensure the image fills the entire height of its container */
+    object-fit: cover;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Optional: subtle shadow */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 1rem; /* Reduce overall padding on mobile */
+    }
+
+    .login-card {
+        flex-direction: column; /* Stack sections vertically on mobile */
+        margin: 2rem auto; /* Adjust vertical margin for mobile */
+    }
+
+    .login-form-section {
+        max-width: 100%; /* Full width within the card */
+        padding: 2rem 1.5rem; /* Adjust internal padding */
+        order: 2; /* Put form below graphic on small screens */
+    }
+
+    .login-graphic-section {
+        height: 250px; /* Smaller height for graphic on mobile */
+        order: 1; /* Put graphic above form on small screens */
+        width: 100%; /* Full width within the card */
+        padding: 0; /* KEY CHANGE: Ensure padding is 0 for mobile as well */
+    }
+
+    .login-graphic-image {
+        width: 100%; /* KEY CHANGE: Image should always be 100% width on mobile */
+        height: 100%; /* KEY CHANGE: Image should always be 100% height on mobile */
+        max-width: none; /* KEY CHANGE: Remove max-width to allow full stretch */
+        max-height: none; /* KEY CHANGE: Remove max-height to allow full stretch */
+    }
+
+    .login-header,
+    .login-form,
+    .social-login,
+    .signup-link {
+        max-width: 100%; /* Ensure elements take full width within padding */
+    }
+
+    .copyright {
+        position: static; /* Allow copyright to flow naturally at the bottom */
+        margin-top: 2rem;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-title {
+        font-size: 1.8rem;
+    }
+
+    .btn {
+        padding: 0.7rem 1rem;
+        font-size: 0.9rem;
+    }
+}

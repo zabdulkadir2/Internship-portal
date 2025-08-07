@@ -1,0 +1,422 @@
+/* General CSS for consistency across CampusConnect pages */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: #334155; /* Base text color */
+    background-color: #F9FAFB; /* Consistent light background */
+}
+
+/* Base styles for sections to ensure consistent padding and max-width */
+section {
+    padding: 4rem 2rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+section h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    color: #1E3A8A;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+/* Reusable Button Styles - Consistent with other CampusConnect pages */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for all base buttons */
+}
+
+.btn-primary {
+    background-color: #1E3A8A;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0F172A;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.btn-secondary {
+    background-color: #FBBF24;
+    color: #1E293B;
+}
+
+.btn-secondary:hover {
+    background-color: #f59e0b;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Specific button styles for actions within event cards */
+.action-button {
+    background-color: #2DD4BF;
+    color: #0F172A;
+    padding: 0.6rem 1.2rem; /* Slightly adjusted padding */
+    border: none;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.action-button:hover {
+    background-color: #14B8A6;
+    color: #ffffff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.action-button.reschedule-btn {
+    background-color: #FBBF24;
+    color: #1E293B;
+}
+
+.action-button.reschedule-btn:hover {
+    background-color: #f59e0b;
+    color: #ffffff;
+}
+
+.action-button.cancel-btn {
+    background-color: #EF4444; /* Red for danger/cancel actions */
+    color: #ffffff;
+}
+
+.action-button.cancel-btn:hover {
+    background-color: #DC2626;
+}
+
+.action-button.view-details-btn {
+    background-color: #94A3B8; /* Grey for less urgent actions */
+    color: #ffffff;
+}
+
+.action-button.view-details-btn:hover {
+    background-color: #64748B;
+}
+
+
+.join-now-btn { /* Specific style for "Join Now" links/buttons */
+    background-color: #1E3A8A;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem; /* Slightly larger for primary action */
+    font-size: 0.95rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-right: 0.4rem;
+}
+
+.join-now-btn:hover {
+    background-color: #0F172A;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+
+.section-footer-link {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* ========== NAVBAR CONTAINER - Consistent with other pages ========== */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.logo h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: #1E3A8A;
+    margin: 0;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #0F172A;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #1E3A8A;
+}
+
+/* Page Header / Hero Section - Adapted for no image */
+.page-hero {
+    padding-top: 8rem; /* Account for fixed navbar */
+    padding-bottom: 3rem; /* Adjusted padding-bottom */
+    background-color: #F9FAFB;
+    display: flex; /* Ensure flex properties apply */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    text-align: center; /* Center text within the block */
+}
+
+.page-hero-block {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center text and elements */
+    gap: 1rem; /* Reduced gap since there's no image */
+    max-width: 800px; /* Constrain width of text */
+    margin: 0 auto; /* Center the block */
+}
+
+.page-hero-text {
+    flex: none; /* No longer flex-grow 1 */
+    max-width: 100%; /* Take full width of parent block */
+    padding: 0; /* Remove extra padding */
+}
+
+.page-hero-text h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #1E3A8A;
+    font-size: 2.25rem;
+    margin-bottom: 0.5rem; /* Reduced margin */
+    text-align: center; /* Ensure heading is centered */
+}
+
+.page-hero-text p {
+    color: #334155;
+    font-size: 1.1rem;
+    margin-bottom: 0; /* No margin at the bottom of the paragraph */
+    line-height: 1.6;
+    text-align: center; /* Ensure paragraph is centered */
+}
+
+/* Filter or Search Section */
+.sessions-filter-section {
+    background-color: #ffffff; /* White background for the section */
+    padding: 4rem 2rem; /* Consistent padding for sections */
+    text-align: center; /* Center the heading */
+}
+
+.sessions-filter-section h2 {
+    margin-bottom: 2rem; /* Space below heading */
+}
+
+.sessions-filter-section .filter-container {
+    max-width: 1000px; /* Max width for the filter container */
+    margin: 0 auto; /* Center the container */
+    display: flex;
+    flex-direction: column; /* Stack inputs and button on small screens */
+    gap: 1.5rem; /* Space between elements */
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background-color: #F9FAFB; /* Light background for the filter box */
+}
+
+.sessions-filter-section .search-input,
+.sessions-filter-section .date-picker,
+.sessions-filter-section .filter-select {
+    flex-grow: 1; /* Allow inputs to grow */
+    padding: 0.8rem 1rem;
+    border: 1px solid #CBD5E1;
+    border-radius: 6px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    background-color: #ffffff;
+    appearance: none; /* Remove default arrow for select */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%231E3A8A%22%20d%3D%22M287%2C197.3L159.2%2C69.5c-3.2-3.2-8.3-3.2-11.5%2C0L5.4%2C197.3c-3.2%2C3.2-3.2%2C8.3%2C0%2C11.5l11.5%2C11.5c3.2%2C3.2%2C8.3%2C3.2%2C11.5%2C0l125.7-125.7l125.7%2C125.7c3.2%2C3.2%2C8.3%2C3.2%2C11.5%2C0l11.5-11.5C290.2%2C205.6%2C290.2%2C200.5%2C287%2C197.3z%22%2F%3E%3C%2Fsvg%3E'); /* Custom arrow for select */
+    background-repeat: no-repeat;
+    background-position: right 0.7em top 50%, 0 0;
+    background-size: 0.65em auto, 100%;
+}
+
+.sessions-filter-section .apply-filters-button {
+    width: 100%; /* Full width on small screens */
+}
+
+@media (min-width: 768px) {
+    .sessions-filter-section .filter-container {
+        flex-direction: row; /* Align items in a row on desktop */
+        flex-wrap: wrap; /* Allow wrapping if space is tight */
+        justify-content: center; /* Center items when they wrap */
+    }
+    .sessions-filter-section .search-input,
+    .sessions-filter-section .date-picker,
+    .sessions-filter-section .filter-select {
+        flex: 1; /* Distribute space evenly */
+        min-width: 180px; /* Ensure a minimum width */
+    }
+    .sessions-filter-section .apply-filters-button {
+        flex-shrink: 0; /* Prevent button from shrinking too much */
+        width: auto; /* Adjust width to content */
+        min-width: 150px; /* Minimum width for the button */
+    }
+}
+.session-actions{
+    display: flex;
+    justify-content: center;
+    text-align:center;
+}
+
+/* Sessions Table or Grid (Core Section) */
+.sessions-list-section {
+    background-color: #ffffff;
+    text-align: center;
+    padding: 4rem 2rem; /* Consistent padding for sections */
+}
+
+.sessions-list-section h2 {
+    margin-bottom: 2.5rem; /* Space below heading */
+}
+
+.session-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem; /* Space between cards */
+    max-width: 1200px; /* Increased max width for the grid */
+    margin: 0 auto; /* Center the grid */
+}
+
+.session-card {
+    background-color: #F9FAFB;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.event-date-time {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    color: #64748B;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.event-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    color: #1E3A8A;
+    margin-bottom: 0.75rem;
+}
+
+.event-details {
+    font-family: 'Open Sans', sans-serif;
+    color: #475569;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    flex-grow: 1; /* Allows details to take up space */
+}
+
+.session-status {
+    display: inline-block; /* Ensures it wraps tightly around content */
+    padding: 0.3rem 0.8rem; /* Adjusted padding */
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    width: fit-content; /* Ensures background covers only the text */
+    margin-bottom: 1rem;
+}
+
+/* Updated Status Tag Colors */
+.status-confirmed { background-color: #ECFDF5; color: #047857; } /* Lighter Green */
+.status-pending { background-color: #FFF7ED; color: #D97706; } /* Lighter Orange */
+.status-deadline { background-color: #FEF2F2; color: #B91C1C; } /* Lighter Red */
+.status-cancelled {background-color: #FEF2F2; color: #EF4444; }
+.status-completed{background-color: #ECFDF5; color: #18775c;}
+
+
+@media (min-width: 768px) {
+    .session-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .session-cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* Consistent Footer - Reused from other pages */
+.footer-section {
+    background-color: #0F172A;
+    color: #ffffff;
+    padding: 2rem 1.5rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    color: #E2E8F0;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #FBBF24;
+}
+
+.footer-socials {
+    margin-bottom: 1rem;
+}
+
+.footer-socials a {
+    font-size: 1.3rem;
+    margin: 0 0.5rem;
+    text-decoration: none;
+    color: #E2E8F0;
+    transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: #FBBF24;
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: #94A3B8;
+}

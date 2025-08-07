@@ -1,0 +1,349 @@
+/* General CSS for consistency and base styling */
+html, body {
+    height: 100%; /* Ensure html and body take full viewport height */
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: #334155; /* Base text color */
+    background-color: #F9FAFB; /* Light background */
+    overflow-y: auto; /* Allow scrolling if content overflows vertically */
+}
+
+body {
+    display: flex; /* Make body a flex container */
+    flex-direction: column; /* Stack children vertically */
+    min-height: 100vh; /* Ensure body takes at least full viewport height */
+    /* Removed padding-top/bottom from body, will apply to .register-container */
+    /* Removed justify-content/align-items from body as .register-container will handle centering */
+}
+
+/* Main container for the registration page layout */
+.register-container {
+    flex-grow: 1; /* Allow container to grow and take available space */
+    display: flex; /* Make it a flex container to center its child (.register-card) */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 100%;
+    padding: 4rem 2rem; /* Add consistent padding here for space around the card */
+    box-sizing: border-box;
+}
+
+/* The single card containing both the form and the graphic */
+.register-card {
+    display: flex; /* Arrange form and graphic side-by-side */
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+   max-width: 1000px;   /*Max width for the entire card, slightly larger for content */
+    width: 100%;
+    min-height: 40px; /* Added min-height to ensure card has enough vertical space */
+     overflow: hidden; /* Ensures rounded corners are applied to children */
+}
+
+/* Left section: Registration Form (now part of the card) */
+.register-form-section {
+    flex: 1; /* Takes up equal space with the graphic section */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem; /* Re-added top padding */
+    position: relative; /* For copyright positioning */
+    /* height: 100%; Removed to let flexbox handle stretching */
+}
+
+.register-header {
+    display: block; /* Made visible again */
+    text-align: left;
+    width: 100%;
+    max-width: 400px; /* Max width for form elements */
+    margin-bottom: 1.5rem; /* Reduced margin */
+}
+
+.welcome-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem; /* Slightly smaller than login for more content */
+    color: #1E3A8A;
+    margin-bottom: 0.5rem;
+}
+
+.welcome-subtitle {
+    font-size: 0.95rem; /* Slightly smaller */
+    color: #64748B;
+    margin-bottom: 0;
+}
+
+.register-form {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Reduced gap */
+    margin-bottom: 1rem; /* Reduced margin */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 0.85rem; /* Slightly smaller */
+    color: #334155;
+    margin-bottom: 0.4rem; /* Reduced margin */
+    font-weight: 600;
+}
+
+.form-group input {
+    padding: 0.7rem 1rem; /* Reduced padding */
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+    font-size: 0.95rem; /* Slightly smaller */
+    color: #334155;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #1E3A8A; /* Blue accent on focus, consistent with portals */
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.2); /* Blue shadow */
+}
+
+.terms-agreement {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem; /* Smaller font size */
+    color: #475569;
+    margin-top: 0.5rem; /* Space above */
+}
+
+.terms-agreement input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #1E3A8A; /* Blue checkbox, consistent with portals */
+    cursor: pointer;
+}
+
+/* Reusable Button Styles */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    width: 100%; /* Full width for buttons */
+    box-sizing: border-box;
+}
+
+.btn-primary {
+    background-color: #1E3A8A;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0F172A;
+}
+
+.social-register {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem; /* Reduced gap */
+    margin-bottom: 1.5rem;
+}
+
+.btn-google {
+    background-color: #ffffff;
+    color: #475569;
+    border: 1px solid #CBD5E1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.7rem 1.5rem; /* Slightly reduced padding */
+    font-size: 0.95rem; /* Slightly reduced font size */
+}
+
+.btn-google:hover {
+    background-color: #F1F5F9;
+}
+
+.google-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.login-link {
+    font-size: 0.9rem;
+    color: #475569;
+    margin-bottom: 1.5rem;
+}
+
+.login-now {
+    color: #1E3A8A; /* Blue link, consistent with portals */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-now:hover {
+    color: #0F172A; /* Darker blue on hover */
+}
+
+.copyright {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 2rem;
+    font-size: 0.8rem;
+    color: #94A3B8;
+}
+
+/* Right section: Decorative Graphic (now part of the card) */
+.register-graphic-section {
+    flex: 1; /* Takes up equal space with the form section */
+    background-color: #F1F5F9; /* Light grey background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0; /* Removed padding to allow image to cover full space */
+    position: relative; /* For overlay content positioning */
+    width: 100%; /* Ensure it takes full width of its flex item */
+}
+
+.register-graphic-image {
+    width: 100%; /* Make image fill the width of its container */
+    height: 100%; /* Make image fill the height of its container */
+    object-fit: cover; /* This is the key change: image will cover the area, cropping if necessary */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Optional: subtle shadow */
+}
+
+.image-overlay-content {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Adjust for both horizontal and vertical centering */
+    background-color: rgba(15, 23, 42, 0.7); /* Dark semi-transparent overlay */
+    color: #ffffff;
+    padding: 1rem; /* Reduced padding for tighter spacing */
+    border-radius: 8px;
+    text-align: center;
+    max-width: 85%; /* Slightly increased max-width for more text room */
+}
+
+.image-overlay-content h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.7rem; /* Increased font size */
+    margin-bottom: 0.3rem; /* Reduced margin */
+    color: #FBBF24; /* Yellow accent for title */
+}
+
+.image-overlay-content p {
+    font-size: 1.3rem; /* Increased font size */
+    line-height: 1.3; /* Slightly tighter line height */
+    margin-bottom: 0.6rem; /* Reduced margin */
+}
+
+.overlay-nav-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #FBBF24; /* Active dot color */
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .register-container {
+        padding: 1rem; /* Reduce overall padding on mobile */
+    }
+
+    .register-card {
+        flex-direction: column; /* Stack sections vertically on mobile */
+        margin: 2rem auto; /* Adjust vertical margin for mobile */
+        min-height: auto; /* Reset min-height for mobile to allow content to dictate height */
+    }
+
+    .register-form-section {
+        max-width: 100%; /* Full width within the card */
+        padding: 2rem 1.5rem; /* Adjust internal padding */
+        order: 2; /* Put form below graphic on small screens */
+    }
+
+    .register-graphic-section {
+        height: 250px; /* Smaller height for graphic on mobile */
+        order: 1; /* Put graphic above form on small screens */
+        width: 100%; /* Full width within the card */
+        padding: 0; /* Keep padding removed for mobile as well */
+    }
+
+    .register-graphic-image {
+        max-width: 100%; /* Ensure image scales within its container */
+        max-height: 100%;
+        /* object-fit: cover; is already set globally, no need to override here unless different behavior is desired */
+    }
+
+    .image-overlay-content {
+        position: static; /* Allow overlay content to flow naturally */
+        transform: none;
+        margin-top: 1.5rem;
+        max-width: 100%;
+        background-color: transparent; /* Remove background for better flow */
+        color: #334155; /* Adjust text color for light background */
+    }
+
+    .image-overlay-content h3 {
+        color: #1E3A8A; /* Adjust title color */
+    }
+
+    .image-overlay-content p {
+        color: #475569; /* Adjust text color */
+    }
+
+    .overlay-nav-dots {
+        margin-top: 1rem; /* Add space above dots */
+    }
+
+    .register-header,
+    .register-form,
+    .social-register,
+    .login-link {
+        max-width: 100%; /* Ensure elements take full width within padding */
+    }
+
+    .copyright {
+        position: static; /* Allow copyright to flow naturally at the bottom */
+        margin-top: 2rem;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-title {
+        font-size: 1.8rem;
+    }
+
+    .btn,
+    .btn-google {
+        padding: 0.7rem 1rem;
+        font-size: 0.9rem;
+    }
+}

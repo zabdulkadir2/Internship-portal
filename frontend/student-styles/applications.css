@@ -1,0 +1,502 @@
+/* General CSS for consistency across CampusConnect pages */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: #334155; /* Base text color */
+    background-color: #F9FAFB; /* Consistent light background */
+}
+
+/* Base styles for sections to ensure consistent padding and max-width */
+section {
+    padding: 4rem 2rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+section h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    color: #1E3A8A;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+/* Reusable Button Styles - Consistent with other CampusConnect pages */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #1E3A8A;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0F172A;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #FBBF24;
+    color: #1E293B;
+}
+
+.btn-secondary:hover {
+    background-color: #f59e0b;
+    transform: translateY(-2px);
+}
+
+/* Accent buttons for specific actions (reused from other pages) */
+.btn-accent-yellow {
+    background-color: #FBBF24;
+    color: #1E293B;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-accent-yellow:hover {
+    background-color: #f59e0b;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.btn-accent-teal {
+    background-color: #2DD4BF;
+    color: #0F172A;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-accent-teal:hover {
+    background-color: #14B8A6;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.section-footer-link {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* ========== NAVBAR CONTAINER - Consistent with other pages ========== */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.logo h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: #1E3A8A;
+    margin: 0;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #0F172A;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #1E3A8A;
+}
+
+/* Page Hero / Header Section - Adapted from existing hero styles */
+.page-hero {
+    padding-top: 8rem; /* Account for fixed navbar */
+    padding-bottom: 4rem;
+    background-color: #F9FAFB;
+}
+
+.page-hero-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-hero-text {
+    flex: 1;
+    max-width: 600px;
+    text-align: center;
+}
+
+.page-hero-text h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #1E3A8A;
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+}
+
+.page-hero-text p {
+    color: #334155;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.page-hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.page-hero-image img {
+    max-width: 500px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+@media (min-width: 768px) {
+    .page-hero-block {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .page-hero-text {
+        text-align: left;
+        padding-right: 2rem;
+    }
+
+    .page-hero-image {
+        text-align: right;
+        padding-left: 2rem;
+    }
+}
+
+/* Application Summary Section - Similar to stats section */
+.application-summary-section {
+    padding-top: 8rem; /* Adjusted padding-top to create space below navbar */
+    padding-bottom: 4rem; /* Adjusted padding-bottom */
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.summary-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.summary-card {
+    background-color: #F9FAFB;
+    padding: 1.5rem; /* Maintained padding */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.summary-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem; /* Slightly smaller than main stats, but still prominent */
+    color: #1E3A8A;
+    margin-bottom: 0.5rem; /* Adjusted margin */
+}
+
+.summary-card p {
+    font-family: 'Open Sans', sans-serif;
+    color: #475569;
+    font-size: 0.95rem;
+    margin-bottom: 0; /* Ensures no extra margin below the paragraph */
+}
+
+@media (min-width: 600px) {
+    .summary-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .summary-cards-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Filters or Sorting Section - Adapted from internship page filters */
+.applications-filter-section {
+    background-color: #F9FAFB; /* Light background for filter section */
+    text-align: center;
+}
+
+.applications-filter-section .filter-controls-container { /* Renamed for clarity */
+    max-width: 800px; /* Slightly narrower for this page's filters */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* Default to column for mobile */
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background-color: #ffffff; /* White background for the filter box */
+}
+
+.applications-filter-section .filter-dropdowns {
+    display: flex;
+    flex-direction: column; /* Stack dropdowns on mobile */
+    gap: 1rem;
+}
+
+.applications-filter-section .filter-select {
+    padding: 0.8rem 1rem;
+    border: 1px solid #CBD5E1;
+    border-radius: 6px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    background-color: #ffffff;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%231E3A8A%22%20d%3D%22M287%2C197.3L159.2%2C69.5c-3.2-3.2-8.3-3.2-11.5%2C0L5.4%2C197.3c-3.2%2C3.2-3.2%2C8.3%2C0%2C11.5l11.5%2C11.5c3.2%2C3.2%2C8.3%2C3.2%2C11.5%2C0l125.7-125.7l125.7%2C125.7c3.2%2C3.2%2C8.3%2C3.2%2C11.5%2C0l11.5-11.5C290.2%2C205.6%2C290.2%2C200.5%2C287%2C197.3z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 0.7em top 50%, 0 0;
+    background-size: 0.65em auto, 100%;
+}
+
+.applications-filter-section .filter-actions {
+    width: 100%; /* Ensure button takes full width on mobile */
+}
+
+.applications-filter-section .apply-filters-button {
+    width: 100%; /* Ensure button takes full width on mobile */
+}
+
+@media (min-width: 768px) {
+    .applications-filter-section .filter-controls-container {
+        flex-direction: row; /* Align items in a row on desktop */
+        flex-wrap: wrap; /* Allow wrapping if space is tight */
+        justify-content: space-between; /* Distribute items */
+        align-items: center; /* Vertically align items */
+    }
+    .applications-filter-section .filter-dropdowns {
+        flex-direction: row; /* Align dropdowns in a row */
+        flex-grow: 1; /* Allow dropdowns to take available space */
+        gap: 1.5rem; /* Adjust gap between dropdowns */
+    }
+    .applications-filter-section .filter-select {
+        flex: 1; /* Allow each select to grow */
+        min-width: 150px; /* Minimum width for select elements */
+    }
+    .applications-filter-section .filter-actions {
+        width: auto; /* Allow button to shrink to content width */
+        flex-shrink: 0; /* Prevent button from shrinking too much */
+    }
+    .applications-filter-section .apply-filters-button {
+        width: auto; /* Allow button to shrink to content width */
+        min-width: 150px; /* Ensure button has a reasonable width */
+    }
+}
+
+/* Applications Table or Cards - Reusing styles from My Applications Tracker on student dashboard */
+.applications-list-section {
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.applications-table-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow-x: auto; /* Enable horizontal scrolling for small screens */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background-color: #F9FAFB;
+}
+
+.applications-table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px; /* Ensure table doesn't get too narrow */
+}
+
+.applications-table-container th,
+.applications-table-container td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #E2E8F0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.95rem;
+}
+
+.applications-table-container th {
+    background-color: #1E3A8A;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    position: sticky;
+    top: 0; /* Makes header sticky on scroll */
+    z-index: 1;
+}
+
+.applications-table-container tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.status-tag {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+/* Specific status tag colors */
+.status-submitted { background-color: #DBEAFE; color: #1E40AF; } /* Blue */
+.status-pending { background-color: #FFFBEB; color: #B45309; } /* Orange */
+.status-reviewed { background-color: #E0F2F7; color: #0E7490; } /* Light Blue-Green */
+.status-interview { background-color: #D1FAE5; color: #065F46; } /* Green */
+.status-accepted { background-color: #DDEEEF; color: #047857; } /* Darker Green for Accepted */
+.status-rejected { background-color: #FEE2E2; color: #991B1B; } /* Red */
+
+.action-button {
+    background-color: #2DD4BF;
+    color: #0F172A;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: #14B8A6;
+    color: #ffffff;
+}
+
+.action-button.withdraw {
+    background-color: #EF4444;
+    color: #ffffff;
+}
+
+.action-button.withdraw:hover {
+    background-color: #DC2626;
+}
+
+.action-button.schedule-interview {
+    background-color: #FBBF24;
+    color: #1E293B;
+}
+
+.action-button.schedule-interview:hover {
+    background-color: #f59e0b;
+    color: #ffffff;
+}
+
+/* Removed .action-button.view-details-app as the button is removed from HTML */
+
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: #F9FAFB;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    max-width: 600px;
+    margin: 3rem auto; /* Center it with some vertical margin */
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+    color: #475569;
+    margin-bottom: 1.5rem;
+}
+
+/* Consistent Footer - Reused from other pages */
+.footer-section {
+    background-color: #0F172A;
+    color: #ffffff;
+    padding: 2rem 1.5rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    color: #E2E8F0;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #FBBF24;
+}
+
+.footer-socials {
+    margin-bottom: 1rem;
+}
+
+.footer-socials a {
+    font-size: 1.3rem;
+    margin: 0 0.5rem;
+    text-decoration: none;
+    color: #E2E8F0;
+    transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: #FBBF24;
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: #94A3B8;
+}

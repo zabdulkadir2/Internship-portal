@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mentorship Opportunities | CampusConnect</title>
+    <!-- Google Fonts: Poppins for headings, Open Sans for body text -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for social media icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      xintegrity="sha512-ieCDyF4QYVlXF0Kz5a6eGgA5Q/t0O8aNnN9F1iX2j3aV5eO7pB5sC5xL5w5O5h5aO5Q5E5g5n5Q5i5b5q5A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Link to the dedicated CSS file for this page -->
+    <link rel="stylesheet" href="../student-styles/mentors.css" />
+  </head>
+  <body>
+    <nav class="nav-container">
+      <div class="logo"><h1>CampusConnect</h1></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="internship.html">Internships</a></li>
+        <li><a href="#mentors">Mentors</a></li>
+        <li><a href="applications.html">My Applications</a></li>
+        <li><a href="schedule.html">My Schedule</a></li>
+        <li><a href="session.html">My Sessions</a></li>
+        <li><a href="student-profile.html">Profile</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-block">
+        <div class="hero-text">
+          <h2>Find the Right Mentor for Your Career Journey</h2>
+          <p>
+            Explore mentor profiles, book sessions, and grow with personalized
+            guidance from experienced professionals.
+          </p>
+          <a href="#mentor-cards-section" class="btn btn-primary"
+            >Browse Mentors</a
+          >
+        </div>
+        <div class="hero-image">
+          <!-- Placeholder image for hero section -->
+          <img
+            src="../assets/images/mentor-hero.jpg"
+            alt="Illustration of two people chatting or working together, symbolizing mentorship"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Mentor Filter Section -->
+    <section id="mentor-filter" class="mentor-filter-section">
+      <h2>Find Your Perfect Mentor</h2>
+      <div class="filter-container">
+        <div class="search-bar">
+          <input
+            type="search"
+            placeholder="Search by mentor name or keyword..."
+            class="search-input"
+          />
+          <button class="btn btn-primary search-button">Search</button>
+        </div>
+        <div class="filters-grid">
+          <select class="filter-select">
+            <option value="">Field of Expertise</option>
+            <option value="software-dev">Software Development</option>
+            <option value="ux-design">UX/UI Design</option>
+            <option value="digital-marketing">Digital Marketing</option>
+            <option value="data-science">Data Science</option>
+            <option value="business-strat">Business Strategy</option>
+            <option value="finance">Finance</option>
+          </select>
+          <select class="filter-select">
+            <option value="">Location</option>
+            <option value="remote">Remote</option>
+            <option value="accra">Accra</option>
+            <option value="kumasi">Kumasi</option>
+            <option value="hybrid">Hybrid</option>
+          </select>
+          <select class="filter-select">
+            <option value="">Availability</option>
+            <option value="weekdays">Weekdays</option>
+            <option value="weekends">Weekends</option>
+            <option value="evenings">Evenings</option>
+          </select>
+          <select class="filter-select">
+            <option value="">Experience Level</option>
+            <option value="entry">Entry-level Guidance</option>
+            <option value="mid">Mid-career Growth</option>
+            <option value="senior">Senior Leadership</option>
+          </select>
+          <button class="btn btn-secondary apply-filters-button">
+            Apply Filters
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mentor Cards Section -->
+    <section id="mentor-cards-section" class="mentor-cards-section">
+      <h2>Meet Our Experienced Mentors</h2>
+      <div class="mentor-cards-grid">
+        <!-- Mentor Card 1 -->
+        <div class="mentor-card">
+          <img
+            src="../assets/images/mentor-Amina.jpg"
+            alt="Amina Suleiman profile picture"
+            class="mentor-profile-pic"
+          />
+          <h3>Amina Suleiman</h3>
+          <p class="expertise">UX Designer at Google</p>
+          <p class="experience">7+ Years Experience</p>
+          <p class="bio-tagline">
+            "Passionate about guiding aspiring designers to create impactful
+            user experiences."
+          </p>
+          <div class="mentor-card-actions">
+            <a href="#" class="btn-accent-teal">View Profile</a>
+            <a href="#" class="btn btn-primary">Book Session</a>
+          </div>
+        </div>
+
+        <!-- Mentor Card 2 -->
+        <div class="mentor-card">
+          <img
+            src="../assets/images/mentor-kwame.jpg"
+            alt="Kwame Boateng profile picture"
+            class="mentor-profile-pic"
+          />
+          <h3>Kwame Boateng</h3>
+          <p class="expertise">Software Engineer at Andela</p>
+          <p class="experience">10+ Years Experience</p>
+          <p class="bio-tagline">
+            "Helping the next generation build scalable and robust software
+            solutions."
+          </p>
+          <div class="mentor-card-actions">
+            <a href="#" class="btn-accent-teal">View Profile</a>
+            <a href="#" class="btn btn-primary">Book Session</a>
+          </div>
+        </div>
+
+        <!-- Mentor Card 3 -->
+        <div class="mentor-card">
+          <img
+            src="../assets/images/mentor-emeka.jpg"
+            alt="Dr. Emeka Okoro profile picture"
+            class="mentor-profile-pic"
+          />
+          <h3>Dr. Emeka Okoro</h3>
+          <p class="expertise">AI Researcher at IBM</p>
+          <p class="experience">15+ Years Experience</p>
+          <p class="bio-tagline">
+            "Guiding students through the complexities of AI and machine
+            learning research."
+          </p>
+          <div class="mentor-card-actions">
+            <a href="#" class="btn-accent-teal">View Profile</a>
+            <a href="#" class="btn btn-primary">Book Session</a>
+          </div>
+        </div>
+
+        <!-- Mentor Card 4 -->
+        <div class="mentor-card">
+          <img
+            src="../assets/images/mentor-sarah.jpg"
+            alt="Sarah Mensah profile picture"
+            class="mentor-profile-pic"
+          />
+          <h3>Sarah Mensah</h3>
+          <p class="expertise">Product Manager at Microsoft</p>
+          <p class="experience">8+ Years Experience</p>
+          <p class="bio-tagline">
+            "Mentoring on product strategy, development, and market fit."
+          </p>
+          <div class="mentor-card-actions">
+            <a href="#" class="btn-accent-teal">View Profile</a>
+            <a href="#" class="btn btn-primary">Book Session</a>
+          </div>
+        </div>
+
+        <!-- Mentor Card 5 -->
+        <div class="mentor-card">
+          <img
+            src="../assets/images/mentor-david.jpg"
+            alt="David Osei profile picture"
+            class="mentor-profile-pic"
+          />
+          <h3>David Osei</h3>
+          <p class="expertise">Financial Analyst at PwC</p>
+          <p class="experience">12+ Years Experience</p>
+          <p class="bio-tagline">
+            "Providing insights into financial markets and corporate finance
+            careers."
+          </p>
+          <div class="mentor-card-actions">
+            <a href="#" class="btn-accent-teal">View Profile</a>
+            <a href="#" class="btn btn-primary">Book Session</a>
+          </div>
+        </div>
+
+        <!-- Mentor Card 6 -->
+        <div class="mentor-card">
+          <img
+            src="../assets/images/mentor-fatima.jpg"
+            alt="Fatima Hassan profile picture"
+            class="mentor-profile-pic"
+          />
+          <h3>Fatima Hassan</h3>
+          <p class="expertise">Brand Strategist at Ogilvy</p>
+          <p class="experience">9+ Years Experience</p>
+          <p class="bio-tagline">
+            "Helping students build strong personal and professional brands."
+          </p>
+          <div class="mentor-card-actions">
+            <a href="#" class="btn-accent-teal">View Profile</a>
+            <a href="#" class="btn btn-primary">Book Session</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-footer-link">
+        <a href="#" class="btn btn-secondary">Load More Mentors</a>
+      </div>
+    </section>
+
+    <!-- Booked Sessions / Mentorship Tracker -->
+    <section id="my-sessions" class="mentorship-tracker-section">
+      <h2>My Mentorship Sessions</h2>
+      <div class="sessions-table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Mentor</th>
+              <th>Session Date & Time</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="mentor-info-cell">
+                  <img
+                    src="https://placehold.co/40x40/CBD5E1/475569?text=M1"
+                    alt="Amina Suleiman"
+                    class="session-mentor-pic"
+                  />
+                  Amina Suleiman
+                </div>
+              </td>
+              <td>July 10, 2025, 2:00 PM GMT</td>
+              <td><span class="status-tag status-upcoming">Upcoming</span></td>
+              <td>
+                <button class="action-button join-session">Join Now</button>
+                <button class="action-button reschedule">Reschedule</button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="mentor-info-cell">
+                  <img
+                    src="https://placehold.co/40x40/CBD5E1/475569?text=M2"
+                    alt="Kwame Boateng"
+                    class="session-mentor-pic"
+                  />
+                  Kwame Boateng
+                </div>
+              </td>
+              <td>June 28, 2025, 10:00 AM GMT</td>
+              <td>
+                <span class="status-tag status-completed">Completed</span>
+              </td>
+              <td>
+                <button class="action-button view-summary">View Summary</button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="mentor-info-cell">
+                  <img
+                    src="https://placehold.co/40x40/CBD5E1/475569?text=M3"
+                    alt="Dr. Emeka Okoro"
+                    class="session-mentor-pic"
+                  />
+                  Dr. Emeka Okoro
+                </div>
+              </td>
+              <td>July 15, 2025, 3:30 PM GMT</td>
+              <td><span class="status-tag status-upcoming">Upcoming</span></td>
+              <td>
+                <button class="action-button join-session">Join Now</button>
+                <button class="action-button reschedule">Reschedule</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="section-footer-link">
+        <a href="session.html" class="btn btn-secondary">View All My Sessions</a>
+      </div>
+    </section>
+
+    <!-- Mentorship Tips Section -->
+    <section id="mentorship-tips" class="mentorship-tips-section">
+      <h2>Tips to Maximize Your Mentorship</h2>
+      <div class="tips-grid">
+        <div class="tip-card">
+          <img
+            src="../assets/icons/question-mark.jpg"
+            alt="Preparation Icon"
+            class="tip-icon"
+          />
+          <h3>Be Prepared</h3>
+          <p>
+            Have clear questions and topics ready before each session to make
+            the most of your mentor's time.
+          </p>
+          <a href="#" class="tip-link">Learn More</a>
+        </div>
+        <div class="tip-card">
+          <img
+            src="../assets/icons/goals.jpg"
+            alt="Goals Icon"
+            class="tip-icon"
+          />
+          <h3>Set Clear Goals</h3>
+          <p>
+            Define what you want to achieve from the mentorship to guide
+            discussions and track progress.
+          </p>
+          <a href="#" class="tip-link">Learn More</a>
+        </div>
+        <div class="tip-card">
+          <img
+            src="../assets/icons/mark"
+            alt="Follow Up Icon"
+            class="tip-icon"
+          />
+          <h3>Follow Up After Sessions</h3>
+          <p>
+            Send a thank-you note and summarize key takeaways to reinforce
+            learning and show appreciation.
+          </p>
+          <a href="#" class="tip-link">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Need Help? Section -->
+    <section class="need-help-section">
+      <div class="need-help-container">
+        <h2>Need Help Finding a Mentor?</h2>
+        <p class="need-help-subtext">
+          Our support team and extensive resources are here to guide you every
+          step of the way.
+        </p>
+        <div class="need-help-buttons">
+          <a href="#contact" class="btn btn-primary">Contact Support</a>
+          <a href="#mentorship-tips" class="btn btn-secondary"
+            >View Resources</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section - Reused for consistency -->
+    <footer class="footer-section">
+      <div class="footer-container">
+        <!-- Quick Links -->
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="footer-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+          <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

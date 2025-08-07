@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Mentees | CampusConnect</title>
+    <!-- Google Fonts: Poppins for headings, Open Sans for body text -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for social media icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      xintegrity="sha512-ieCDyF4QYVlXF0Kz5a6eGgA5Q/t0O8aNnN9F1iX2j3aV5eO7pB5sC5xL5w5O5h5aO5Q5E5g5n5Q5i5b5q5A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Link to the dedicated CSS file for this page -->
+    <link rel="stylesheet" href="../mentors-styles/mentees.css" />
+  </head>
+  <body>
+    <!-- Navbar Section -->
+    <nav class="nav-container">
+      <div class="logo">
+        <h1>CampusConnect</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="request.html">Student Requests</a></li>
+        <li><a href="#my-mentees">My Mentees</a></li>
+        <li><a href="myschedule.html">My Schedule</a></li>
+        <li><a href="mentor-profile.html">Profile</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </nav>
+
+    <!-- Page Heading Section -->
+    <section class="page-heading-section">
+      <h1 class="page-title">My Mentees</h1>
+      <p class="page-subtext">
+        Here are the students you're currently mentoring. Use the tools below to
+        stay connected and support their growth.
+      </p>
+    </section>
+
+    <!-- Mentee Filter Bar -->
+    <section class="mentee-filter-section">
+      <div class="filter-controls-container">
+        <div class="search-bar">
+          <input
+            type="search"
+            placeholder="Search by mentee name..."
+            class="search-input"
+          />
+          <button class="btn btn-primary search-button">Search</button>
+        </div>
+        <div class="filter-dropdowns">
+          <select class="filter-select" aria-label="Filter by University">
+            <option value="all">University: All</option>
+            <option value="knust">KNUST</option>
+            <option value="ug">University of Ghana</option>
+            <option value="ucc">UCC</option>
+          </select>
+          <select class="filter-select" aria-label="Filter by Area of Interest">
+            <option value="all">Area of Focus: All</option>
+            <option value="career-guidance">Career Guidance</option>
+            <option value="academic-support">Academic Support</option>
+            <option value="skill-development">Skill Development</option>
+            <option value="research">Research Guidance</option>
+          </select>
+        </div>
+        <div class="filter-actions">
+          <button class="btn btn-primary apply-filters-button">
+            Apply Filters
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mentees List (Cards) -->
+    <section class="mentees-list-section">
+      <div class="mentee-cards-grid">
+        <!-- Example Mentee Card 1 -->
+        <div class="mentee-card">
+          <div class="mentee-info-top">
+            <img
+              src="https://placehold.co/100x100/1E3A8A/ffffff?text=JD"
+              alt="Jane Doe Profile"
+              class="mentee-profile-img"
+            />
+            <div class="mentee-details-text">
+              <h3 class="mentee-name">Jane Doe</h3>
+              <p class="mentee-university">KNUST – Computer Science</p>
+              <p class="mentee-focus">Interest: Frontend Development</p>
+            </div>
+          </div>
+          <p class="mentee-last-session">Last session: July 20, 2025</p>
+          <div class="mentee-actions">
+            <button class="btn btn-primary">View Profile</button>
+            <button class="btn btn-secondary">Message</button>
+            <button class="btn btn-secondary schedule-session-btn">
+              Schedule Session
+            </button>
+          </div>
+        </div>
+
+        <!-- Example Mentee Card 2 -->
+        <div class="mentee-card">
+          <div class="mentee-info-top">
+            <img
+              src="https://placehold.co/100x100/2DD4BF/0F172A?text=JS"
+              alt="John Smith Profile"
+              class="mentee-profile-img"
+            />
+            <div class="mentee-details-text">
+              <h3 class="mentee-name">John Smith</h3>
+              <p class="mentee-university">
+                University of Ghana – Business Analytics
+              </p>
+              <p class="mentee-focus">Interest: Data Science</p>
+            </div>
+          </div>
+          <p class="mentee-last-session">Last session: July 15, 2025</p>
+          <div class="mentee-actions">
+            <button class="btn btn-primary">View Profile</button>
+            <button class="btn btn-secondary">Message</button>
+            <button class="btn btn-secondary schedule-session-btn">
+              Schedule Session
+            </button>
+          </div>
+        </div>
+
+        <!-- Example Mentee Card 3 -->
+        <div class="mentee-card">
+          <div class="mentee-info-top">
+            <img
+              src="https://placehold.co/100x100/FBBF24/1E293B?text=EW"
+              alt="Emily White Profile"
+              class="mentee-profile-img"
+            />
+            <div class="mentee-details-text">
+              <h3 class="mentee-name">Emily White</h3>
+              <p class="mentee-university">UCC – Environmental Science</p>
+              <p class="mentee-focus">Interest: Sustainable Practices</p>
+            </div>
+          </div>
+          <p class="mentee-last-session">Last session: June 30, 2025</p>
+          <div class="mentee-actions">
+            <button class="btn btn-primary">View Profile</button>
+            <button class="btn btn-secondary">Message</button>
+            <button class="btn btn-secondary schedule-session-btn">
+              Schedule Session
+            </button>
+          </div>
+        </div>
+
+        <!-- Example Mentee Card 4 -->
+        <div class="mentee-card">
+          <div class="mentee-info-top">
+            <img
+              src="https://placehold.co/100x100/EF4444/ffffff?text=MA"
+              alt="Michael Adams Profile"
+              class="mentee-profile-img"
+            />
+            <div class="mentee-details-text">
+              <h3 class="mentee-name">Michael Adams</h3>
+              <p class="mentee-university">KNUST – Mechanical Engineering</p>
+              <p class="mentee-focus">Interest: Robotics</p>
+            </div>
+          </div>
+          <p class="mentee-last-session">Last session: July 01, 2025</p>
+          <div class="mentee-actions">
+            <button class="btn btn-primary">View Profile</button>
+            <button class="btn btn-secondary">Message</button>
+            <button class="btn btn-secondary schedule-session-btn">
+              Schedule Session
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Load More Button -->
+      <div class="load-more-container">
+        <button class="btn btn-primary load-more-btn">Load More Mentees</button>
+      </div>
+
+      <!-- No Mentees State (Initially hidden, can be shown via JS) -->
+      <div class="no-mentees-state" style="display: none">
+        <img
+          src="https://placehold.co/150x150/F9FAFB/CBD5E1?text=No+Mentees"
+          alt="No mentees icon"
+          class="no-mentees-icon"
+        />
+        <p class="no-mentees-message">You have no assigned mentees yet.</p>
+        <p class="no-mentees-subtext">
+          Once you accept student requests, they’ll appear here.
+        </p>
+      </div>
+    </section>
+
+    <!-- Consistent Footer -->
+    <footer class="footer-section">
+      <div class="footer-container">
+        <!-- Quick Links -->
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="footer-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+          <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

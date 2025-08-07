@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mentor Register | CampusConnect</title>
+    <!-- Google Fonts: Poppins for headings, Open Sans for body text -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Link to the dedicated CSS file for this page -->
+    <link rel="stylesheet" href="../index-styles/registration.css" />
+  </head>
+  <body>
+    <div class="register-container">
+      <!-- The main card containing both registration form and graphic -->
+      <div class="register-card">
+        <div class="register-form-section">
+          <div class="register-header">
+            <h1 class="welcome-title">Register as a Mentor</h1>
+            <p class="welcome-subtitle">
+              Join CampusConnect to guide students and share your expertise.
+            </p>
+          </div>
+
+          <form class="register-form">
+            <div class="form-group">
+              <label for="full-name">Full Name</label>
+              <input
+                type="text"
+                id="full-name"
+                placeholder="John Paul George"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="john01@example.com"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                placeholder="********"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="confirm-password">Confirm Password</label>
+              <input
+                type="password"
+                id="confirm-password"
+                placeholder="********"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="expertise">Field of Expertise</label>
+              <input
+                type="text"
+                id="expertise"
+                placeholder="e.g., Software Development, UX Design"
+                required
+              />
+            </div>
+
+            <div class="terms-agreement">
+              <input type="checkbox" id="agree-terms" required />
+              <label for="agree-terms"
+                >I agree with all service agreement</label
+              >
+            </div>
+
+            <button type="submit" class="btn btn-primary register-btn">
+              Register
+            </button>
+          </form>
+
+          <div class="social-register">
+            <button class="btn btn-google">
+              <img
+                src="https://www.google.com/favicon.ico"
+                alt="Google icon"
+                class="google-icon"
+              />
+              Register with Google
+            </button>
+            <!-- Facebook button removed as requested -->
+          </div>
+
+          <div class="login-link">
+            <p>
+              Already have an account?
+              <a href="../index-styles/login.html" class="login-now">Login</a>
+            </p>
+          </div>
+
+          <div class="copyright">
+            <p>&copy; CampusConnect 2025</p>
+          </div>
+        </div>
+
+        <div class="register-graphic-section">
+          <!-- Image for the graphic section -->
+          <img
+            src="../assets/images/mentor1-signup.jpg"
+            alt="Mentor signup graphic"
+            class="register-graphic-image"
+          />
+          <div class="image-overlay-content">
+            <h3>Empower the Next Generation</h3>
+            <p>Share your knowledge and experience to shape future leaders.</p>
+            <div class="overlay-nav-dots">
+              <span class="dot active"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

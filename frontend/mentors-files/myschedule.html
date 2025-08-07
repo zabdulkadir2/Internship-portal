@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Schedule | CampusConnect</title>
+    <!-- Google Fonts: Poppins for headings, Open Sans for body text -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for social media icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      xintegrity="sha512-ieCDyF4QYVlXF0Kz5a6eGgA5Q/t0O8aNnN9F1iX2j3aV5eO7pB5sC5xL5w5O5h5aO5Q5E5g5n5Q5i5b5q5A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Link to the dedicated CSS file for this page -->
+    <link rel="stylesheet" href="../mentors-styles/myschedule.css" />
+  </head>
+  <body>
+    <!-- Navbar Section - Consistent with other mentor pages -->
+    <nav class="nav-container">
+      <div class="logo">
+        <h1>CampusConnect</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="request.html">Student Requests</a></li>
+        <li><a href="mentees.html">My Mentees</a></li>
+        <li><a href="#my-schedule">My Schedule</a></li>
+        <li><a href="mentor-profile.html">Profile</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </nav>
+
+    <!-- Page Header / Hero Section - Mirrored from student's schedule page -->
+    <section class="page-hero">
+      <div class="page-hero-block">
+        <div class="page-hero-text">
+          <h2>My Schedule</h2>
+          <p>
+            Review your upcoming mentorship sessions and meetings with students.
+          </p>
+        </div>
+        <!-- Hero image removed as requested -->
+      </div>
+    </section>
+
+    <!-- Upcoming Sessions Section - Mirrored from student's upcoming-events-section -->
+    <section class="upcoming-sessions-section">
+      <h2>Upcoming Sessions & Appointments</h2>
+      <div class="session-cards-grid">
+        <!-- Session Card 1: Mentor Session -->
+        <div class="session-card">
+          <p class="session-date-time">
+            📅 Monday, July 29, 2025 – 2:00 PM GMT
+          </p>
+          <h3 class="session-mentee">👤 Student: Aisha Mohammed</h3>
+          <p class="session-topic">Topic: Technical Interview Prep</p>
+          <p class="session-platform">📍 Google Meet</p>
+          <p class="session-status status-confirmed">✅ Confirmed</p>
+          <div class="session-actions">
+            <a href="#" class="btn btn-primary join-now-btn">Join Now</a>
+            <button class="action-button reschedule-btn">Reschedule</button>
+            <button class="action-button cancel-btn">Cancel</button>
+          </div>
+        </div>
+
+        <!-- Session Card 2: Another Mentee Session -->
+        <div class="session-card">
+          <p class="session-date-time">
+            📅 Tuesday, August 6, 2025 – 10:00 AM GMT
+          </p>
+          <h3 class="session-mentee">👤 Student: Kwame Nkrumah</h3>
+          <p class="session-topic">Topic: Project Brainstorm</p>
+          <p class="session-platform">📍 Zoom Call</p>
+          <p class="session-status status-pending">⏳ Pending</p>
+          <div class="session-actions">
+            <button class="action-button reschedule-btn">Reschedule</button>
+            <button class="action-button cancel-btn">Cancel</button>
+          </div>
+        </div>
+
+        <!-- Session Card 3: Interview with a company -->
+        <div class="session-card">
+          <p class="session-date-time">
+            📅 Wednesday, August 14, 2025 – 3:00 PM GMT
+          </p>
+          <h3 class="session-mentee">💬 Interview: Tech Solutions Ltd.</h3>
+          <p class="session-topic">Topic: Senior Developer Role</p>
+          <p class="session-platform">📍 Company Office (Accra)</p>
+          <p class="session-status status-confirmed">✅ Confirmed</p>
+          <div class="session-actions">
+            <a href="#" class="btn btn-primary join-now-btn">View Details</a>
+            <button class="action-button reschedule-btn">Reschedule</button>
+          </div>
+        </div>
+
+        <!-- Session Card 4: Cancelled Session Example -->
+        <div class="session-card">
+          <p class="session-date-time">
+            📅 Thursday, July 25, 2025 – 4:00 PM GMT
+          </p>
+          <h3 class="session-mentee">👤 Student: Fatima Ali</h3>
+          <p class="session-topic">Topic: Career Guidance</p>
+          <p class="session-platform">📍 Google Meet</p>
+          <p class="session-status status-cancelled">❌ Cancelled</p>
+          <div class="session-actions">
+            <button class="action-button view-details-btn">View Reason</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- No Scheduled Sessions Message (initially hidden) -->
+      <div class="no-sessions-state" style="display: none">
+        <img
+          src="https://placehold.co/150x150/F9FAFB/CBD5E1?text=No+Sessions"
+          alt="No sessions icon"
+          class="no-sessions-icon"
+        />
+        <p class="no-sessions-message">
+          You have no upcoming sessions scheduled.
+        </p>
+        <p class="no-sessions-subtext">
+          Once a student books time with you, it will appear here.
+        </p>
+        <div class="section-footer-link">
+          <a href="#" class="btn btn-primary">Schedule a Session</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Consistent Footer - Reused from other mentor pages -->
+    <footer class="footer-section">
+      <div class="footer-container">
+        <!-- Quick Links -->
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="footer-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+          <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

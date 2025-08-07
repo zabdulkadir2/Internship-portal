@@ -1,0 +1,444 @@
+/* General CSS for consistency across CampusConnect pages */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: #334155; /* Base text color */
+    background-color: #F9FAFB; /* Consistent light background */
+}
+
+/* Base styles for sections to ensure consistent padding and max-width */
+section {
+    padding: 4rem 2rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+section h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    color: #1E3A8A;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+/* Reusable Button Styles - Consistent with other CampusConnect pages */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for all base buttons */
+}
+
+.btn-primary {
+    background-color: #1E3A8A;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0F172A;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+    background-color: #FBBF24;
+    color: #1E293B;
+}
+
+.btn-secondary:hover {
+    background-color: #f59e0b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Specific button styles for actions within cards */
+.action-button {
+    background-color: #2DD4BF;
+    color: #0F172A;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.action-button:hover {
+    background-color: #14B8A6;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.action-button.reschedule-btn {
+    background-color: #FBBF24;
+    color: #1E293B;
+}
+
+.action-button.reschedule-btn:hover {
+    background-color: #f59e0b;
+    color: #ffffff;
+}
+
+/* Specific style for "Post New Internship" links/buttons */
+.post-internship-btn {
+    background-color: #1E3A8A;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.post-internship-btn:hover {
+    background-color: #0F172A;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.section-footer-link {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+
+/* ========== NAVBAR CONTAINER - Consistent with other pages ========== */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.logo h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: #1E3A8A;
+    margin: 0;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #0F172A;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #1E3A8A;
+}
+
+/* Page Header / Hero Section - Spacing and layout updated for consistency with image */
+.page-hero {
+    background-color: #F9FAFB;
+    padding: 6rem 2rem 4rem; /* Adjusted top padding to account for fixed navbar */
+    text-align: center;
+}
+
+.hero-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .hero-content-container {
+        flex-direction: row;
+        text-align: left;
+        gap: 4rem;
+    }
+}
+
+.page-hero-text {
+    max-width: 600px;
+}
+
+.page-hero-text h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #1E3A8A;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .page-hero-text h2 {
+        text-align: left;
+    }
+}
+
+.page-hero-text p {
+    color: #334155;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .page-hero-text p {
+        text-align: left;
+    }
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+    .hero-actions {
+        justify-content: flex-start;
+    }
+}
+
+.page-hero-image-container {
+    flex-shrink: 0;
+}
+
+.hero-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Quick Stats Section - New for Company Dashboard */
+.quick-stats-section {
+    background-color: #ffffff;
+    padding: 4rem 2rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.stat-card {
+    background-color: #F9FAFB;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card .icon-large {
+    font-size: 3rem;
+    color: #1E3A8A;
+    margin-bottom: 1rem;
+}
+
+.stat-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    color: #0F172A;
+    margin: 0;
+}
+
+.stat-card p {
+    font-size: 1rem;
+    color: #64748B;
+    margin: 0.5rem 0 0;
+}
+
+@media (min-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* Recent Applications & Latest Internships Sections */
+.recent-applications-section,
+.latest-internships-section {
+    background-color: #ffffff;
+    padding: 4rem 2rem;
+}
+
+.applications-list,
+.internships-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.application-card,
+.internship-card {
+    background-color: #F9FAFB;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .application-card,
+    .internship-card {
+        flex-direction: row;
+        align-items: center;
+    }
+    .app-info, .internship-info {
+        flex-grow: 1;
+    }
+}
+
+.application-card .app-info,
+.internship-card .internship-info {
+    text-align: left;
+}
+
+.student-name,
+.internship-card .internship-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    color: #1E3A8A;
+    margin: 0 0 0.5rem;
+}
+
+.student-program {
+    font-size: 0.9rem;
+    color: #64748B;
+    font-weight: 400;
+}
+
+.internship-title,
+.submission-date,
+.post-date,
+.applications-count {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.95rem;
+    color: #475569;
+    margin: 0.5rem 0;
+}
+
+.app-actions,
+.internship-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+.status-tag {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    width: fit-content;
+    white-space: nowrap;
+}
+
+.status-pending { background-color: #FFF7ED; color: #D97706; }
+.status-reviewed { background-color: #ECFDF5; color: #047857; }
+
+
+/* Consistent Footer - Reused from other pages */
+.footer-section {
+    background-color: #0F172A;
+    color: #ffffff;
+    padding: 2rem 1.5rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    color: #E2E8F0;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #FBBF24;
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%; /* Optional: for circular icons */
+    transition: transform 0.3s ease;
+}
+
+.footer-socials a:hover .social-icon {
+    transform: scale(1.1);
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: #94A3B8;
+}

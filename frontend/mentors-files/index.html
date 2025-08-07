@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mentor Dashboard | CampusConnect</title>
+    <!-- Google Fonts: Poppins for headings, Open Sans for body text -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for social media icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      xintegrity="sha512-ieCDyF4QYVlXF0Kz5a6eGgA5Q/t0O8aNnN9F1iX2j3aV5eO7pB5sC5xL5w5O5h5aO5Q5E5g5n5Q5i5b5q5A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Link to the dedicated CSS file for this page -->
+    <link rel="stylesheet" href="../mentors-styles/index.css" />
+  </head>
+  <body>
+    <!-- Navbar Section -->
+    <nav class="nav-container">
+      <div class="logo">
+        <h1>CampusConnect</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#index">Home</a></li>
+        <li><a href="request.html">Student Requests</a></li>
+        <li><a href="mentees.html">My Mentees</a></li>
+        <li><a href="myschedule.html">My Schedule</a></li>
+        <li><a href="mentor-profile.html">Profile</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-block">
+        <!-- Added hero-block for consistent centering -->
+        <div class="hero-content">
+          <h1 class="hero-headline">
+            Welcome back,<span id="mentor-name">[Mentor's Name]</span>
+          </h1>
+          <p class="hero-subtext">
+            Ready to guide, inspire, and make an impact today?
+          </p>
+          <button class="btn btn-primary">Schedule a Session</button>
+        </div>
+        <div class="hero-image">
+          <img
+            src="https://placehold.co/400x300/E0E7FF/1E3A8A?text=Mentor+and+Students"
+            alt="Mentor with students illustration"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Stats Section -->
+    <section class="quick-stats-section">
+      <h2 class="section-title">Your Dashboard Overview</h2>
+      <!-- Added a short heading -->
+      <div class="stat-cards-grid">
+        <div class="stat-card">
+          <h3>5</h3>
+          <p>Student Requests</p>
+        </div>
+        <div class="stat-card">
+          <h3>12</h3>
+          <p>Active Mentees</p>
+        </div>
+        <div class="stat-card">
+          <h3>3</h3>
+          <p>Upcoming Sessions</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Upcoming Sessions Preview -->
+    <section class="upcoming-sessions-section">
+      <h2 class="section-title">Upcoming Sessions</h2>
+      <div class="session-card-grid">
+        <div class="session-card">
+          <p class="session-date-time">July 25, 2025 | 10:00 AM - 11:00 AM</p>
+          <p class="session-student">Student: Jane Doe</p>
+          <p class="session-platform">Platform: Zoom</p>
+          <div class="session-actions">
+            <button class="btn btn-primary">Join Now</button>
+            <button class="btn btn-secondary">View Details</button>
+          </div>
+        </div>
+        <div class="session-card">
+          <p class="session-date-time">July 26, 2025 | 2:00 PM - 3:00 PM</p>
+          <p class="session-student">Student: John Smith</p>
+          <p class="session-platform">Platform: Google Meet</p>
+          <div class="session-actions">
+            <button class="btn btn-primary">Join Now</button>
+            <button class="btn btn-secondary">View Details</button>
+          </div>
+        </div>
+        <div class="session-card">
+          <p class="session-date-time">July 28, 2025 | 11:00 AM - 12:00 PM</p>
+          <p class="session-student">Student: Emily White</p>
+          <p class="session-platform">Platform: Zoom</p>
+          <div class="session-actions">
+            <button class="btn btn-primary">Join Now</button>
+            <button class="btn btn-secondary">View Details</button>
+          </div>
+        </div>
+      </div>
+      <div class="section-footer-link">
+        <a href="schedule.html" class="btn btn-primary">View Full Schedule</a>
+      </div>
+    </section>
+
+    <!-- Recent Mentees Section -->
+    <section class="recent-mentees-section">
+      <h2 class="section-title">Recent Mentees</h2>
+      <div class="mentee-card-grid">
+        <div class="mentee-card">
+          <img
+            src="https://placehold.co/100x100/CBD5E1/475569?text=JD"
+            alt="Mentee Profile"
+            class="mentee-profile-img"
+          />
+          <p class="mentee-name">Jane Doe</p>
+          <p class="mentee-focus">Focus: Career Guidance</p>
+          <button class="btn btn-secondary">View Profile</button>
+        </div>
+        <div class="mentee-card">
+          <img
+            src="https://placehold.co/100x100/CBD5E1/475569?text=JS"
+            alt="Mentee Profile"
+            class="mentee-profile-img"
+          />
+          <p class="mentee-name">John Smith</p>
+          <p class="mentee-focus">Focus: Academic Support</p>
+          <button class="btn btn-secondary">View Profile</button>
+        </div>
+        <div class="mentee-card">
+          <img
+            src="https://placehold.co/100x100/CBD5E1/475569?text=EW"
+            alt="Mentee Profile"
+            class="mentee-profile-img"
+          />
+          <p class="mentee-name">Emily White</p>
+          <p class="mentee-focus">Focus: Skill Development</p>
+          <button class="btn btn-secondary">View Profile</button>
+        </div>
+      </div>
+      <div class="section-footer-link">
+        <a href="mentees.html" class="btn btn-primary">View All Mentees</a>
+      </div>
+    </section>
+
+    <!-- Consistent Footer -->
+    <footer class="footer-section">
+      <div class="footer-container">
+        <!-- Quick Links -->
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="footer-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+          <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

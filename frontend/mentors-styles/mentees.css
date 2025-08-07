@@ -1,0 +1,423 @@
+/* General CSS for consistency across CampusConnect pages */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: #334155; /* Base text color */
+    background-color: #F9FAFB; /* Consistent light background */
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack children vertically */
+}
+
+/* Base styles for sections to ensure consistent padding and max-width */
+section {
+    padding: 4rem 2rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    color: #1E3A8A;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+/* Reusable Button Styles - Consistent with other CampusConnect pages */
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem; /* Reduced padding */
+    font-size: 0.82rem; /* Reduced font-size */
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #1E3A8A;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0F172A;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #FBBF24;
+    color: #1E293B;
+}
+
+.btn-secondary:hover {
+    background-color: #f59e0b;
+    transform: translateY(-2px);
+}
+
+.section-footer-link {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* ========== NAVBAR CONTAINER - Consistent with other pages ========== */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.logo h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: #1E3A8A;
+    margin: 0;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #0F172A;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #1E3A8A;
+}
+
+/* ========== PAGE HEADING SECTION ========== */
+.page-heading-section {
+    padding-top: 7rem; /* Space for fixed navbar */
+    padding-bottom: 2rem;
+    background-color: #F9FAFB; /* Consistent light background */
+    text-align: center;
+}
+
+.page-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    color: #1E3A8A;
+    margin-bottom: 0.75rem;
+}
+
+.page-subtext {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem;
+    color: #475569;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ========== MENTEE FILTER BAR ========== */
+.mentee-filter-section {
+    background-color: #ffffff;
+    padding: 1.5rem 2rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.filter-controls-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.search-bar {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+
+.search-input {
+    flex-grow: 1;
+    padding: 0.8rem 1rem;
+    border: 1px solid #CBD5E1;
+    border-radius: 6px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+}
+
+.search-button {
+    flex-shrink: 0;
+    padding: 0.6rem 1.2rem; /* Reduced padding */
+    font-size: 0.85rem; /* Reduced font-size */
+}
+
+.filter-dropdowns {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.filter-select {
+    padding: 0.65rem 1rem;
+    border: 1px solid #CBD5E1;
+    border-radius: 6px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    background-color: #ffffff;
+    appearance: none; /* Remove default dropdown arrow */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%231E3A8A%22%20d%3D%22M287%2C197.3L159.2%2C69.5c-3.2-3.2-8.3-3.2-11.5%2C0L5.4%2C197.3c-3.2%2C3.2-3.2%2C8.3%2C0%2C11.5l11.5%2C11.5c3.2%2C3.2%2C8.3%2C3.2%2C11.5%2C0l125.7-125.7l125.7%2C125.7c3.2%2C3.2%2C8.3%2C3.2%2C11.5%2C0l11.5-11.5C290.2%2C205.6%2C290.2%2C200.5%2C287%2C197.3z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 0.7em top 50%, 0 0;
+    background-size: 0.65em auto, 100%;
+    flex-grow: 1;
+}
+
+.filter-actions {
+    display: flex;
+    justify-content: flex-end; /* Align button to the right */
+}
+
+.apply-filters-button {
+    width: 100%;
+    padding: 0.5rem 1rem; /* Reduced padding */
+    font-size: 0.82rem; /* Reduced font-size */
+}
+
+@media (min-width: 768px) {
+    .filter-controls-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .filter-dropdowns {
+        flex-direction: row;
+        flex-grow: 1;
+        gap: 1rem;
+    }
+    .apply-filters-button {
+        width: auto; /* Reset width for desktop */
+        margin-left: 1rem; /* Space from dropdowns */
+    }
+}
+
+/* ========== MENTEES LIST (Cards) ========== */
+.mentees-list-section {
+    background-color: #F9FAFB; /* Consistent light background */
+    padding: 3rem 2rem;
+}
+
+.mentee-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to single column for mobile */
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto; /* Center the grid */
+}
+
+.mentee-card {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    /* Removed gap from here, as it's handled by individual elements now */
+}
+
+.mentee-info-top {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between image and text details */
+    margin-bottom: 0.5rem; /* Space below this top section */
+}
+
+.mentee-profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #1E3A8A; /* Accent border */
+    flex-shrink: 0; /* Prevent image from shrinking */
+}
+
+.mentee-details-text {
+    flex-grow: 1;
+    text-align: left; /* Ensure text is left-aligned within its container */
+}
+
+.mentee-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+    color: #1E3A8A;
+    margin: 0;
+}
+
+.mentee-university,
+.mentee-focus {
+    font-size: 0.95rem;
+    color: #475569;
+    margin: 0;
+    line-height: 1.4; /* Adjust line height for better readability */
+}
+
+.mentee-last-session {
+    font-size: 0.9rem;
+    color: #64748B;
+    margin-top: 0.5rem; /* Space above last session info */
+    margin-bottom: 1rem; /* Space below last session info */
+    text-align: left; /* Align last session text to left */
+}
+
+.mentee-actions {
+    display: flex;
+    flex-direction: row; /* Buttons always on the same line */
+    /* flex-wrap: wrap; Allow buttons to wrap if space is constrained */ 
+    gap: 0.5rem; /* Space between buttons */
+    margin-top: auto; /* Push actions to the bottom */
+    justify-content: flex-start; /* Align buttons to the left */
+}
+
+.mentee-actions .btn {
+    width: auto; /* Buttons size based on content */
+    flex-shrink: 0; /* Prevent buttons from shrinking too much */
+}
+
+/* Specific styling for the "Schedule Session" button to minimize it */
+.mentee-actions .schedule-session-btn {
+    padding: 0.4rem 0.4rem; /* Even smaller padding */
+    font-size: 0.75rem; /* Even smaller font size */
+}
+
+@media (min-width: 600px) {
+    .mentee-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .mentee-cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* No specific changes needed for .mentee-actions here as base style now handles row layout */
+/* The previous media query for .mentee-actions is now redundant and removed for clarity */
+
+
+/* ========== LOAD MORE BUTTON ========== */
+.load-more-container {
+    text-align: center;
+    margin-top: 2.5rem; /* Space above the button */
+}
+
+.load-more-btn {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    /* Uses btn-primary styles defined earlier */
+}
+
+
+/* ========== NO MENTEES STATE ========== */
+.no-mentees-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    max-width: 600px;
+    margin: 3rem auto; /* Center it with some vertical margin */
+}
+
+.no-mentees-icon {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1.5rem;
+    opacity: 0.7;
+}
+
+.no-mentees-message {
+    font-size: 1.5rem;
+    color: #1E3A8A;
+    margin-bottom: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.no-mentees-subtext {
+    font-size: 1rem;
+    color: #475569;
+    margin-bottom: 1.5rem;
+}
+
+
+/* Consistent Footer - Reused from other pages */
+.footer-section {
+    background-color: #0F172A;
+    color: #ffffff;
+    padding: 2rem 1.5rem;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: auto; /* Pushes footer to the bottom */
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    color: #E2E8F0;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #FBBF24;
+}
+
+.footer-socials {
+    margin-bottom: 1rem;
+}
+
+.footer-socials a {
+    font-size: 1.3rem;
+    margin: 0 0.5rem;
+    text-decoration: none;
+    color: #E2E8F0;
+    transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: #FBBF24;
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: #94A3B8;
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Profile | CampusConnect (Student)</title>
+    <!-- Google Fonts: Poppins for headings, Open Sans for body text -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Link to the dedicated CSS file for this page -->
+    <link rel="stylesheet" href="../student-styles/student-profile.css" />
+  </head>
+  <body>
+    <!-- Navbar Section - Reused for consistency -->
+    <nav class="nav-container">
+      <div class="logo">
+        <h1>CampusConnect</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="internship.html">Internships</a></li>
+        <li><a href="mentors.html">Mentors</a></li>
+        <li><a href="applications.html">My Applications</a></li>
+        <li><a href="schedule.html">My Schedule</a></li>
+        <li><a href="sessions.html">My Sessions</a></li>
+        <li><a href="#student-profile">Profile</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </nav>
+
+    <div class="profile-page-container">
+      <div class="profile-card">
+        <h2 class="section-title">My Profile</h2>
+
+        <div class="profile-avatar-section">
+          <img
+            src="https://placehold.co/100x100/CBD5E1/475569?text=Avatar"
+            alt="User Avatar"
+            class="profile-avatar"
+          />
+          <div class="avatar-actions">
+            <button class="btn btn-primary change-avatar-btn">
+              Change avatar
+            </button>
+            <button class="btn btn-secondary remove-avatar-btn">
+              Remove avatar
+            </button>
+          </div>
+        </div>
+
+        <form class="profile-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="first-name">First Name</label>
+              <input type="text" id="first-name" value="Jane" />
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name</label>
+              <input type="text" id="last-name" value="Doe" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" value="jane.doe@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" value="+233 24 123 4567" />
+            </div>
+            <div class="form-group">
+              <label for="city-state">City/State</label>
+              <input type="text" id="city-state" value="Accra" />
+            </div>
+            <div class="form-group">
+              <label for="country">Country</label>
+              <select id="country">
+                <option value="Ghana" selected>Ghana</option>
+                <option value="USA">USA</option>
+                <option value="UK">UK</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="postal-code">Postal Code</label>
+              <input type="text" id="postal-code" value="GA-000-0000" />
+            </div>
+            <div class="form-group">
+              <label for="university">University / Program</label>
+              <input
+                type="text"
+                id="university"
+                value="KNUST - Computer Science"
+              />
+            </div>
+            <div class="form-group full-width">
+              <label for="bio">Bio</label>
+              <textarea id="bio" rows="5">
+Passionate Computer Science student at KNUST with a strong interest in web development and AI. Eager to connect with mentors and explore internship opportunities to gain practical experience and expand my knowledge.</textarea
+              >
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary cancel-btn">
+              Cancel
+            </button>
+            <button type="submit" class="btn btn-primary save-btn">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Consistent Footer - Reused for consistency -->
+    <footer class="footer-section">
+      <div class="footer-container">
+        <!-- Quick Links -->
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="footer-socials">
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="Twitter">🐦</a>
+          <a href="#" aria-label="LinkedIn">🔗</a>
+          <a href="#" aria-label="Instagram">📷</a>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+          <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

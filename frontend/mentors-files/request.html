@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Requests | CampusConnect</title>
+    <!-- Google Fonts: Poppins for headings, Open Sans for body text -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for social media icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      xintegrity="sha512-ieCDyF4QYVlXF0Kz5a6eGgA5Q/t0O8aNnN9F1iX2j3aV5eO7pB5sC5xL5w5O5h5aO5Q5E5g5n5Q5i5b5q5A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Link to the dedicated CSS file for this page -->
+    <link rel="stylesheet" href="../mentors-styles/request.css" />
+  </head>
+  <body>
+    <!-- Navbar Section -->
+    <nav class="nav-container">
+      <div class="logo">
+        <h1>CampusConnect</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#student-requests">Student Requests</a></li>
+        <li><a href="mentees.html">My Mentees</a></li>
+        <li><a href="#my-schedule">My Schedule</a></li>
+        <li><a href="mentor-profile.html">Profile</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </nav>
+
+    <!-- Page Heading Section -->
+    <section class="page-heading-section">
+      <h1 class="page-title">Student Requests</h1>
+      <p class="page-subtext">
+        Review incoming mentorship requests from students. You can accept,
+        reject, or view more details.
+      </p>
+    </section>
+
+    <!-- Request Filter Bar -->
+    <section class="request-filter-section">
+      <div class="filter-controls-container">
+        <div class="filter-dropdowns">
+          <select class="filter-select" aria-label="Filter by Status">
+            <option value="all">Status: All</option>
+            <option value="pending">Status: Pending</option>
+            <option value="accepted">Status: Accepted</option>
+            <option value="rejected">Status: Rejected</option>
+          </select>
+          <select class="filter-select" aria-label="Filter by University">
+            <option value="all">University: All</option>
+            <option value="knust">KNUST</option>
+            <option value="ug">University of Ghana</option>
+            <option value="ucc">UCC</option>
+          </select>
+          <select class="filter-select" aria-label="Filter by Area of Interest">
+            <option value="all">Area of Interest: All</option>
+            <option value="frontend">Frontend Development</option>
+            <option value="backend">Backend Development</option>
+            <option value="ux-ui">UX/UI Design</option>
+            <option value="data-science">Data Science</option>
+          </select>
+        </div>
+        <div class="filter-actions">
+          <button class="btn btn-primary apply-filters-button">
+            Apply Filters
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Requests List -->
+    <section class="requests-list-section">
+      <div class="request-cards-grid">
+        <!-- Example Request Card 1 (Pending) -->
+        <div class="request-card">
+          <div class="request-header">
+            <img
+              src="https://placehold.co/80x80/1E3A8A/ffffff?text=JD"
+              alt="Student Profile"
+              class="student-profile-img"
+            />
+            <div class="student-info">
+              <h3 class="student-name">Jane Doe</h3>
+              <p class="student-university">KNUST – Computer Science</p>
+              <p class="student-interest">
+                Area of Interest: Frontend Development
+              </p>
+            </div>
+          </div>
+          <p class="message-summary">
+            "Hi, I'm looking for guidance on building responsive web interfaces
+            and understanding modern JavaScript frameworks. Your profile on
+            React caught my eye..."
+          </p>
+          <p class="submitted-on">Submitted On: July 10, 2025</p>
+          <span class="status-badge status-pending">Pending</span>
+          <div class="request-actions">
+            <button class="btn btn-primary">Accept</button>
+            <button class="btn btn-secondary reject-btn">Reject</button>
+          </div>
+        </div>
+
+        <!-- Example Request Card 2 (Accepted) -->
+        <div class="request-card">
+          <div class="request-header">
+            <img
+              src="https://placehold.co/80x80/2DD4BF/0F172A?text=JS"
+              alt="Student Profile"
+              class="student-profile-img"
+            />
+            <div class="student-info">
+              <h3 class="student-name">John Smith</h3>
+              <p class="student-university">
+                University of Ghana – Business Analytics
+              </p>
+              <p class="student-interest">Area of Interest: Data Science</p>
+            </div>
+          </div>
+          <p class="message-summary">
+            "Hello, I'm a final-year student interested in machine learning
+            applications in finance. I saw your work on predictive modeling and
+            would love to learn more..."
+          </p>
+          <p class="submitted-on">Submitted On: July 08, 2025</p>
+          <span class="status-badge status-accepted">Accepted</span>
+          <div class="request-actions">
+            <button class="btn btn-primary disabled-btn" disabled>
+              Accepted
+            </button>
+            <button class="btn btn-secondary reject-btn disabled-btn" disabled>
+              Reject
+            </button>
+          </div>
+        </div>
+
+        <!-- Example Request Card 3 (Rejected) -->
+        <div class="request-card">
+          <div class="request-header">
+            <img
+              src="https://placehold.co/80x80/FBBF24/1E293B?text=EW"
+              alt="Student Profile"
+              class="student-profile-img"
+            />
+            <div class="student-info">
+              <h3 class="student-name">Emily White</h3>
+              <p class="student-university">UCC – Environmental Science</p>
+              <p class="student-interest">
+                Area of Interest: Sustainable Practices
+              </p>
+            </div>
+          </div>
+          <p class="message-summary">
+            "Good day, I'm passionate about environmental conservation and
+            seeking advice on career paths in sustainability. Your background in
+            green tech is inspiring..."
+          </p>
+          <p class="submitted-on">Submitted On: July 05, 2025</p>
+          <span class="status-badge status-rejected">Rejected</span>
+          <div class="request-actions">
+            <button class="btn btn-primary disabled-btn" disabled>
+              Accept
+            </button>
+            <button class="btn btn-secondary reject-btn disabled-btn" disabled>
+              Rejected
+            </button>
+          </div>
+        </div>
+
+        <!-- Example Request Card 4 (Pending) -->
+        <div class="request-card">
+          <div class="request-header">
+            <img
+              src="https://placehold.co/80x80/EF4444/ffffff?text=MA"
+              alt="Student Profile"
+              class="student-profile-img"
+            />
+            <div class="student-info">
+              <h3 class="student-name">Michael Adams</h3>
+              <p class="student-university">KNUST – Mechanical Engineering</p>
+              <p class="student-interest">Area of Interest: Robotics</p>
+            </div>
+          </div>
+          <p class="message-summary">
+            "Hi, I'm working on a robotics project and need guidance on actuator
+            selection and control systems. Your expertise in automation would be
+            invaluable..."
+          </p>
+          <p class="submitted-on">Submitted On: July 12, 2025</p>
+          <span class="status-badge status-pending">Pending</span>
+          <div class="request-actions">
+            <button class="btn btn-primary">Accept</button>
+            <button class="btn btn-secondary reject-btn">Reject</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Load More Button -->
+      <div class="load-more-container">
+        <button class="btn btn-primary load-more-btn">
+          Load More Requests
+        </button>
+      </div>
+
+      <!-- No Requests State (Initially hidden, can be shown via JS) -->
+      <div class="no-requests-state" style="display: none">
+        <img
+          src="https://placehold.co/150x150/F9FAFB/CBD5E1?text=No+Requests"
+          alt="No requests icon"
+          class="no-requests-icon"
+        />
+        <p class="no-requests-message">No student requests at the moment.</p>
+        <p class="no-requests-subtext">
+          You’ll be notified when a new request comes in.
+        </p>
+      </div>
+    </section>
+
+    <!-- Consistent Footer -->
+    <footer class="footer-section">
+      <div class="footer-container">
+        <!-- Quick Links -->
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="footer-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+          <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

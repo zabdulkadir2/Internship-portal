@@ -1,0 +1,505 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Internship Opportunities | CampusConnect</title>
+    <!-- Google Fonts: Poppins for headings, Open Sans for body text -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for social media icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      xintegrity="sha512-ieCDyF4QYVlXF0Kz5a6eGgA5Q/t0O8aNnN9F1iX2j3aV5eO7pB5sC5xL5w5O5h5aO5Q5E5g5n5Q5i5b5q5A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Link to the dedicated CSS file for this page -->
+    <link rel="stylesheet" href="../student-styles/internship.css" />
+  </head>
+  <body>
+    <nav class="nav-container">
+      <div class="logo"><h1>CampusConnect</h1></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#internship">Internships</a></li>
+        <li><a href="mentors.html">Mentors</a></li>
+        <li><a href="applications.html">My Applications</a></li>
+        <li><a href="schedule.html">My Schedule</a></li>
+        <li><a href="session.html">My Sessions</a></li>
+        <li><a href="student-profile.html">Profile</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-block">
+        <div class="hero-text">
+          <h2>
+            Discover exciting internship opportunities and take the first step
+            towards your career!
+          </h2>
+          <p>
+            Explore a wide range of internships tailored to your skills and
+            aspirations. Connect with leading companies and gain invaluable
+            real-world experience.
+          </p>
+          <a href="#internship-listings" class="btn btn-primary"
+            >Browse Internships</a
+          >
+        </div>
+        <div class="hero-image">
+          <!-- Placeholder image for hero section, consistent with theme -->
+          <img
+            src="../assets/images/internship.jpg"
+            alt="Student working at a laptop, job search concept"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Search & Filter Section -->
+    <section id="search-filter" class="search-filter-section">
+      <h2>Find Your Perfect Internship</h2>
+      <div class="filter-container">
+        <div class="search-bar">
+          <input
+            type="search"
+            placeholder="Search by keyword or job title..."
+            class="search-input"
+          />
+          <button class="btn btn-primary search-button">Search</button>
+        </div>
+        <div class="filters-grid">
+          <select class="filter-select">
+            <option value="">Filter by Company</option>
+            <option value="tech-innovations">Tech Innovations Inc.</option>
+            <option value="growth-sparks">Growth Sparks Agency</option>
+            <option value="insightful-solutions">Insightful Solutions</option>
+            <option value="creative-minds">Creative Minds Studio</option>
+            <option value="global-solutions">Global Solutions Ltd.</option>
+          </select>
+          <select class="filter-select">
+            <option value="">Filter by Location</option>
+            <option value="remote">Remote</option>
+            <option value="accra">Accra</option>
+            <option value="kumasi">Kumasi</option>
+            <option value="hybrid">Hybrid</option>
+          </select>
+          <select class="filter-select">
+            <option value="">Filter by Category</option>
+            <option value="tech">Technology</option>
+            <option value="business">Business & Marketing</option>
+            <option value="design">Design & Creative</option>
+            <option value="data">Data Science</option>
+            <option value="finance">Finance</option>
+          </select>
+          <select class="filter-select">
+            <option value="">Filter by Duration/Deadline</option>
+            <option value="1-3-months">1-3 Months</option>
+            <option value="3-6-months">3-6 Months</option>
+            <option value="full-time">Full-time</option>
+            <option value="deadline-soon">Deadline Soon</option>
+          </select>
+          <button class="btn btn-secondary apply-filters-button">
+            Apply Filters
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Internship Listings Section -->
+    <section id="internship-listings" class="internship-listings-section">
+      <h2>Available Internship Opportunities</h2>
+      <div class="internship-cards-grid">
+        <!-- Internship Card 1 -->
+        <div class="internship-card">
+          <div class="company-logo-name">
+            <img
+              src="https://placehold.co/50x50/CBD5E1/475569?text=TI"
+              alt="Tech Innovations Inc. Logo"
+              class="company-logo"
+            />
+            <h3 class="job-title">Frontend Developer Intern</h3>
+          </div>
+          <p class="company-info">Tech Innovations Inc.</p>
+          <p class="details">📍 Remote | 🕒 3 Months | 📅 Aug 15, 2025</p>
+          <p class="description">
+            Gain hands-on experience building user interfaces with cutting-edge
+            technologies like React and Vue.js.
+          </p>
+          <div class="tags">
+            <span class="tag tag-remote">Remote</span>
+            <span class="tag tag-paid">Paid</span>
+          </div>
+          <a href="#" class="btn-accent-yellow apply-button">Apply Now</a>
+        </div>
+
+        <!-- Internship Card 2 -->
+        <div class="internship-card">
+          <div class="company-logo-name">
+            <img
+              src="https://placehold.co/50x50/CBD5E1/475569?text=GS"
+              alt="Growth Sparks Agency Logo"
+              class="company-logo"
+            />
+            <h3 class="job-title">Digital Marketing Assistant</h3>
+          </div>
+          <p class="company-info">Growth Sparks Agency</p>
+          <p class="details">📍 Accra, Ghana | 🕒 6 Weeks | 📅 Sep 1, 2025</p>
+          <p class="description">
+            Help craft engaging campaigns and analyze market trends for real
+            clients in a fast-paced agency environment.
+          </p>
+          <div class="tags">
+            <span class="tag tag-onsite">Onsite</span>
+            <span class="tag tag-unpaid">Unpaid</span>
+          </div>
+          <a href="#" class="btn-accent-yellow apply-button">Apply Now</a>
+        </div>
+
+        <!-- Internship Card 3 -->
+        <div class="internship-card">
+          <div class="company-logo-name">
+            <img
+              src="https://placehold.co/50x50/CBD5E1/475569?text=IS"
+              alt="Insightful Solutions Logo"
+              class="company-logo"
+            />
+            <h3 class="job-title">Data Analyst Internship</h3>
+          </div>
+          <p class="company-info">Insightful Solutions</p>
+          <p class="details">
+            📍 Kumasi, Ghana | 🕒 4 Months | 📅 Aug 20, 2025
+          </p>
+          <p class="description">
+            Dive deep into data, extracting valuable insights to drive business
+            decisions using SQL and Python.
+          </p>
+          <div class="tags">
+            <span class="tag tag-onsite">Onsite</span>
+            <span class="tag tag-paid">Paid</span>
+          </div>
+          <a href="#" class="btn-accent-yellow apply-button">Apply Now</a>
+        </div>
+
+        <!-- Internship Card 4 -->
+        <div class="internship-card">
+          <div class="company-logo-name">
+            <img
+              src="https://placehold.co/50x50/CBD5E1/475569?text=CM"
+              alt="Creative Minds Studio Logo"
+              class="company-logo"
+            />
+            <h3 class="job-title">UI/UX Design Intern</h3>
+          </div>
+          <p class="company-info">Creative Minds Studio</p>
+          <p class="details">📍 Remote | 🕒 2 Months | 📅 Sep 10, 2025</p>
+          <p class="description">
+            Participate in design sprints, user research, and prototyping for
+            new applications, focusing on user-centered design.
+          </p>
+          <div class="tags">
+            <span class="tag tag-remote">Remote</span>
+          </div>
+          <a href="#" class="btn-accent-yellow apply-button">Apply Now</a>
+        </div>
+
+        <!-- Internship Card 5 -->
+        <div class="internship-card">
+          <div class="company-logo-name">
+            <img
+              src="https://placehold.co/50x50/CBD5E1/475569?text=GS"
+              alt="Global Solutions Ltd. Logo"
+              class="company-logo"
+            />
+            <h3 class="job-title">Software Engineering Intern</h3>
+          </div>
+          <p class="company-info">Global Solutions Ltd.</p>
+          <p class="details">📍 Accra, Ghana | 🕒 6 Months | 📅 Aug 25, 2025</p>
+          <p class="description">
+            Contribute to backend development, API design, and database
+            management for enterprise-level applications.
+          </p>
+          <div class="tags">
+            <span class="tag tag-onsite">Onsite</span>
+            <span class="tag tag-paid">Paid</span>
+            <span class="tag tag-fulltime">Full-time</span>
+          </div>
+          <a href="#" class="btn-accent-yellow apply-button">Apply Now</a>
+        </div>
+
+        <!-- Internship Card 6 -->
+        <div class="internship-card">
+          <div class="company-logo-name">
+            <img
+              src="https://placehold.co/50x50/CBD5E1/475569?text=FS"
+              alt="Future Systems Inc. Logo"
+              class="company-logo"
+            />
+            <h3 class="job-title">Cybersecurity Intern</h3>
+          </div>
+          <p class="company-info">Future Systems Inc.</p>
+          <p class="details">📍 Remote | 🕒 3 Months | 📅 Sep 5, 2025</p>
+          <p class="description">
+            Assist in vulnerability assessments, incident response, and security
+            protocol implementation.
+          </p>
+          <div class="tags">
+            <span class="tag tag-remote">Remote</span>
+            <span class="tag tag-paid">Paid</span>
+          </div>
+          <a href="#" class="btn-accent-yellow apply-button">Apply Now</a>
+        </div>
+      </div>
+      <div class="section-footer-link">
+        <a href="#" class="btn btn-secondary">Load More Internships</a>
+      </div>
+    </section>
+
+    <!-- Recommended/Popular Internships Section -->
+    <section id="popular-internships" class="popular-internships-section">
+      <h2>Popular Internships This Week</h2>
+      <div class="internship-cards-grid">
+        <!-- Reusing internship card structure for popular ones -->
+        <div class="internship-card">
+          <div class="company-logo-name">
+            <img
+              src="https://placehold.co/50x50/CBD5E1/475569?text=TI"
+              alt="Tech Innovations Inc. Logo"
+              class="company-logo"
+            />
+            <h3 class="job-title">Frontend Developer Intern</h3>
+          </div>
+          <p class="company-info">Tech Innovations Inc.</p>
+          <p class="details">📍 Remote | 🕒 3 Months | 📅 Aug 15, 2025</p>
+          <p class="description">
+            Gain hands-on experience building user interfaces with cutting-edge
+            technologies like React and Vue.js.
+          </p>
+          <div class="tags">
+            <span class="tag tag-remote">Remote</span>
+            <span class="tag tag-paid">Paid</span>
+          </div>
+          <a href="#" class="btn-accent-yellow apply-button">Apply Now</a>
+        </div>
+
+        <div class="internship-card">
+          <div class="company-logo-name">
+            <img
+              src="https://placehold.co/50x50/CBD5E1/475569?text=GS"
+              alt="Growth Sparks Agency Logo"
+              class="company-logo"
+            />
+            <h3 class="job-title">Digital Marketing Assistant</h3>
+          </div>
+          <p class="company-info">Growth Sparks Agency</p>
+          <p class="details">📍 Accra, Ghana | 🕒 6 Weeks | 📅 Sep 1, 2025</p>
+          <p class="description">
+            Help craft engaging campaigns and analyze market trends for real
+            clients in a fast-paced agency environment.
+          </p>
+          <div class="tags">
+            <span class="tag tag-onsite">Onsite</span>
+            <span class="tag tag-unpaid">Unpaid</span>
+          </div>
+          <a href="#" class="btn-accent-yellow apply-button">Apply Now</a>
+        </div>
+
+        <div class="internship-card">
+          <div class="company-logo-name">
+            <img
+              src="https://placehold.co/50x50/CBD5E1/475569?text=IS"
+              alt="Insightful Solutions Logo"
+              class="company-logo"
+            />
+            <h3 class="job-title">Data Analyst Internship</h3>
+          </div>
+          <p class="company-info">Insightful Solutions</p>
+          <p class="details">
+            📍 Kumasi, Ghana | 🕒 4 Months | 📅 Aug 20, 2025
+          </p>
+          <p class="description">
+            Dive deep into data, extracting valuable insights to drive business
+            decisions using SQL and Python.
+          </p>
+          <div class="tags">
+            <span class="tag tag-onsite">Onsite</span>
+            <span class="tag tag-paid">Paid</span>
+          </div>
+          <a href="#" class="btn-accent-yellow apply-button">Apply Now</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- My Applications Tracker Section -->
+    <section id="my-applications" class="my-applications-section">
+      <h2>My Internship Applications</h2>
+      <div class="applications-table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Internship Title</th>
+              <th>Company</th>
+              <th>Application Date</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Frontend Developer Intern</td>
+              <td>Tech Innovations Inc.</td>
+              <td>July 5, 2025</td>
+              <td>
+                <span class="status-tag status-submitted">Submitted</span>
+              </td>
+              <td>
+                <button class="action-button view-details">View Details</button>
+                <button class="action-button withdraw">Withdraw</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Digital Marketing Assistant</td>
+              <td>Growth Sparks Agency</td>
+              <td>June 28, 2025</td>
+              <td><span class="status-tag status-pending">Pending</span></td>
+              <td>
+                <button class="action-button view-details">View Details</button>
+                <button class="action-button withdraw">Withdraw</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Data Analyst Internship</td>
+              <td>Insightful Solutions</td>
+              <td>June 15, 2025</td>
+              <td>
+                <span class="status-tag status-interview">Interview</span>
+              </td>
+              <td>
+                <button class="action-button view-details">View Details</button>
+                <button class="action-button schedule-interview">
+                  Schedule Interview
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>UI/UX Design Intern</td>
+              <td>Creative Minds Studio</td>
+              <td>May 20, 2025</td>
+              <td><span class="status-tag status-rejected">Rejected</span></td>
+              <td>
+                <button class="action-button view-details">View Details</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="section-footer-link">
+        <a href="#" class="btn btn-secondary">View All My Applications</a>
+      </div>
+    </section>
+
+    <!-- Tips & Resources Section -->
+    <section id="tips-resources" class="tips-resources-section">
+      <h2>Tips & Resources for Success</h2>
+      <div class="resources-grid">
+        <div class="resource-card">
+          <img
+            src="../assets/icons/resume.jpg"
+            alt="CV Icon"
+            class="resource-icon"
+          />
+          <h3>CV/Resume Templates</h3>
+          <p>
+            Download professional and customizable templates to make your resume
+            stand out.
+          </p>
+          <a href="#" class="resource-link">Download Now</a>
+        </div>
+        <div class="resource-card">
+          <img
+            src="../assets/icons/cover-letter.jpg"
+            alt="Cover Letter Icon"
+            class="resource-icon"
+          />
+          <h3>Cover Letter Guide</h3>
+          <p>
+            Learn how to write compelling cover letters that capture the
+            attention of recruiters.
+          </p>
+          <a href="#" class="resource-link">Read Guide</a>
+        </div>
+        <div class="resource-card">
+          <img
+            src="../assets/icons/interview.jpg"
+            alt="Interview Video Icon"
+            class="resource-icon"
+          />
+          <h3>Internship Interview Prep</h3>
+          <p>
+            Watch our video series on common interview questions and best
+            practices.
+          </p>
+          <a href="#" class="resource-link">Watch Video</a>
+        </div>
+        <div class="resource-card">
+          <img
+            src="../assets/icons/Job.jpg"
+            alt="Job Board Icon"
+            class="resource-icon"
+          />
+          <h3>Useful External Job Boards</h3>
+          <p>
+            Explore other reputable platforms for internship and job
+            opportunities.
+          </p>
+          <a href="#" class="resource-link">Explore Links</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Need Help? Section -->
+    <section class="need-help-section">
+      <div class="need-help-container">
+        <h2>Need help with your application?</h2>
+        <p class="need-help-subtext">
+          Our support team and extensive resources are here to guide you every
+          step of the way.
+        </p>
+        <div class="need-help-buttons">
+          <a href="#contact" class="btn btn-primary">Contact Support</a>
+          <a href="#tips-resources" class="btn btn-secondary">View Resources</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section - Reused from public homepage for consistency -->
+    <footer class="footer-section">
+      <div class="footer-container">
+        <!-- Quick Links -->
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="footer-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+          <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

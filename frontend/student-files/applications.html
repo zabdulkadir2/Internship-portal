@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Applications | CampusConnect</title>
+    <!-- Google Fonts: Poppins for headings, Open Sans for body text -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for social media icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      xintegrity="sha512-ieCDyF4QYVlXF0Kz5a6eGgA5Q/t0O8aNnN9F1iX2j3aV5eO7pB5sC5xL5w5O5h5aO5Q5E5g5n5Q5i5b5q5A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Link to the dedicated CSS file for this page -->
+    <link rel="stylesheet" href="../student-styles/applications.css" />
+  </head>
+  <body>
+    <!-- Navbar Section - Reused for consistency -->
+    <nav class="nav-container">
+      <div class="logo">
+        <h1>CampusConnect</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="internship.html">Internships</a></li>
+        <li><a href="mentors.html">Mentors</a></li>
+        <li><a href="#my-applications">My Applications</a></li>
+        <li><a href="schedule.html">My Schedule</a></li>
+        <li><a href="session.html">My Sessions</a></li>
+        <li><a href="student-profile.html">Profile</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </nav>
+
+    <!-- Application Summary - Moved to top -->
+    <section class="application-summary-section">
+      <div class="summary-cards-grid">
+        <div class="summary-card">
+          <h3>12</h3>
+          <p>Total Applications</p>
+        </div>
+        <div class="summary-card">
+          <h3>8</h3>
+          <p>Reviewed Applications</p>
+        </div>
+        <div class="summary-card">
+          <h3>2</h3>
+          <p>Accepted Offers</p>
+        </div>
+        <div class="summary-card">
+          <h3>3</h3>
+          <p>Rejected Applications</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filters or Sorting - Redesigned to match image inspiration -->
+    <section class="applications-filter-section">
+      <div class="filter-controls-container">
+        <div class="filter-dropdowns">
+          <select class="filter-select">
+            <option value="">Filter by Status</option>
+            <option value="submitted">Submitted</option>
+            <option value="pending">Pending</option>
+            <option value="reviewed">Reviewed</option>
+            <option value="interview">Interview</option>
+            <option value="accepted">Accepted</option>
+            <option value="rejected">Rejected</option>
+          </select>
+          <select class="filter-select">
+            <option value="">Filter by Company</option>
+            <option value="tech-innovations">Tech Innovations Inc.</option>
+            <option value="growth-sparks">Growth Sparks Agency</option>
+            <option value="insightful-solutions">Insightful Solutions</option>
+          </select>
+          <select class="filter-select">
+            <option value="">Sort by Date.</option>
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+          </select>
+        </div>
+        <div class="filter-actions">
+          <button class="btn btn-secondary apply-filters-button">
+            Apply Filters
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Applications Table or Cards -->
+    <section class="applications-list-section">
+      <div class="applications-table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Internship Title</th>
+              <th>Company</th>
+              <th>Location</th>
+              <th>Type</th>
+              <th>Status</th>
+              <th>Applied On</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Frontend Developer Intern</td>
+              <td>Tech Innovations Inc.</td>
+              <td>Remote</td>
+              <td>Full-time</td>
+              <td><span class="status-tag status-accepted">Accepted</span></td>
+              <td>July 5, 2025</td>
+              <td>
+                <button class="action-button">View</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Digital Marketing Assistant</td>
+              <td>Growth Sparks Agency</td>
+              <td>Accra, Ghana</td>
+              <td>Part-time</td>
+              <td>
+                <span class="status-tag status-interview">Interview</span>
+              </td>
+              <td>June 28, 2025</td>
+              <td>
+                <button class="action-button schedule-interview">
+                  Schedule Interview
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>Data Analyst Internship</td>
+              <td>Insightful Solutions</td>
+              <td>Kumasi, Ghana</td>
+              <td>Full-time</td>
+              <td><span class="status-tag status-pending">Pending</span></td>
+              <td>June 15, 2025</td>
+              <td>
+                <button class="action-button withdraw">Withdraw</button>
+              </td>
+            </tr>
+            <tr>
+              <td>UI/UX Design Intern</td>
+              <td>Creative Minds Studio</td>
+              <td>Remote</td>
+              <td>Part-time</td>
+              <td><span class="status-tag status-rejected">Rejected</span></td>
+              <td>May 20, 2025</td>
+              <td>
+                <button class="action-button">View</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Software Engineering Intern</td>
+              <td>Global Solutions Ltd.</td>
+              <td>Accra, Ghana</td>
+              <td>Full-time</td>
+              <td>
+                <span class="status-tag status-submitted">Submitted</span>
+              </td>
+              <td>July 8, 2025</td>
+              <td>
+                <button class="action-button withdraw">Withdraw</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Empty State (Hidden by default, can be shown with JS) -->
+      <div class="empty-state" style="display: none">
+        <p>
+          You haven’t applied to any internships yet. Start your journey today!
+        </p>
+        <a href="internship.html" class="btn btn-primary">Browse Internships</a>
+      </div>
+    </section>
+
+    <!-- Consistent Footer - Reused for consistency -->
+    <footer class="footer-section">
+      <div class="footer-container">
+        <!-- Quick Links -->
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="footer-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+          <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

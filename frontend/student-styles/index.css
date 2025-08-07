@@ -1,0 +1,722 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: #334155; /* Base text color */
+     background-color: #F9FAFB; /* Consistent light background */
+}
+
+/* Base styles for sections to ensure consistent padding and max-width */
+ section { 
+    padding: 4rem 2rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+section h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    color: #1E3A8A;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+/* Reusable Button Styles - Copied from public homepage for consistency */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    margin-right: 0.5rem;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none; /* Ensure no default button border */
+    cursor: pointer;
+}
+
+.btn-primary { /* Used on public page, keeping for potential future use */
+    background-color: #1E3A8A;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0F172A;
+}
+
+
+
+.btn-secondary:hover {
+    background-color: #f59e0b;
+}
+
+/* Specific button styles for student page */
+.btn.discover-btn {
+    background-color: #1E3A8A;
+    color: #fff;
+    margin-right: 1rem; /* Adjust spacing between buttons */
+}
+
+.btn.discover-btn:hover {
+    background-color: #0F172A;
+    
+}
+
+.btn.mentor-btn {
+    background-color: #FBBF24;
+    color: #1E293B;
+}
+
+.btn.mentor-btn:hover {
+    background-color: #f59e0b;
+}
+
+.btn.btn-explore{
+     background-color: #FBBF24;
+    color: #1E293B;
+}
+.btn.btn-explore:hover{
+     background-color: #f59e0b;
+}
+.btn-accent-teal { /* For 'Connect' buttons on mentor cards */
+    background-color: #2DD4BF; /* A nice teal color */
+    color: #0F172A;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    border-radius: 4px;
+}
+
+.btn-accent-teal:hover {
+    background-color: #14B8A6; /* Darker teal on hover */
+    color: #ffffff;
+}
+
+.section-footer-link {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* ========== NAVBAR CONTAINER - Consistent with public page ========== */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+/* ========== LOGO - Consistent with public page ========== */
+.logo h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: #1E3A8A;
+    margin: 0;
+}
+
+/* ========== NAV LINKS - Consistent with public page ========== */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #0F172A;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #1E3A8A;
+}
+
+/* Hero section - Adjusted for student homepage */
+.hero {
+    padding: 7rem 4rem; /* Account for fixed navbar */
+    background-color: #F9FAFB;
+}
+
+.hero-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.25rem;
+    max-width: 1200px;
+    margin: 0 auto; /* Center the content within the hero section */
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 600px;
+    text-align: center;
+}
+
+.hero-text h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #1E3A8A;
+    font-size: 2.25rem; /* Slightly larger for main welcome */
+    margin-bottom: 1rem;
+}
+
+.hero-text h2 #student-name {
+    color: #FBBF24; /* Highlight student name */
+}
+
+.hero-text p {
+    color: #334155;
+    font-size: 1.1rem; /* Slightly larger for hero text */
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.hero-image img {
+    max-width: 500px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive: side-by-side on desktop */
+@media (min-width: 768px) {
+    .hero-block {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .hero-text {
+        text-align: left;
+        padding-right: 2rem;
+    }
+
+    .hero-image {
+        text-align: right;
+        padding-left: 2rem;
+    }
+}
+
+/* Stats Section */
+.stats-section {
+    background-color: #ffffff;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.stats-section h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    color: #1E3A8A;
+    margin-bottom: 3rem;
+}
+
+.stats-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.stats-card {
+    background-color: #F9FAFB;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.stats-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    color: #1E3A8A; /* Highlight stats */
+    margin-bottom: 0.5rem;
+}
+
+.stats-card p {
+    font-family: 'Open Sans', sans-serif;
+    color: #475569;
+    font-size: 1rem;
+}
+
+@media (min-width: 600px) {
+    .stats-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .stats-cards-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Internship Listing Section */
+.internships-section {
+    background-color: #F9FAFB;
+}
+
+.internship-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.internship-card {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.internship-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    color: #1E3A8A;
+    margin-bottom: 0.5rem;
+}
+
+.internship-card .company-info {
+    font-family: 'Open Sans', sans-serif;
+    color: #64748B;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.internship-card .description {
+    font-family: 'Open Sans', sans-serif;
+    color: #475569;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* Allows description to take up available space */
+}
+ .btn-accent-yellow{
+    align-self: flex-start;
+   text-decoration: none;
+    background-color: #FBBF24;
+    color: #1E293B;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    border-radius: 4px;
+}
+.btn-accent-yellow:hover{
+    background-color: #f59e0b;
+}
+.internship-btn { /* Used on public page for "Learn More" and now "View All" */
+    background-color: #FBBF24;
+    color: #1E293B;
+    list-style: none;
+}
+.internship-btn:hover { /* Used on public page for "Learn More" and now "View All" */
+   background-color: #f59e0b;
+}
+@media (min-width: 768px) {
+    .internship-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .internship-cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Mentors Section - Similar to featured section on public page */
+.mentors-section {
+    background-color: #ffffff;
+}
+
+.mentor-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.mentor-card {
+    background-color: #F9FAFB;
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mentor-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+     border: 4px solid #F5A623;
+}
+
+.mentor-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    color: #0F172A;
+    margin-bottom: 0.3rem;
+}
+
+.mentor-card .mentor-role {
+    font-family: 'Open Sans', sans-serif;
+    color: #64748B;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .mentor-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .mentor-cards-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Announcement Section - UPDATED with card-like styling */
+.announcement-section {
+    background-color: #ffffff; /* White background for the entire section */
+    padding: 4rem 2rem;
+    max-width: none; /* Allows the section to span full width */
+    margin: 2rem 0; /* Add vertical margin to separate from other sections */
+    text-align: center; /* Center the heading */
+}
+
+.announcement-section h2 {
+    margin-bottom: 2rem;
+    color: #1E3A8A;
+}
+
+.announcement-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem auto; /* Center the list within the section, add vertical margin */
+    max-width: 800px; /* Keep content centered within the wide section */
+    /* Remove background, border-radius, and shadow from the list container itself */
+}
+
+.announcement-list li {
+    background-color: #F9FAFB; /* Light grey background for each announcement card */
+    padding: 1.2rem 1.5rem; /* Increased padding for better spacing */
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border-left: 5px solid #FBBF24; /* Accent border on the left */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03); /* Subtle shadow for depth */
+    text-align: left; /* Align text left within the card */
+    display: flex; /* Use flexbox for content alignment */
+    align-items: center; /* Vertically align content */
+    gap: 1rem; /* Space between bullet and text */
+}
+
+.announcement-list li:last-child {
+    margin-bottom: 0;
+}
+
+.announcement-list li::before {
+    content: '\2022'; /* Unicode for a solid bullet point */
+    color: #FBBF24; /* Yellow color for the bullet */
+    font-size: 1.8rem; /* Larger bullet point */
+    line-height: 1; /* Align with text baseline */
+    flex-shrink: 0; /* Prevent bullet from shrinking */
+}
+
+.announcement-list li a {
+    color: #1E3A8A;
+    text-decoration: none; /* Remove default underline */
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+    font-weight: 600; /* Make links stand out more */
+}
+
+.announcement-list li a:hover {
+    color: #0F172A; /* Darker blue on hover */
+    text-decoration: underline; /* Underline on hover */
+}
+
+
+/* Appointments Section */
+.appointments-section {
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.appointment-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.appointment-card {
+    background-color: #F9FAFB;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.appointment-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    color: #1E3A8A;
+    margin-bottom: 0.75rem;
+}
+
+.appointment-card .appointment-details {
+    font-family: 'Open Sans', sans-serif;
+    color: #475569;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.appointment-card .appointment-details:last-of-type {
+    margin-bottom: 0;
+}
+
+.appointment-card .join-link,
+.appointment-card .view-details-link {
+    color: #2DD4BF; /* Teal color for links */
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.appointment-card .join-link:hover,
+.appointment-card .view-details-link:hover {
+    color: #14B8A6;
+}
+.btn.btn-schedule { /* Used on public page for "Learn More" and now "View All"  */
+   background-color: #FBBF24;
+    color: #1E293B;
+}
+
+.btn.btn-schedule:hover {
+    background-color: #f59e0b;
+}
+
+.appointment-card .warning {
+    color: #DC2626; /* Red for warnings/important actions */
+    font-weight: 600;
+}
+
+@media (min-width: 768px) {
+    .appointment-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .appointment-cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Quick Links Section */
+.quick-links-section {
+    background-color: #F9FAFB;
+    text-align: center;
+}
+
+.quick-links-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.quick-link-card {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    text-decoration: none;
+    color: #1E3A8A;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quick-link-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.quick-link-card img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0.75rem;
+}
+
+.quick-link-card span {
+    display: block; /* Ensures text is below the icon */
+}
+
+@media (min-width: 600px) {
+    .quick-links-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .quick-links-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Feedback Section - Completed based on common form patterns */
+.feedback-section {
+    background-color: #ffffff;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.feedback-section h2 {
+    margin-bottom: 0.5rem;
+}
+
+.feedback-intro {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    color: #475569;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feedback-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.feedback-form input[type="text"],
+.feedback-form input[type="email"],
+.feedback-form textarea {
+    padding: 1rem;
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+.feedback-form textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 100px;
+}
+
+.feedback-form button {
+    background-color: #1E3A8A;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.feedback-form button:hover {
+    background-color: #0F172A;
+}
+
+/* footer section */
+.footer-section {
+  background-color: #0F172A;
+  color: #ffffff;
+  padding: 2rem 1.5rem;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footer-links a {
+  color: #E2E8F0;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #FBBF24;
+}
+
+.footer-socials {
+  margin-bottom: 1rem;
+}
+
+.footer-socials a {
+  font-size: 1.3rem;
+  margin: 0 0.5rem;
+  text-decoration: none;
+  color: #E2E8F0;
+  transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+  color: #FBBF24;
+}
+
+.footer-bottom p {
+  font-size: 0.85rem;
+  color: #94A3B8;
+}

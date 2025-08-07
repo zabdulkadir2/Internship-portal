@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Schedule | CampusConnect</title>
+    <!-- Google Fonts: Poppins for headings, Open Sans for body text -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for social media icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      xintegrity="sha512-ieCDyF4QYVlXF0Kz5a6eGgA5Q/t0O8aNnN9F1iX2j3aV5eO7pB5sC5xL5w5O5h5aO5Q5E5g5n5Q5i5b5q5A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Link to the dedicated CSS file for this page -->
+    <link rel="stylesheet" href="../student-styles/schedule.css" />
+  </head>
+  <body>
+    <!-- Navbar Section - Reused for consistency -->
+    <nav class="nav-container">
+      <div class="logo">
+        <h1>CampusConnect</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="internship.html">Internships</a></li>
+        <li><a href="mentors.html">Mentors</a></li>
+        <li><a href="applications.html">My Applications</a></li>
+        <li><a href="#my-schedule">My Schedule</a></li>
+        <li><a href="session.html">My Sessions</a></li>
+        <li><a href="student-profile.html">Profile</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </nav>
+
+    <!-- Page Header / Hero Section -->
+    <section class="page-hero">
+      <div class="page-hero-block">
+        <div class="page-hero-text">
+          <h2>My Schedule</h2>
+          <p>
+            Stay on top of your internship deadlines, mentor sessions, and
+            upcoming events.
+          </p>
+        </div>
+        <!-- Hero image removed as requested -->
+      </div>
+    </section>
+
+    <!-- Upcoming Events Section -->
+    <section class="upcoming-events-section">
+      <h2>Upcoming Events</h2>
+      <div class="events-list-grid">
+        <!-- Event Card 1: Mentor Session -->
+        <div class="event-card">
+          <p class="event-date-time">July 20, 2025 — 3:00 PM GMT</p>
+          <h3 class="event-title">👤 Mentor Session with Ama</h3>
+          <p class="event-details">📍 Google Meet</p>
+          <p class="event-status status-confirmed">🟢 Confirmed</p>
+          <div class="event-actions">
+            <a href="#" class="btn btn-primary join-now-btn">Join Now</a>
+            <button class="action-button reschedule-btn">Reschedule</button>
+          </div>
+        </div>
+
+        <!-- Event Card 2: Interview -->
+        <div class="event-card">
+          <p class="event-date-time">July 22, 2025 — 10:00 AM GMT</p>
+          <h3 class="event-title">💬 Interview with Tech Innovations Inc.</h3>
+          <p class="event-details">📍 Virtual Interview Room</p>
+          <p class="event-status status-pending">⏳ Pending Confirmation</p>
+          <div class="event-actions">
+            <button class="action-button view-details-btn">View Details</button>
+          </div>
+        </div>
+
+        <!-- Event Card 3: Workshop -->
+        <div class="event-card">
+          <p class="event-date-time">July 25, 2025 — 1:00 PM GMT</p>
+          <h3 class="event-title">📝 Resume Building Workshop</h3>
+          <p class="event-details">📍 Campus Lecture Hall 3</p>
+          <p class="event-status status-confirmed">🟢 Confirmed</p>
+          <div class="event-actions">
+            <button class="action-button view-details-btn">View Details</button>
+          </div>
+        </div>
+
+        <!-- Event Card 4: Application Deadline -->
+        <div class="event-card">
+          <p class="event-date-time">July 28, 2025 — 5:00 PM GMT</p>
+          <h3 class="event-title">
+            📅 Application Deadline: Global Solutions Ltd.
+          </h3>
+          <p class="event-details">Action: Submit your application!</p>
+          <p class="event-status status-deadline">🔴 Deadline Soon</p>
+          <div class="event-actions">
+            <a href="internship.html" class="btn btn-secondary">Apply Now</a>
+          </div>
+        </div>
+
+        <!-- Event Card 5: Follow-up Session -->
+        <div class="event-card">
+          <p class="event-date-time">August 1, 2025 — 11:00 AM GMT</p>
+          <h3 class="event-title">👤 Mentor Follow-up with Kwame</h3>
+          <p class="event-details">📍 Zoom Call</p>
+          <p class="event-status status-confirmed">🟢 Confirmed</p>
+          <div class="event-actions">
+            <a href="#" class="btn btn-primary join-now-btn">Join Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-footer-link">
+        <a href="#" class="btn btn-secondary">View All Past Events</a>
+      </div>
+    </section>
+
+    <!-- Consistent Footer - Reused for consistency -->
+    <footer class="footer-section">
+      <div class="footer-container">
+        <!-- Quick Links -->
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="footer-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+          <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

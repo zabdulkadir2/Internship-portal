@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Profile | CampusConnect (Mentor)</title>
+    <!-- Google Fonts: Poppins for headings, Open Sans for body text -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for social media icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      xintegrity="sha512-ieCDyF4QYVlXF0Kz5a6eGgA5Q/t0O8aNnN9F1iX2j3aV5eO7pB5sC5xL5w5O5h5aO5Q5E5g5n5Q5i5b5q5A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Link to the dedicated CSS file for this page -->
+    <link rel="stylesheet" href="../mentors-styles/mentor-profile.css" />
+  </head>
+  <body>
+    <!-- Navbar Section - Reused for consistency -->
+    <nav class="nav-container">
+      <div class="logo">
+        <h1>CampusConnect</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="request.html">Student Requests</a></li>
+        <li><a href="mentees.html">My Mentees</a></li>
+        <li><a href="myschedule.html">My Schedule</a></li>
+        <li><a href="#mentor-profile">Profile</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </nav>
+
+    <div class="profile-page-container">
+      <div class="profile-card">
+        <h2 class="section-title">My Profile</h2>
+
+        <div class="profile-avatar-section">
+          <img
+            src="https://placehold.co/100x100/CBD5E1/475569?text=Avatar"
+            alt="User Avatar"
+            class="profile-avatar"
+          />
+          <div class="avatar-actions">
+            <button class="btn btn-primary change-avatar-btn">
+              Change avatar
+            </button>
+            <button class="btn btn-secondary remove-avatar-btn">
+              Remove avatar
+            </button>
+          </div>
+        </div>
+
+        <form class="profile-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="first-name">First Name</label>
+              <input type="text" id="first-name" value="Amina" />
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name</label>
+              <input type="text" id="last-name" value="Suleiman" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                value="amina.suleiman@example.com"
+              />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" value="+233 55 987 6543" />
+            </div>
+            <div class="form-group">
+              <label for="city-state">City/State</label>
+              <input type="text" id="city-state" value="Accra" />
+            </div>
+            <div class="form-group">
+              <label for="country">Country</label>
+              <select id="country">
+                <option value="Ghana" selected>Ghana</option>
+                <option value="USA">USA</option>
+                <option value="UK">UK</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="postal-code">Postal Code</label>
+              <input type="text" id="postal-code" value="GA-000-0000" />
+            </div>
+            <div class="form-group">
+              <label for="company-name">Company Name</label>
+              <input type="text" id="company-name" value="Google" />
+            </div>
+            <div class="form-group">
+              <label for="job-title">Job Title</label>
+              <input type="text" id="job-title" value="UX Designer" />
+            </div>
+            <div class="form-group">
+              <label for="expertise">Field of Expertise</label>
+              <input
+                type="text"
+                id="expertise"
+                value="UX/UI Design, Product Strategy"
+              />
+            </div>
+            <div class="form-group">
+              <label for="experience">Years of Experience</label>
+              <input type="number" id="experience" value="7" />
+            </div>
+            <div class="form-group">
+              <label for="language">Language</label>
+              <select id="language">
+                <option value="English" selected>English</option>
+                <option value="French">French</option>
+                <option value="Twi">Twi</option>
+              </select>
+            </div>
+            <div class="form-group full-width">
+              <label for="bio">Bio</label>
+              <textarea id="bio" rows="5">
+Experienced UX Designer at Google with a passion for creating intuitive and impactful digital products. I enjoy mentoring aspiring designers and sharing insights on user-centered design principles and career growth in tech.</textarea
+              >
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary cancel-btn">
+              Cancel
+            </button>
+            <button type="submit" class="btn btn-primary save-btn">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Consistent Footer - Reused for consistency -->
+    <footer class="footer-section">
+      <div class="footer-container">
+        <!-- Quick Links -->
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="footer-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+          <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
