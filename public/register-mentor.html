@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Company Register | CampusConnect</title>
+    <title>Mentor Register | CampusConnect</title>
     <!-- Google Fonts: Poppins for headings, Open Sans for body text -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
       rel="stylesheet"
     />
     <!-- Link to the dedicated CSS file for this page -->
-    <link rel="stylesheet" href="../index-styles/registration.css" />
+    <link rel="stylesheet" href="index-styles/registration.css" />
   </head>
   <body>
     <div class="register-container">
@@ -18,30 +18,29 @@
       <div class="register-card">
         <div class="register-form-section">
           <div class="register-header">
-            <h1 class="welcome-title">Register Your Company</h1>
+            <h1 class="welcome-title">Register as a Mentor</h1>
             <p class="welcome-subtitle">
-              Partner with CampusConnect to find top talent and post
-              internships.
+              Join CampusConnect to guide students and share your expertise.
             </p>
           </div>
 
           <form class="register-form">
             <div class="form-group">
-              <label for="company-name">Company Name</label>
+              <label for="full-name">Full Name</label>
               <input
                 type="text"
-                id="company-name"
-                placeholder="Tech Innovations Inc."
+                id="full-name"
+                placeholder="John Paul George"
                 required
               />
             </div>
 
             <div class="form-group">
-              <label for="company-email">Company Email</label>
+              <label for="email">Email</label>
               <input
                 type="email"
-                id="company-email"
-                placeholder="contact@techinnovations.com"
+                id="email"
+                placeholder="john01@example.com"
                 required
               />
             </div>
@@ -67,11 +66,11 @@
             </div>
 
             <div class="form-group">
-              <label for="industry">Industry</label>
+              <label for="expertise">Field of Expertise</label>
               <input
                 type="text"
-                id="industry"
-                placeholder="e.g., Software, Marketing, Finance"
+                id="expertise"
+                placeholder="e.g., Software Development, UX Design"
                 required
               />
             </div>
@@ -84,7 +83,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary register-btn">
-              Register Company
+              Register
             </button>
           </form>
 
@@ -103,7 +102,7 @@
           <div class="login-link">
             <p>
               Already have an account?
-              <a href="login.html" class="login-now">Login</a>
+              <a href="../index-styles/login.html" class="login-now">Login</a>
             </p>
           </div>
 
@@ -115,15 +114,13 @@
         <div class="register-graphic-section">
           <!-- Image for the graphic section -->
           <img
-            src="../assets/images/company1-signup.jpg"
-            alt="Company signup graphic"
+            src="../public/assets/images/mentor1-signup.jpg"
+            alt="Mentor signup graphic"
             class="register-graphic-image"
           />
           <div class="image-overlay-content">
-            <h3>Find Your Next Top Talent</h3>
-            <p>
-              Connect with bright students for internships and full-time roles.
-            </p>
+            <h3>Empower the Next Generation</h3>
+            <p>Share your knowledge and experience to shape future leaders.</p>
             <div class="overlay-nav-dots">
               <span class="dot active"></span>
               <span class="dot"></span>
