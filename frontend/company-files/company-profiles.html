@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Company Profile | CampusConnect</title>
+    <!-- Google Fonts: Poppins for headings, Open Sans for body text -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome is no longer used for social icons, but can be kept for other icons if needed -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../company-styles/company-profiles.css"/>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a href="#">CampusConnect</a>
+      </div>
+      <ul class="navbar-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="post.html">Post Internship</a></li>
+        <li><a href="manage.html">Manage Applications</a></li>
+        <li><a href="studentprofile-company.html">Student Profiles</a></li>
+        <li><a href="#" class="active">Company Profile</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </nav>
+
+    <main class="main-content">
+      <!-- Company Profile Hero Section -->
+      <div class="company-hero card">
+        <div class="company-banner">
+          <img
+            src="https://placehold.co/1200x300/E2E8F0/A0B2C4?text=Company+Banner"
+            alt="Company Banner"
+            class="banner-image"
+          />
+        </div>
+        <div class="company-header-content">
+          <img
+            src="https://placehold.co/150x150/CBD5E1/475569?text=Logo"
+            alt="Company Logo"
+            class="company-logo"
+          />
+          <div class="company-info">
+            <h1 class="company-name">Innovatech Solutions</h1>
+            <p class="company-industry">Technology | Software Development</p>
+            <p class="company-location">San Francisco, CA</p>
+            <a href="https://www.innovatech.com" class="company-website"
+              >www.innovatech.com</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- About Us Section -->
+      <div class="about-us-section card">
+        <div class="section-header">
+          <h2>About Us</h2>
+          <button class="btn btn-secondary">Edit Profile</button>
+        </div>
+        <p>
+          Innovatech Solutions is a leading technology company dedicated to
+          creating cutting-edge software products that solve real-world
+          problems. Our mission is to foster a culture of creativity and
+          collaboration, empowering our employees to push the boundaries of
+          what's possible. We believe in providing impactful internship
+          experiences that prepare students for a successful career in tech.
+        </p>
+      </div>
+
+      <!-- Contact Information Section -->
+      <div class="contact-section card">
+        <h2>Contact Information</h2>
+        <div class="contact-details">
+          <p>
+            <strong>Address:</strong> 123 Tech Avenue, San Francisco, CA 94107
+          </p>
+          <p><strong>Phone:</strong> (555) 123-4567</p>
+          <p><strong>Email:</strong> contact@innovatech.com</p>
+        </div>
+        <div class="social-links">
+          <a href="#" class="social-icon-link"
+            ><img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/480px-LinkedIn_logo_initials.png"
+              alt="LinkedIn"
+          /></a>
+          <a href="#" class="social-icon-link"
+            ><img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/512px-Logo_of_Twitter.svg.png"
+              alt="Twitter"
+          /></a>
+          <a href="#" class="social-icon-link"
+            ><img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/768px-Instagram_icon.png"
+              alt="Instagram"
+          /></a>
+        </div>
+      </div>
+
+      <!-- Internship & Job Listings Section -->
+      <div class="listings-section card">
+        <h2>Current Internship & Job Listings</h2>
+        <div class="job-listing-grid">
+          <!-- Mock Job Listing 1 -->
+          <div class="job-card">
+            <div class="job-details">
+              <h3 class="job-title">Software Engineer Intern</h3>
+              <p class="job-location">Remote</p>
+              <p class="job-duration">Summer 2025 (12 weeks)</p>
+              <p class="job-deadline">Deadline: May 31, 2025</p>
+            </div>
+            <div class="job-actions">
+              <button class="btn btn-secondary">View Applications</button>
+              <button class="btn btn-tertiary">Edit</button>
+            </div>
+          </div>
+          <!-- Mock Job Listing 2 -->
+          <div class="job-card">
+            <div class="job-details">
+              <h3 class="job-title">Product Management Intern</h3>
+              <p class="job-location">On-site, San Francisco</p>
+              <p class="job-duration">Fall 2025 (16 weeks)</p>
+              <p class="job-deadline">Deadline: August 15, 2025</p>
+            </div>
+            <div class="job-actions">
+              <button class="btn btn-secondary">View Applications</button>
+              <button class="btn btn-tertiary">Edit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Company Statistics / Impact Section -->
+      <div class="stats-section card">
+        <h2>Our Impact on Students</h2>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <h3>25+</h3>
+            <p>Internships Posted</p>
+          </div>
+          <div class="stat-item">
+            <h3>15</h3>
+            <p>Students Hired</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Edit Profile Form (initially hidden or in a different state) -->
+      <div class="edit-profile-form card">
+        <h2>Edit Company Profile</h2>
+        <form>
+          <div class="form-group">
+            <label for="companyName">Company Name</label>
+            <input type="text" id="companyName" value="Innovatech Solutions" />
+          </div>
+          <div class="form-group">
+            <label for="logoUpload">Company Logo</label>
+            <input type="file" id="logoUpload" />
+          </div>
+          <div class="form-group">
+            <label for="companyDescription">About Us</label>
+            <textarea id="companyDescription" rows="5">
+Innovatech Solutions is a leading technology company dedicated to creating cutting-edge software products...</textarea
+            >
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <button type="button" class="btn btn-secondary">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+      <div class="footer-container">
+        <div class="footer-links">
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+        </div>
+                  <!-- Social Media Icons -->
+        <div class="footer-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a></a>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

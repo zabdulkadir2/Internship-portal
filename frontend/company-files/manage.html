@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Applications | CampusConnect</title>
+    <!-- Google Fonts: Poppins for headings, Open Sans for body text -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="../company-styles/manage.css">
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a href="#">CampusConnect</a>
+      </div>
+      <ul class="navbar-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="post.html">Post Internship</a></li>
+        <li><a href="#" class="active">Manage Applications</a></li>
+        <li><a href="studentprofile-company.html">Student Profiles</a></li>
+        <li><a href="company-profiles.html">Company Profile</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+      <div class="header-content">
+        <h1 class="page-title">Manage Internship Applications</h1>
+        <p class="page-subtitle">
+          Review, filter, and track applications for your internship postings.
+        </p>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div class="filter-and-list-container">
+        <!-- Filter & Search Panel -->
+        <div class="filter-panel card">
+          <input
+            type="text"
+            id="search-applicants"
+            placeholder="Search by name, email, or skills..."
+          />
+
+          <select id="internship-position">
+            <option value="all">All Internships</option>
+            <option value="se-intern">Software Engineering Intern</option>
+            <option value="ux-design">UX Design Intern</option>
+            <option value="marketing-specialist">
+              Marketing Specialist Intern
+            </option>
+          </select>
+
+          <select id="application-status">
+            <option value="all">All Statuses</option>
+            <option value="applied">Applied</option>
+            <option value="under-review">Under Review</option>
+            <option value="interview-scheduled">Interview Scheduled</option>
+            <option value="rejected">Rejected</option>
+            <option value="hired">Hired</option>
+          </select>
+
+          <input type="date" id="date-applied" />
+
+          <select id="sort-by">
+            <option value="recent">Most recent</option>
+            <option value="oldest">Oldest</option>
+            <option value="status">Status</option>
+            <option value="alpha">Alphabetical</option>
+          </select>
+
+          <button class="btn btn-primary">Search</button>
+        </div>
+
+        <!-- Applications List / Table -->
+        <div class="applications-list-card card">
+          <div class="bulk-actions">
+            <input type="checkbox" id="select-all" class="bulk-checkbox" />
+            <label for="select-all">Select All</label>
+            <button class="btn btn-secondary">Update Status</button>
+            <button class="btn btn-secondary">Send Email</button>
+          </div>
+
+          <div class="applications-table-wrapper">
+            <table class="applications-table">
+              <thead>
+                <tr>
+                  <th><input type="checkbox" class="bulk-checkbox" /></th>
+                  <th>Applicant Name</th>
+                  <th>Internship Applied For</th>
+                  <th>Date Applied</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Mock Application Rows -->
+                <tr>
+                  <td><input type="checkbox" class="bulk-checkbox" /></td>
+                  <td class="applicant-info">
+                    <img
+                      src="https://placehold.co/40x40/E2E8F0/A0B2C4?text=JD"
+                      alt="Profile Photo"
+                      class="profile-photo"
+                    />
+                    <span>John Doe</span>
+                  </td>
+                  <td>Software Engineering Intern</td>
+                  <td>2025-08-01</td>
+                  <td>
+                    <span class="status-badge status-applied">Applied</span>
+                  </td>
+                  <td class="actions">
+                    <button class="btn btn-tertiary">View Details</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" class="bulk-checkbox" /></td>
+                  <td class="applicant-info">
+                    <img
+                      src="https://placehold.co/40x40/E2E8F0/A0B2C4?text=JS"
+                      alt="Profile Photo"
+                      class="profile-photo"
+                    />
+                    <span>Jane Smith</span>
+                  </td>
+                  <td>UX Design Intern</td>
+                  <td>2025-07-28</td>
+                  <td>
+                    <span class="status-badge status-review">Under Review</span>
+                  </td>
+                  <td class="actions">
+                    <button class="btn btn-tertiary">View Details</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" class="bulk-checkbox" /></td>
+                  <td class="applicant-info">
+                    <img
+                      src="https://placehold.co/40x40/E2E8F0/A0B2C4?text=MG"
+                      alt="Profile Photo"
+                      class="profile-photo"
+                    />
+                    <span>Mike Green</span>
+                  </td>
+                  <td>Marketing Specialist Intern</td>
+                  <td>2025-07-25</td>
+                  <td>
+                    <span class="status-badge status-interview"
+                      >Interview Scheduled</span
+                    >
+                  </td>
+                  <td class="actions">
+                    <button class="btn btn-tertiary">View Details</button>
+                  </td>
+                </tr>
+                <!-- Add more rows with different statuses here... -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Pagination -->
+          <div class="pagination">
+            <button class="btn btn-secondary">Previous</button>
+            <span>Page 1 of 5</span>
+            <button class="btn btn-secondary">Next</button>
+          </div>
+
+          <!-- Empty State (initially hidden) -->
+          <div id="empty-state">
+            <p>
+              No applications available for this internship yet. Check back
+              later or post a new internship.
+            </p>
+            <a href="#" class="btn btn-primary">Post New Internship</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Application Detail Modal -->
+    <!-- This modal is hidden by default -->
+    <div id="application-detail-modal" class="modal-overlay">
+      <div class="modal-content">
+        <button class="close-modal">&times;</button>
+        <div class="modal-header">
+          <img
+            src="https://placehold.co/80x80/E2E8F0/A0B2C4?text=JD"
+            alt="Applicant Photo"
+            class="modal-profile-photo"
+          />
+          <h2 id="applicant-name">John Doe</h2>
+          <p id="applicant-position">Software Engineering Intern</p>
+          <div class="contact-info">
+            <a href="mailto:john.doe@email.com">john.doe@email.com</a> |
+            <span>(123) 456-7890</span>
+          </div>
+        </div>
+        <div class="modal-body">
+          <h3>Application Details</h3>
+          <div class="detail-section">
+            <h4>Resume/CV</h4>
+            <a href="#" class="btn btn-secondary">Download Resume</a>
+          </div>
+          <div class="detail-section">
+            <h4>Cover Letter</h4>
+            <p>
+              Dear Hiring Manager, I am writing to express my strong interest in
+              the Software Engineering Intern position. My coursework in data
+              structures and algorithms, combined with my experience in building
+              web applications using React and Node.js, makes me confident that
+              I can be a valuable asset to your team. ...
+            </p>
+          </div>
+          <div class="detail-section">
+            <h4>Skills</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">React</span>
+            </div>
+          </div>
+          <!-- ... other sections for education, experience, etc. -->
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-primary">Schedule Interview</button>
+          <button class="btn btn-secondary">Change Status</button>
+          <button class="btn btn-tertiary">Reject</button>
+        </div>
+      </div>
+    </div>
+<footer class="footer-section">
+      <div class="footer-container">
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+        </div>
+        <div class="footer-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

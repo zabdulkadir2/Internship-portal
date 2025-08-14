@@ -64,8 +64,10 @@ h2, h3, h4 {
 .nav-links li a:active{
     color: #1E3A8A;
 }
-.active{
+.nav-links .active {
     color: #1E3A8A;
+    border-bottom: 2px solid #1E3A8A;
+    padding-bottom: 5px;
 }
 /* Dropdown Menu - Styled as a plain link */
 .dropdown {
@@ -123,7 +125,51 @@ h2, h3, h4 {
     background-color: #f4f4f4;
     color: #1E3A8A;
 }
+/* Hamburger */
+.nav-toggle {
+  display: none;
+}
 
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+/* Hamburger */
+.nav-toggle {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: none; /* Hide by default */
+  }
+
+  .nav-toggle:checked + .hamburger + .nav-links {
+    display: flex; /* Show menu when checkbox is checked */
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
 /* ======================================================
    Hero Sections (with Controlled Alternating Layout)
 ====================================================== */

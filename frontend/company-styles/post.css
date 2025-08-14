@@ -1,0 +1,437 @@
+/* General CSS for consistency and base styling */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: #334155;
+    background-color: #F9FAFB;
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+
+
+/* Base styles for sections to ensure consistent padding and max-width */
+section {
+    padding: 4rem 2rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.header-content h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    color: #1E3A8A;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+
+a {
+    text-decoration: none;
+    color: #1E3A8A;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.btn-primary {
+    background-color: #1E3A8A;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0F172A;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #1E3A8A;
+    border: 1px solid #1E3A8A;
+}
+
+.btn-secondary:hover {
+    background-color: #F1F5F9;
+    transform: translateY(-2px);
+}
+
+.btn-tertiary {
+    background-color: transparent;
+    color: #64748B;
+    border: 1px solid #CBD5E1;
+}
+
+.btn-tertiary:hover {
+    background-color: #F1F5F9;
+    transform: translateY(-2px);
+}
+
+/* Navbar styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    left: 0;
+    right: 0;
+}
+
+.navbar-brand a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1E3A8A;
+    text-decoration: none;
+}
+
+.navbar-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.navbar-links a {
+    color: #475569;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.navbar-links a:hover {
+    color: #1E3A8A;
+}
+
+.navbar-links .active {
+    color: #1E3A8A;
+    border-bottom: 2px solid #1E3A8A;
+    padding-bottom: 5px;
+}
+
+/* Page Header / Breadcrumb */
+.page-header {
+    background-color: #F9FAFB;
+    padding: 6rem 2rem 4rem;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.header-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.page-tagline {
+    font-size: 1.2rem;
+    color: #475569;
+    margin: 0;
+}
+
+/* Main Content Layout */
+.main-content {
+    width: 100%;
+    max-width: 1200px;
+    padding: 3rem 2rem;
+    flex-grow: 1;
+}
+
+.content-container {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Internship Posting Form */
+.post-internship-form-card {
+    flex: 2; /* Form takes up more space */
+}
+
+.section-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #E2E8F0;
+    padding-bottom: 0.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #334155;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #1E3A8A;
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.2);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.required {
+    color: #EF4444; /* Red for required fields */
+}
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-row .form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.form-buttons .btn {
+    flex: 1;
+}
+
+.location-options {
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: #475569;
+}
+
+.location-options input[type="checkbox"] {
+    margin-right: 0.5rem;
+    accent-color: #1E3A8A;
+}
+
+/* Sidebar / Info Panel */
+.side-content {
+    flex: 1; /* Side content takes up less space */
+    display: flex;
+    flex-direction: column;
+}
+
+.tip-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tip-list li {
+    background-color: #F9FAFB;
+    border-left: 3px solid #1E3A8A;
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+}
+
+/* Hidden sections for Preview and Confirmation */
+.hidden-section {
+    display: none;
+    width: 100%;
+}
+
+.success-message {
+    text-align: center;
+}
+
+.success-message h2 {
+    color: #1E3A8A;
+    font-size: 2rem;
+}
+
+.success-message p {
+    color: #475569;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.confirmation-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Footer */
+.footer-section {
+    width: 100%;
+    padding: 2rem 1.5rem;
+    background-color: #0F172A;
+    border-top: 1px solid #E2E8F0;
+    text-align: center;
+    margin-top: auto; /* Push footer to the bottom */
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-links a {
+    font-size: 1.3rem;
+    margin: 0 0.5rem;
+  color: #E2E8F0;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #FBBF24;
+}
+
+.footer-socials  {
+    margin-bottom: 1rem;
+}
+
+.footer-socials a {
+  font-size: 1.3rem;
+  margin: 0 0.5rem;
+  text-decoration: none;
+  color: #E2E8F0;
+  transition: color 0.3s ease;
+}
+
+.copyright p {
+    font-size: 0.8rem;
+    color: #94A3B8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .content-container {
+        flex-direction: column;
+    }
+    
+    .post-internship-form-card, .side-content {
+        flex: auto;
+        width: 100%;
+    }
+    
+    .page-header {
+        padding: 3rem 1rem;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .form-row .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .navbar-links {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .page-tagline {
+        font-size: 1rem;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+    }
+    
+    .form-buttons .btn {
+        width: 100%;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+    
+    .navbar-links {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 0;
+    }
+
+    .navbar-links li {
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #E2E8F0;
+    }
+    
+    .navbar-links li:last-child {
+        border-bottom: none;
+    }
+}

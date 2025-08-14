@@ -14,7 +14,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-     <link
+    <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
       rel="stylesheet"
     />
@@ -23,16 +23,21 @@
     <!-- 🌐 Navbar -->
     <nav class="nav-container">
       <div class="logo"><h1>CampusConnect</h1></div>
+
+      <!-- Hamburger Menu Checkbox -->
+       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <label for="nav-toggle" class="hamburger">&#9776;</label>
+        <!-- Nav-links -->
       <ul class="nav-links">
-        <li><a href="#home" class="nav_link active">Home</a></li>
-        <li><a href="#about" class="nav_link active">About</a></li>
-        <li><a href="#how-it-works">How It Works</a></li>
-        <li><a href="#success" >Success Stories</a></li>
-        <li><a href="#contact" >Contact</a></li>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about" class="active">About</a></li>
+        <li><a href="#how-it-works" class="active">How It Works</a></li>
+        <li><a href="#success" class="active">Success Stories</a></li>
+        <li><a href="#contact" class="active">Contact</a></li>
         <li><a href="login.html">Login</a></li>
         <!-- Dropdown menu for registration -->
         <li class="dropdown">
-          <a href="#" >Register </a>
+          <a href="#">Register </a>
           <ul>
             <li><a href="register-student.html">As Student</a></li>
             <li><a href="register-company.html">As Company</a></li>
@@ -43,83 +48,85 @@
     </nav>
 
     <!-- 🎓 Student Hero Section -->
-<section id="home" class="hero-block">
-  <div class="hero-content-container">
-    <div class="page-hero-text">
-      <h1>Bridge the Gap Between Campus and Career</h1>
-      <p>
-        Discover internships, connect with mentors, and take the first step
-        toward your future with the support you need to thrive.
-      </p>
-      <div class="hero-actions">
-        <a href="register-student.html" class="btn btn-primary">Join as Student</a>
-        <a href="#how-it-works" class="btn btn-secondary">Learn More</a>
+    <section id="home" class="hero-block">
+      <div class="hero-content-container">
+        <div class="page-hero-text">
+          <h1>Bridge the Gap Between Campus and Career</h1>
+          <p>
+            Discover internships, connect with mentors, and take the first step
+            toward your future with the support you need to thrive.
+          </p>
+          <div class="hero-actions">
+            <a href="register-student.html" class="btn btn-primary"
+              >Join as Student</a
+            >
+            <a href="#how-it-works" class="btn btn-secondary">Learn More</a>
+          </div>
+        </div>
+        <div class="page-hero-image-container">
+          <img
+            class="hero-image"
+            src="assets/images/hero-image.jpg"
+            alt="Student studying with a laptop"
+          />
+        </div>
       </div>
-    </div>
-    <div class="page-hero-image-container">
-      <img
-        class="hero-image"
-        src="assets/images/hero-image.jpg"
-        alt="Student studying with a laptop"
-      />
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- 👨‍🏫 Mentor Hero Section -->
-<section class="hero-block">
-  <div class="hero-content-container">
-    <div class="page-hero-image-container">
-      <img
-        class="hero-image"
-        src="assets/images/mentor-student.jpg"
-        alt="Mentor giving advice to a student"
-      />
-    </div>
-    <div class="page-hero-text">
-      <h1>Share Your Experience. Shape a Future.</h1>
-      <p>
-        Mentor the next generation of talent by guiding students through
-        real-world decisions, projects, and career goals.
-      </p>
-      <div class="hero-actions">
-        <a href="register-mentor.html" class="btn btn-primary">Join as Mentor</a>
-        <a href="#how-it-works" class="btn btn-secondary">Learn More</a>
+    <!-- 👨‍🏫 Mentor Hero Section -->
+    <section class="hero-block">
+      <div class="hero-content-container">
+        <div class="page-hero-image-container">
+          <img
+            class="hero-image"
+            src="assets/images/mentor-student.jpg"
+            alt="Mentor giving advice to a student"
+          />
+        </div>
+        <div class="page-hero-text">
+          <h1>Share Your Experience. Shape a Future.</h1>
+          <p>
+            Mentor the next generation of talent by guiding students through
+            real-world decisions, projects, and career goals.
+          </p>
+          <div class="hero-actions">
+            <a href="register-mentor.html" class="btn btn-primary"
+              >Join as Mentor</a
+            >
+            <a href="#how-it-works" class="btn btn-secondary">Learn More</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- 🏢 Company Hero Section -->
-<section class="hero-block">
-  <div class="hero-content-container">
-    <div class="page-hero-text">
-      <h1>Find Fresh Talent and Give Back</h1>
-      <p>
-        Connect with skilled students and provide meaningful internship
-        experiences that shape tomorrow’s professionals.
-      </p>
-      <div class="hero-actions">
-        <a href="register-company.html" class="btn btn-primary">Join as Company</a>
-        <a href="#how-it-works" class="btn btn-secondary">Learn More</a>
+    <!-- 🏢 Company Hero Section -->
+    <section class="hero-block">
+      <div class="hero-content-container">
+        <div class="page-hero-text">
+          <h1>Find Fresh Talent and Give Back</h1>
+          <p>
+            Connect with skilled students and provide meaningful internship
+            experiences that shape tomorrow’s professionals.
+          </p>
+          <div class="hero-actions">
+            <a href="register-company.html" class="btn btn-primary"
+              >Join as Company</a
+            >
+            <a href="#how-it-works" class="btn btn-secondary">Learn More</a>
+          </div>
+        </div>
+        <div class="page-hero-image-container">
+          <img
+            class="hero-image"
+            src="assets/images/company-team.jpg"
+            alt="Team collaborating in an office"
+          />
+        </div>
       </div>
-    </div>
-    <div class="page-hero-image-container">
-      <img
-        class="hero-image"
-        src="assets/images/company-team.jpg"
-        alt="Team collaborating in an office"
-      />
-    </div>
-  </div>
-</section>
-
-
-
-
+    </section>
 
     <!-- ℹ️ About CampusConnect -->
-    <section id="about" class="about-section ">
+    <section id="about" class="about-section">
       <div class="about-container">
         <div class="about-text">
           <h2>About CampusConnect</h2>
@@ -185,32 +192,37 @@
 
     <!-- ✅ Why Choose Us -->
     <section class="benefits-section">
-  <div class="benefits-container">
-    <h2>Why Choose CampusConnect?</h2>
-    <p class="benefits-intro">
-      We’re more than just a platform. CampusConnect is a dynamic community where students, mentors, and employers collaborate to unlock real-world success. Here’s what makes us stand out:
-    </p>
-    <div class="benefits-grid">
-      <div class="benefit">
-        ✅ <strong>Verified Mentors & Alumni</strong><br />
-        Gain guidance from trusted professionals and alumni who’ve walked your path and are ready to support your journey.
+      <div class="benefits-container">
+        <h2>Why Choose CampusConnect?</h2>
+        <p class="benefits-intro">
+          We’re more than just a platform. CampusConnect is a dynamic community
+          where students, mentors, and employers collaborate to unlock
+          real-world success. Here’s what makes us stand out:
+        </p>
+        <div class="benefits-grid">
+          <div class="benefit">
+            ✅ <strong>Verified Mentors & Alumni</strong><br />
+            Gain guidance from trusted professionals and alumni who’ve walked
+            your path and are ready to support your journey.
+          </div>
+          <div class="benefit">
+            📊 <strong>Internship Tracking Tools</strong><br />
+            Stay organized with tools that help you track your applications,
+            deadlines, and progress from one place.
+          </div>
+          <div class="benefit">
+            🧠 <strong>Skill Assessment Features</strong><br />
+            Evaluate and improve your abilities through self-assessments,
+            feedback, and soft skills checklists tailored to your goals.
+          </div>
+          <div class="benefit">
+            🎯 <strong>Personalized Opportunity Matching</strong><br />
+            Get connected to internships and mentors that align with your
+            interests, background, and career aspirations.
+          </div>
+        </div>
       </div>
-      <div class="benefit">
-        📊 <strong>Internship Tracking Tools</strong><br />
-        Stay organized with tools that help you track your applications, deadlines, and progress from one place.
-      </div>
-      <div class="benefit">
-        🧠 <strong>Skill Assessment Features</strong><br />
-        Evaluate and improve your abilities through self-assessments, feedback, and soft skills checklists tailored to your goals.
-      </div>
-      <div class="benefit">
-        🎯 <strong>Personalized Opportunity Matching</strong><br />
-        Get connected to internships and mentors that align with your interests, background, and career aspirations.
-      </div>
-    </div>
-  </div>
-</section>
-
+    </section>
 
     <!-- 👩‍💼 Featured Mentors / Companies -->
     <section class="featured-section">
@@ -226,7 +238,10 @@
             </p>
           </div>
           <div class="card">
-            <img src="assets/images/company-logo.jpg" alt="Company SoftTech Inc." />
+            <img
+              src="assets/images/company-logo.jpg"
+              alt="Company SoftTech Inc."
+            />
             <h3>Kwaku Mensah</h3>
             <p class="role">CTO, StartupX</p>
             <p class="bio">
@@ -234,7 +249,10 @@
             </p>
           </div>
           <div class="card">
-            <img src="assets/images/mentor-kwame.jpg" alt="Mentor Kwame Boateng" />
+            <img
+              src="assets/images/mentor-kwame.jpg"
+              alt="Mentor Kwame Boateng"
+            />
             <h3>Kwame Boateng</h3>
             <p class="role">Data Analyst, IBM</p>
             <p class="bio">

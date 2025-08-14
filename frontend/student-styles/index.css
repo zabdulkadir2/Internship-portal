@@ -139,7 +139,11 @@ section h2 {
 .nav-links li a:hover {
     color: #1E3A8A;
 }
-
+.nav-links .active {
+    color: #1E3A8A;
+    border-bottom: 2px solid #1E3A8A;
+    padding-bottom: 5px;
+}
 /* Hero section - Adjusted for student homepage */
 .hero {
     padding: 7rem 4rem; /* Account for fixed navbar */
@@ -573,11 +577,9 @@ section h2 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .quick-link-card:hover {
-    transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 

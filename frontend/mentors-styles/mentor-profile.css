@@ -93,7 +93,11 @@ section {
 .nav-links li a:hover {
     color: #1E3A8A;
 }
-
+.nav-links .active {
+    color: #1E3A8A;
+    border-bottom: 2px solid #1E3A8A;
+    padding-bottom: 5px;
+}
 /* Profile Page Container - Centers the main card */
 .profile-page-container {
     flex-grow: 1; /* Allows container to take up remaining vertical space */

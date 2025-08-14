@@ -172,7 +172,11 @@ section h2 {
 .nav-links li a:hover {
     color: #1E3A8A;
 }
-
+.nav-links .active {
+    color: #1E3A8A;
+    border-bottom: 2px solid #1E3A8A;
+    padding-bottom: 5px;
+}
 /* Page Header / Hero Section - Adapted for no image */
 .page-hero {
     padding-top: 8rem; /* Account for fixed navbar */

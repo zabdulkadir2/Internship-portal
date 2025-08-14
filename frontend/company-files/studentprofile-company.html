@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profiles | CampusConnect</title>
+    <!-- Google Fonts: Poppins for headings, Open Sans for body text -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- In a real project, you would link to a file like this: -->
+    <link rel="stylesheet" href="../company-styles/studentprofile-company.css">
+    <!-- Font Awesome is no longer used for social icons, but can be kept for other icons if needed -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="#">CampusConnect</a>
+        </div>
+        <ul class="navbar-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="post.html">Post Internship</a></li>
+            <li><a href="manage.html">Manage Applications</a></li>
+            <li><a href="#" class="active">Student Profiles</a></li>
+            <li><a href="company-profiles.html">Company Profile</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">Student Profiles</h1>
+            <p class="page-subtitle">Browse and review detailed profiles of student candidates to find the perfect fit for your internship or hiring needs.</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Search and Filter Panel -->
+        <div class="filter-panel card">
+            <input type="text" id="search-students" placeholder="Search by name, university, or skills...">
+            
+            <select id="filter-university">
+                <option value="all">All Universities</option>
+                <option value="knust">KNUST</option>
+                <option value="mit">MIT</option>
+                <option value="legon">LEGON</option>
+                <option value="ucc">UCC</option>
+                <option value="others">OTHERS</option>
+            </select>
+            
+            <select id="filter-major">
+                <option value="all">All Majors</option>
+                <option value="cs">Computer Science</option>
+                <option value="eng">Engineering</option>
+                <option value="business">Business</option>
+            </select>
+            
+            <select id="filter-year">
+                <option value="all">All Years</option>
+                <option value="1">1st Year</option>
+                <option value="2">2nd Year</option>
+                <option value="3">3rd Year</option>
+                <option value="final">Final Year</option>
+            </select>
+            
+            <select id="sort-by">
+                <option value="name">Sort by: Name (A-Z)</option>
+                <option value="year">Sort by: Year (Newest)</option>
+                <option value="skills">Sort by: Skills Match</option>
+            </select>
+            
+            <button class="btn btn-primary">Search</button>
+        </div>
+
+        <!-- Student Profiles Grid -->
+        <div class="student-profile-grid">
+            <!-- Mock Student Profile Card 1 -->
+            <div class="profile-card card">
+                <div class="profile-header">
+                    <img src="../assets/images/jane.jpg" alt="Profile Photo" class="profile-photo">
+                    <h3 class="profile-name">John Doe</h3>
+                    <p class="profile-university">Stanford University - Computer Science</p>
+                    <p class="profile-year">Final Year</p>
+                    <div class="profile-summary">"Enthusiastic developer with a passion for building scalable web applications."</div>
+                </div>
+                <div class="profile-body">
+                    <div class="skill-tags">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                    </div>
+                    <div class="profile-availability">Available: Immediately</div>
+                </div>
+                <div class="profile-actions">
+                    <button class="btn btn-tertiary">View Full Profile</button>
+                    <button class="btn btn-secondary">Shortlist</button>
+                </div>
+            </div>
+
+            <!-- Mock Student Profile Card 2 -->
+            <div class="profile-card card">
+                <div class="profile-header">
+                    <img src="../assets/images/emily.jpg" alt="Profile Photo" class="profile-photo">
+                    <h3 class="profile-name">Jane Smith</h3>
+                    <p class="profile-university">MIT - Mechanical Engineering</p>
+                    <p class="profile-year">3rd Year</p>
+                    <div class="profile-summary">"Creative problem-solver with hands-on experience in CAD and robotics."</div>
+                </div>
+                <div class="profile-body">
+                    <div class="skill-tags">
+                        <span class="skill-tag">SolidWorks</span>
+                        <span class="skill-tag">Matlab</span>
+                        <span class="skill-tag">Robotics</span>
+                        <span class="skill-tag">3D Printing</span>
+                    </div>
+                    <div class="profile-availability">Available: Next Semester</div>
+                </div>
+                <div class="profile-actions">
+                    <button class="btn btn-tertiary">View Full Profile</button>
+                    <button class="btn btn-secondary">Shortlist</button>
+                </div>
+            </div>
+
+            <!-- More mock profiles here... -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <button class="btn btn-secondary">Previous</button>
+            <span>Page 1 of 10</span>
+            <button class="btn btn-secondary">Next</button>
+        </div>
+
+        <!-- Empty State (initially hidden) -->
+        <div id="empty-state">
+            <p>No students match your current filters. Try adjusting your search criteria.</p>
+        </div>
+    </main>
+
+    <!-- Student Profile Detail Modal -->
+    <div id="student-detail-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="modal-header">
+                <img id="modal-photo" src="../assets/images/john.jpg" alt="Applicant Photo" class="modal-profile-photo">
+                <h2 id="modal-name">John Doe</h2>
+                <p id="modal-info">KNUST - Computer Science</p>
+            </div>
+            <div class="modal-body">
+                <div class="detail-section">
+                    <h4>Education</h4>
+                    <p><strong>KNUST</strong></p>
+                    <p>B.S. in Computer Science - Final Year</p>
+                </div>
+                <div class="detail-section">
+                    <h4>Skills</h4>
+                    <div id="modal-skills" class="skill-tags">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <h4>Work Experience</h4>
+                    <p><strong>Software Engineering Intern</strong> at TechCorp (Summer 2024)</p>
+                    <ul>
+                        <li>Developed a new user authentication system.</li>
+                        <li>Contributed to a major feature release.</li>
+                    </ul>
+                </div>
+                <!-- ... other sections like Projects, Contact, etc. -->
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-primary">Invite for Interview</button>
+                <button class="btn btn-secondary">Download Resume</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+      <div class="footer-container">
+        <div class="footer-links">
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+        </div>
+                  <!-- Social Media Icons -->
+        <div class="footer-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a></a>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+      </div>
+    </footer>
+</body>
+</html>
