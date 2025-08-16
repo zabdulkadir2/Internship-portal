@@ -237,6 +237,69 @@ body {
     object-fit: cover;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Optional: subtle shadow */
 }
+/* Loading and message styles */
+.status-message {
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.status-error {
+    background-color: #fecaca;
+    color: #b91c1c;
+}
+
+/* Portal page styles */
+.portal-page {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 24px;
+}
+
+.loading-page {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 24px;
+}
+
+.loading-text {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+.portal-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 15px rgba(0, 0, 0, 0.1);
+    padding: 32px;
+    text-align: center;
+    max-width: 512px;
+}
+
+.portal-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.portal-text {
+    margin-top: 16px;
+    color: #4b5563;
+}
+
+.hidden {
+    display: none;
+}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
