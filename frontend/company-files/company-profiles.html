@@ -32,7 +32,35 @@
       </ul>
     </nav>
 
-    <main class="main-content">
+    <!-- Loading State -->
+    <div class="profile-loading" id="profile-loading" style="display: block;">
+      <div class="loading-container">
+        <div class="loading-hero">
+          <div class="loading-banner"></div>
+          <div class="loading-company-header">
+            <div class="loading-logo"></div>
+            <div class="loading-company-info">
+              <div class="loading-company-name"></div>
+              <div class="loading-company-details"></div>
+              <div class="loading-company-details"></div>
+            </div>
+          </div>
+        </div>
+        <div class="loading-section">
+          <div class="loading-section-header"></div>
+          <div class="loading-text-block"></div>
+          <div class="loading-text-block"></div>
+        </div>
+        <div class="loading-section">
+          <div class="loading-section-header"></div>
+          <div class="loading-contact-item"></div>
+          <div class="loading-contact-item"></div>
+          <div class="loading-contact-item"></div>
+        </div>
+      </div>
+    </div>
+
+    <main class="main-content" id="profile-content" style="display: none;">
       <!-- Company Profile Hero Section -->
       <div class="company-hero card">
         <div class="company-banner">
@@ -49,12 +77,10 @@
             class="company-logo"
           />
           <div class="company-info">
-            <h1 class="company-name">Innovatech Solutions</h1>
-            <p class="company-industry">Technology | Software Development</p>
-            <p class="company-location">San Francisco, CA</p>
-            <a href="https://www.innovatech.com" class="company-website"
-              >www.innovatech.com</a
-            >
+            <h1 class="company-name">Company Name</h1>
+            <p class="company-industry">Industry</p>
+            <p class="company-location">Location</p>
+            <a href="#" class="company-website">Website</a>
           </div>
         </div>
       </div>
@@ -65,25 +91,16 @@
           <h2>About Us</h2>
           <button class="btn btn-secondary">Edit Profile</button>
         </div>
-        <p>
-          Innovatech Solutions is a leading technology company dedicated to
-          creating cutting-edge software products that solve real-world
-          problems. Our mission is to foster a culture of creativity and
-          collaboration, empowering our employees to push the boundaries of
-          what's possible. We believe in providing impactful internship
-          experiences that prepare students for a successful career in tech.
-        </p>
+        <p>Company description will appear here.</p>
       </div>
 
       <!-- Contact Information Section -->
       <div class="contact-section card">
         <h2>Contact Information</h2>
         <div class="contact-details">
-          <p>
-            <strong>Address:</strong> 123 Tech Avenue, San Francisco, CA 94107
-          </p>
-          <p><strong>Phone:</strong> (555) 123-4567</p>
-          <p><strong>Email:</strong> contact@innovatech.com</p>
+          <p><strong>Address:</strong> Address not provided</p>
+          <p><strong>Phone:</strong> Phone not provided</p>
+          <p><strong>Email:</strong> Email not provided</p>
         </div>
         <div class="social-links">
           <a href="#" class="social-icon-link"
@@ -152,23 +169,47 @@
         </div>
       </div>
 
-      <!-- Edit Profile Form (initially hidden or in a different state) -->
+      <!-- Edit Profile Form (initially hidden) -->
       <div class="edit-profile-form card">
         <h2>Edit Company Profile</h2>
         <form>
-          <div class="form-group">
-            <label for="companyName">Company Name</label>
-            <input type="text" id="companyName" value="Innovatech Solutions" />
-          </div>
-          <div class="form-group">
-            <label for="logoUpload">Company Logo</label>
-            <input type="file" id="logoUpload" />
-          </div>
-          <div class="form-group">
-            <label for="companyDescription">About Us</label>
-            <textarea id="companyDescription" rows="5">
-Innovatech Solutions is a leading technology company dedicated to creating cutting-edge software products...</textarea
-            >
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="companyName">Company Name *</label>
+              <input type="text" id="companyName" required />
+            </div>
+            <div class="form-group">
+              <label for="companyIndustry">Industry *</label>
+              <input type="text" id="companyIndustry" required />
+            </div>
+            <div class="form-group">
+              <label for="companyLocation">Location</label>
+              <input type="text" id="companyLocation" />
+            </div>
+            <div class="form-group">
+              <label for="companyWebsite">Website</label>
+              <input type="url" id="companyWebsite" />
+            </div>
+            <div class="form-group">
+              <label for="companyPhone">Phone</label>
+              <input type="tel" id="companyPhone" />
+            </div>
+            <div class="form-group">
+              <label for="companyEmail">Email</label>
+              <input type="email" id="companyEmail" />
+            </div>
+            <div class="form-group full-width">
+              <label for="companyAddress">Address</label>
+              <input type="text" id="companyAddress" />
+            </div>
+            <div class="form-group full-width">
+              <label for="logoUpload">Company Logo</label>
+              <input type="file" id="logoUpload" accept="image/*" />
+            </div>
+            <div class="form-group full-width">
+              <label for="companyDescription">About Us *</label>
+              <textarea id="companyDescription" rows="5" required></textarea>
+            </div>
           </div>
           <div class="form-actions">
             <button type="submit" class="btn btn-primary">Save Changes</button>
@@ -199,5 +240,7 @@ Innovatech Solutions is a leading technology company dedicated to creating cutti
         <p>&copy; 2025 CampusConnect. All rights reserved.</p>
       </div>
     </footer>
+    <!-- JavaScript Module -->
+    <script type="module" src="js/company-profiles.js"></script>
   </body>
 </html>

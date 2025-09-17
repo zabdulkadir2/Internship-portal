@@ -37,7 +37,81 @@
     </nav>
 
     <div class="profile-page-container">
-      <div class="profile-card">
+      <!-- Loading State -->
+      <div class="profile-loading" id="profile-loading">
+        <div class="loading-card">
+          <h2 class="section-title">My Profile</h2>
+
+          <div class="loading-avatar-section">
+            <div class="loading-avatar"></div>
+            <div class="loading-avatar-buttons">
+              <div class="loading-button"></div>
+              <div class="loading-button"></div>
+            </div>
+          </div>
+
+          <div class="loading-form">
+            <div class="loading-form-grid">
+              <div class="loading-form-group">
+                <div class="loading-label"></div>
+                <div class="loading-input"></div>
+              </div>
+              <div class="loading-form-group">
+                <div class="loading-label"></div>
+                <div class="loading-input"></div>
+              </div>
+              <div class="loading-form-group">
+                <div class="loading-label"></div>
+                <div class="loading-input"></div>
+              </div>
+              <div class="loading-form-group">
+                <div class="loading-label"></div>
+                <div class="loading-input"></div>
+              </div>
+              <div class="loading-form-group">
+                <div class="loading-label"></div>
+                <div class="loading-input"></div>
+              </div>
+              <div class="loading-form-group">
+                <div class="loading-label"></div>
+                <div class="loading-input"></div>
+              </div>
+              <div class="loading-form-group">
+                <div class="loading-label"></div>
+                <div class="loading-input"></div>
+              </div>
+              <div class="loading-form-group">
+                <div class="loading-label"></div>
+                <div class="loading-input"></div>
+              </div>
+              <div class="loading-form-group">
+                <div class="loading-label"></div>
+                <div class="loading-input"></div>
+              </div>
+              <div class="loading-form-group">
+                <div class="loading-label"></div>
+                <div class="loading-input"></div>
+              </div>
+              <div class="loading-form-group">
+                <div class="loading-label"></div>
+                <div class="loading-input"></div>
+              </div>
+              <div class="loading-form-group loading-form-group-full">
+                <div class="loading-label"></div>
+                <div class="loading-textarea"></div>
+              </div>
+            </div>
+
+            <div class="loading-form-actions">
+              <div class="loading-button"></div>
+              <div class="loading-button"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Actual Profile Content (hidden initially) -->
+      <div class="profile-card" id="profile-content" style="display: none;">
         <h2 class="section-title">My Profile</h2>
 
         <div class="profile-avatar-section">
@@ -60,73 +134,65 @@
           <div class="form-grid">
             <div class="form-group">
               <label for="first-name">First Name</label>
-              <input type="text" id="first-name" value="Amina" />
+              <input type="text" id="first-name" />
             </div>
             <div class="form-group">
               <label for="last-name">Last Name</label>
-              <input type="text" id="last-name" value="Suleiman" />
+              <input type="text" id="last-name" />
             </div>
             <div class="form-group">
               <label for="email">Email Address</label>
-              <input
-                type="email"
-                id="email"
-                value="amina.suleiman@example.com"
-              />
+              <input type="email" id="email" />
             </div>
             <div class="form-group">
               <label for="phone">Phone</label>
-              <input type="tel" id="phone" value="+233 55 987 6543" />
+              <input type="tel" id="phone" />
             </div>
             <div class="form-group">
               <label for="city-state">City/State</label>
-              <input type="text" id="city-state" value="Accra" />
+              <input type="text" id="city-state" />
             </div>
             <div class="form-group">
               <label for="country">Country</label>
               <select id="country">
-                <option value="Ghana" selected>Ghana</option>
+                <option value="">Select a country</option>
+                <option value="Ghana">Ghana</option>
                 <option value="USA">USA</option>
                 <option value="UK">UK</option>
               </select>
             </div>
             <div class="form-group">
               <label for="postal-code">Postal Code</label>
-              <input type="text" id="postal-code" value="GA-000-0000" />
+              <input type="text" id="postal-code" />
             </div>
             <div class="form-group">
               <label for="company-name">Company Name</label>
-              <input type="text" id="company-name" value="Google" />
+              <input type="text" id="company-name" />
             </div>
             <div class="form-group">
               <label for="job-title">Job Title</label>
-              <input type="text" id="job-title" value="UX Designer" />
+              <input type="text" id="job-title" />
             </div>
             <div class="form-group">
               <label for="expertise">Field of Expertise</label>
-              <input
-                type="text"
-                id="expertise"
-                value="UX/UI Design, Product Strategy"
-              />
+              <input type="text" id="expertise" />
             </div>
             <div class="form-group">
               <label for="experience">Years of Experience</label>
-              <input type="number" id="experience" value="7" />
+              <input type="number" id="experience" />
             </div>
             <div class="form-group">
               <label for="language">Language</label>
               <select id="language">
-                <option value="English" selected>English</option>
+                <option value="">Select a language</option>
+                <option value="English">English</option>
                 <option value="French">French</option>
                 <option value="Twi">Twi</option>
               </select>
             </div>
             <div class="form-group full-width">
               <label for="bio">Bio</label>
-              <textarea id="bio" rows="5">
-Experienced UX Designer at Google with a passion for creating intuitive and impactful digital products. I enjoy mentoring aspiring designers and sharing insights on user-centered design principles and career growth in tech.</textarea
-              >
+              <textarea id="bio" rows="5"></textarea>
             </div>
           </div>
 
@@ -165,5 +231,7 @@ Experienced UX Designer at Google with a passion for creating intuitive and impa
         </div>
       </div>
     </footer>
+    <!-- JavaScript Module -->
+    <script type="module" src="js/mentor-profile.js"></script>
   </body>
 </html>

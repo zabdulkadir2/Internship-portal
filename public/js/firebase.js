@@ -1,13 +1,14 @@
 // / Import Firebase modules from CDN
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-import { 
-  getAuth, 
-  GoogleAuthProvider, 
-  signInWithPopup, 
-  createUserWithEmailAndPassword, 
-  signInWithEmailAndPassword 
-} from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
-import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-analytics.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
 // Your Firebase configuration
   // TODO: Add SDKs for Firebase products that you want to use
@@ -26,13 +27,15 @@ import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/10.1.
   };
 
   // Initialize Firebase app
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 // Initialize Firebase Analytics
 const analytics = getAnalytics(app);
 // Initialize Firebase Authentication
 const auth = getAuth(app);
+// Initialize Firestore
+export const db = getFirestore(app);
 // Google Auth Provider
-const provider = new GoogleAuthProvider();
+export const provider = new GoogleAuthProvider();
 
 // Optional: log page view
 logEvent(analytics, 'page_view');

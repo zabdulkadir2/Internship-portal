@@ -205,4 +205,17 @@
       </div>
     </footer>
 </body>
+    <script type="module">
+      import { requireAuth, initLogout } from '../../public/js/auth-utils.js';
+      const initPage = async () => {
+        try {
+          await requireAuth();
+          initLogout();
+        } catch (error) {
+          console.error('Page initialization error:', error);
+        }
+      };
+      document.addEventListener('DOMContentLoaded', initPage);
+    </script>
+  </body>
 </html>

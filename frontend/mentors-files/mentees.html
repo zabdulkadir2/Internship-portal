@@ -225,5 +225,27 @@
         </div>
       </div>
     </footer>
+    <!-- Authentication and Logout Script -->
+    <script type="module">
+      import { requireAuth, initLogout } from '../../public/js/auth-utils.js';
+
+      // Initialize page
+      const initPage = async () => {
+        try {
+          // Ensure user is authenticated
+          await requireAuth();
+
+          // Initialize logout functionality
+          initLogout();
+
+          console.log('Page initialized successfully');
+        } catch (error) {
+          console.error('Page initialization error:', error);
+        }
+      };
+
+      // Initialize when DOM is loaded
+      document.addEventListener('DOMContentLoaded', initPage);
+    </script>
   </body>
 </html>

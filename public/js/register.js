@@ -1,13 +1,15 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithCustomToken, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+import { doc, setDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+import { app, db } from './firebase.js';
 
 // DOM elements for registration page
 const registerForm = document.querySelector('.register-form');
 const registerButton = document.querySelector('.register-btn');
 
 // Firebase variables
-let auth, db;
+let auth;
 
 /**
  * Creates and displays a status message to the user.
@@ -45,17 +47,16 @@ const showStatusMessage = (message, isError) => {
  */
 const initializeFirebase = async () => {
     try {
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-        const app = initializeApp(firebaseConfig);
+        // const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        // const app = initializeApp(firebaseConfig);
         auth = getAuth(app);
-        db = getFirestore(app);
 
-        // Sign in with the custom token provided by the environment
-        if (typeof __initial_auth_token !== 'undefined') {
-            await signInWithCustomToken(auth, __initial_auth_token);
-        } else {
-            await signInAnonymously(auth);
-        }
+        // // Sign in with the custom token provided by the environment
+        // if (typeof __initial_auth_token !== 'undefined') {
+        //     await signInWithCustomToken(auth, __initial_auth_token);
+        // } else {
+        //     await signInAnonymously(auth);
+        // }
     } catch (e) {
         console.error("Error initializing Firebase:", e);
         showStatusMessage("Failed to initialize the application. Please try again.", true);
@@ -170,13 +171,13 @@ const handleRegistration = async (e) => {
         setTimeout(() => {
             switch (role) {
                 case 'student':
-                    window.location.href = './student-files/index.html';
+                    window.location.href = '../frontend/student-files/index.html';
                     break;
                 case 'mentor':
-                    window.location.href = './mentor-files/index.html';
+                    window.location.href = '../frontend/mentors-files/index.html';
                     break;
                 case 'employer':
-                    window.location.href = './company-files/index.html';
+                    window.location.href = '../frontend/company-files/index.html';
                     break;
             }
         }, 1500);

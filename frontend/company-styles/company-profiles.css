@@ -448,3 +448,201 @@ a:hover {
         border-bottom: none;
     }
 }
+
+/* ========== LOADING SKELETON STYLES ========== */
+.profile-loading {
+    min-height: 100vh;
+    padding: 2rem;
+    background-color: #f8fafc;
+}
+
+.loading-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 6rem; /* Account for navbar */
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+    0% {
+        background-position: -1200px 0;
+    }
+    100% {
+        background-position: 1200px 0;
+    }
+}
+
+/* Loading Hero Section */
+.loading-hero {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.loading-banner {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 1200px 100%;
+    animation: shimmer 2s infinite linear;
+}
+
+.loading-company-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+    margin-top: -75px;
+    position: relative;
+    z-index: 1;
+}
+
+.loading-logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 1200px 100%;
+    animation: shimmer 2s infinite linear;
+    border: 5px solid #fff;
+}
+
+.loading-company-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.loading-company-name {
+    width: 300px;
+    height: 40px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 1200px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: 6px;
+}
+
+.loading-company-details {
+    width: 200px;
+    height: 20px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 1200px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: 4px;
+}
+
+/* Loading Sections */
+.loading-section {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    padding: 2rem;
+}
+
+.loading-section-header {
+    width: 150px;
+    height: 32px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 1200px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+}
+
+.loading-text-block {
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 1200px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.loading-text-block:last-child {
+    width: 70%;
+}
+
+.loading-contact-item {
+    width: 250px;
+    height: 20px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 1200px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+/* Hide/show elements during loading */
+.profile-loading-active #profile-content {
+    display: none !important;
+}
+
+.profile-loading-active #profile-loading {
+    display: block !important;
+}
+
+/* Transition styles */
+.profile-content-enter {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.profile-content-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Form grid styles for edit form */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 600px) {
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
