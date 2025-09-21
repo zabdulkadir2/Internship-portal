@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Internship | CampusConnect</title>
+    <!-- Google Fonts: Poppins for headings, Open Sans for body text -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Link to the dedicated CSS file for this page -->
+    <link rel="stylesheet" href="../company-styles/post.css" />
+    <link rel="stylesheet" href="css/loading-states.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a href="#">CampusConnect</a>
+      </div>
+      <ul class="navbar-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="post.html">Post Internship</a></li>
+        <li><a href="manage.html">Manage Applications</a></li>
+        <li><a href="studentprofile-company.html">Student Profiles</a></li>
+        <li><a href="company-profiles.html">Company Profile</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+      <div class="header-content">
+        <h1 class="page-title">Edit Internship</h1>
+        <p class="page-tagline">
+          Update your internship posting details and manage applications.
+        </p>
+      </div>
+    </header>
+
+    <!-- Loading State -->
+    <div id="loading-state" class="loading-placeholder" style="margin: 40px auto; max-width: 800px;">
+      <p>Loading internship details...</p>
+    </div>
+
+    <main class="main-content" id="main-content" style="display: none;">
+      <div class="content-container" style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+        <!-- Two Column Layout -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px; align-items: start;">
+
+          <!-- Left Column: Internship Details -->
+          <div>
+            <!-- Internship Info Card -->
+            <div class="card" id="internship-info-card" style="margin-bottom: 0;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                <h2 class="section-title" style="margin: 0;">Internship Details</h2>
+                <div>
+                  <button id="edit-btn" class="btn btn-secondary" style="margin-right: 12px;">Edit Details</button>
+                  <button id="delete-btn" class="btn" style="background: #dc2626; color: white;">Delete Post</button>
+                </div>
+              </div>
+
+          <!-- Internship Display -->
+          <div id="internship-display">
+            <div class="info-row">
+              <strong>Title:</strong> <span id="display-title">-</span>
+            </div>
+            <div class="info-row">
+              <strong>Location:</strong> <span id="display-location">-</span>
+            </div>
+            <div class="info-row">
+              <strong>Type:</strong> <span id="display-type">-</span>
+            </div>
+            <div class="info-row">
+              <strong>Duration:</strong> <span id="display-duration">-</span>
+            </div>
+            <div class="info-row">
+              <strong>Start Date:</strong> <span id="display-start-date">-</span>
+            </div>
+            <div class="info-row">
+              <strong>Application Deadline:</strong> <span id="display-deadline">-</span>
+            </div>
+            <div class="info-row">
+              <strong>Stipend:</strong> <span id="display-stipend">-</span>
+            </div>
+            <div class="info-row">
+              <strong>Number of Openings:</strong> <span id="display-openings">-</span>
+            </div>
+            <div class="info-row">
+              <strong>Status:</strong> <span id="display-status" class="status-badge">-</span>
+            </div>
+            <div class="info-section">
+              <strong>Description:</strong>
+              <div id="display-description" style="margin-top: 8px; padding: 10px; background: #f9fafb; border-radius: 4px;">-</div>
+            </div>
+            <div class="info-section">
+              <strong>Required Skills:</strong>
+              <div id="display-skills" style="margin-top: 8px;">-</div>
+            </div>
+            <div class="info-section">
+              <strong>Preferred Majors:</strong>
+              <div id="display-majors" style="margin-top: 8px;">-</div>
+            </div>
+          </div>
+
+          <!-- Edit Form (Initially hidden) -->
+          <form class="post-internship-form" id="edit-form" style="display: none;">
+            <div class="form-group">
+              <label for="edit-title">Internship Title <span class="required">*</span></label>
+              <input type="text" id="edit-title" required />
+            </div>
+
+            <div class="form-group">
+              <label for="edit-location">Location</label>
+              <input type="text" id="edit-location" />
+            </div>
+
+            <div class="form-group">
+              <label for="edit-type">Internship Type</label>
+              <select id="edit-type">
+                <option value="full-time">Full-time</option>
+                <option value="part-time">Part-time</option>
+                <option value="remote">Remote</option>
+                <option value="hybrid">Hybrid</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="edit-duration">Duration</label>
+                <input type="text" id="edit-duration" />
+              </div>
+              <div class="form-group">
+                <label for="edit-start-date">Start Date</label>
+                <input type="date" id="edit-start-date" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="edit-deadline">Application Deadline</label>
+                <input type="date" id="edit-deadline" />
+              </div>
+              <div class="form-group">
+                <label for="edit-stipend">Stipend / Salary</label>
+                <input type="text" id="edit-stipend" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="edit-openings">Number of Openings</label>
+              <input type="number" id="edit-openings" min="1" />
+            </div>
+
+            <div class="form-group">
+              <label for="edit-status">Status</label>
+              <select id="edit-status">
+                <option value="active">Active</option>
+                <option value="paused">Paused</option>
+                <option value="closed">Closed</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="edit-description">Internship Description <span class="required">*</span></label>
+              <textarea id="edit-description" rows="6" required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="edit-skills">Required Skills</label>
+              <input type="text" id="edit-skills" placeholder="JavaScript, Python, etc. (comma separated)" />
+            </div>
+
+            <div class="form-group">
+              <label for="edit-majors">Preferred Fields of Study</label>
+              <input type="text" id="edit-majors" placeholder="Computer Science, Marketing, etc. (comma separated)" />
+            </div>
+
+            <div class="form-buttons">
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+              <button type="button" id="cancel-edit-btn" class="btn btn-secondary">Cancel</button>
+            </div>
+          </form>
+            </div>
+          </div>
+
+          <!-- Right Column: Applications Summary -->
+          <div>
+            <div class="card">
+              <h2 class="section-title" style="margin-bottom: 25px;">Applications Summary</h2>
+              <div class="stats-grid" style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 25px;">
+                <div class="stat-item" style="text-align: center; padding: 20px; background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0;">
+                  <h3 id="total-applications" style="font-size: 28px; margin: 0 0 5px 0; color: #1e293b; font-weight: 600;">-</h3>
+                  <p style="margin: 0; color: #64748b; font-size: 14px;">Total Applications</p>
+                </div>
+                <div class="stat-item" style="text-align: center; padding: 20px; background: #fef7cd; border-radius: 12px; border: 1px solid #fde047;">
+                  <h3 id="pending-applications" style="font-size: 28px; margin: 0 0 5px 0; color: #a16207; font-weight: 600;">-</h3>
+                  <p style="margin: 0; color: #a16207; font-size: 14px;">Pending Review</p>
+                </div>
+                <div class="stat-item" style="text-align: center; padding: 20px; background: #dcfce7; border-radius: 12px; border: 1px solid #22c55e;">
+                  <h3 id="shortlisted-applications" style="font-size: 28px; margin: 0 0 5px 0; color: #166534; font-weight: 600;">-</h3>
+                  <p style="margin: 0; color: #166534; font-size: 14px;">Shortlisted</p>
+                </div>
+              </div>
+              <div style="text-align: center;">
+                <a href="#" id="view-applications-btn" class="btn btn-primary" style="width: 100%; padding: 12px;">View All Applications</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+      <div class="footer-container">
+        <div class="footer-links">
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+        </div>
+        <div class="footer-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Edit Internship Script -->
+    <script type="module" src="js/edit-internship.js"></script>
+  </body>
+</html>
+
+<style>
+/* Enhanced Layout Styles */
+.info-row {
+  display: flex;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+  align-items: flex-start;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-row strong {
+  min-width: 180px;
+  color: #475569;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.info-row span {
+  color: #1e293b;
+  line-height: 1.5;
+}
+
+.info-section {
+  margin: 20px 0;
+  padding: 16px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.info-section:last-child {
+  border-bottom: none;
+}
+
+.info-section strong {
+  color: #475569;
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.status-badge {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-badge.active {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.status-badge.paused {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde047;
+}
+
+.status-badge.closed {
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.skill-tag {
+  display: inline-block;
+  background: #f1f5f9;
+  color: #475569;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 13px;
+  margin: 3px 6px 3px 0;
+  border: 1px solid #e2e8f0;
+  font-weight: 500;
+}
+
+/* Card improvements */
+.card {
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  border: 1px solid #f1f5f9;
+}
+
+/* Button improvements */
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* Form improvements */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #374151;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .content-container > div {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .info-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .info-row strong {
+    min-width: auto;
+  }
+}
+</style>

@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <!-- In a real project, you would link to a file like this: -->
     <link rel="stylesheet" href="../company-styles/studentprofile-company.css">
+    <link rel="stylesheet" href="css/loading-states.css">
     <!-- Font Awesome is no longer used for social icons, but can be kept for other icons if needed -->
     <link
       rel="stylesheet"
@@ -25,6 +26,7 @@
             <li><a href="post.html">Post Internship</a></li>
             <li><a href="manage.html">Manage Applications</a></li>
             <li><a href="#" class="active">Student Profiles</a></li>
+            <li><a href="shortlisted-students.html">Shortlisted Students</a></li>
             <li><a href="company-profiles.html">Company Profile</a></li>
             <li><a href="#">Logout</a></li>
         </ul>
@@ -41,8 +43,17 @@
     <main class="main-content">
         <!-- Search and Filter Panel -->
         <div class="filter-panel card">
+            <!-- Internship Context Section -->
+            <div class="internship-context" style="margin-bottom: 20px; padding: 15px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+                <h4 style="margin: 0 0 12px 0; color: #1e293b; font-size: 16px; font-weight: 600;">Shortlist for Internship:</h4>
+                <select id="internship-selector" style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px;">
+                    <option value="general">General Company Shortlist</option>
+                    <!-- Internships will be loaded dynamically -->
+                </select>
+            </div>
+
             <input type="text" id="search-students" placeholder="Search by name, university, or skills...">
-            
+
             <select id="filter-university">
                 <option value="all">All Universities</option>
                 <option value="knust">KNUST</option>
@@ -51,14 +62,14 @@
                 <option value="ucc">UCC</option>
                 <option value="others">OTHERS</option>
             </select>
-            
+
             <select id="filter-major">
                 <option value="all">All Majors</option>
                 <option value="cs">Computer Science</option>
                 <option value="eng">Engineering</option>
                 <option value="business">Business</option>
             </select>
-            
+
             <select id="filter-year">
                 <option value="all">All Years</option>
                 <option value="1">1st Year</option>
@@ -66,67 +77,22 @@
                 <option value="3">3rd Year</option>
                 <option value="final">Final Year</option>
             </select>
-            
+
             <select id="sort-by">
                 <option value="name">Sort by: Name (A-Z)</option>
                 <option value="year">Sort by: Year (Newest)</option>
                 <option value="skills">Sort by: Skills Match</option>
             </select>
-            
+
             <button class="btn btn-primary">Search</button>
         </div>
 
         <!-- Student Profiles Grid -->
         <div class="student-profile-grid">
-            <!-- Mock Student Profile Card 1 -->
-            <div class="profile-card card">
-                <div class="profile-header">
-                    <img src="../assets/images/jane.jpg" alt="Profile Photo" class="profile-photo">
-                    <h3 class="profile-name">John Doe</h3>
-                    <p class="profile-university">Stanford University - Computer Science</p>
-                    <p class="profile-year">Final Year</p>
-                    <div class="profile-summary">"Enthusiastic developer with a passion for building scalable web applications."</div>
-                </div>
-                <div class="profile-body">
-                    <div class="skill-tags">
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">Node.js</span>
-                    </div>
-                    <div class="profile-availability">Available: Immediately</div>
-                </div>
-                <div class="profile-actions">
-                    <button class="btn btn-tertiary">View Full Profile</button>
-                    <button class="btn btn-secondary">Shortlist</button>
-                </div>
+            <!-- Loading state - will be replaced by real data -->
+            <div class="loading-placeholder" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+                <p style="color: #666; font-size: 16px;">Loading student profiles...</p>
             </div>
-
-            <!-- Mock Student Profile Card 2 -->
-            <div class="profile-card card">
-                <div class="profile-header">
-                    <img src="../assets/images/emily.jpg" alt="Profile Photo" class="profile-photo">
-                    <h3 class="profile-name">Jane Smith</h3>
-                    <p class="profile-university">MIT - Mechanical Engineering</p>
-                    <p class="profile-year">3rd Year</p>
-                    <div class="profile-summary">"Creative problem-solver with hands-on experience in CAD and robotics."</div>
-                </div>
-                <div class="profile-body">
-                    <div class="skill-tags">
-                        <span class="skill-tag">SolidWorks</span>
-                        <span class="skill-tag">Matlab</span>
-                        <span class="skill-tag">Robotics</span>
-                        <span class="skill-tag">3D Printing</span>
-                    </div>
-                    <div class="profile-availability">Available: Next Semester</div>
-                </div>
-                <div class="profile-actions">
-                    <button class="btn btn-tertiary">View Full Profile</button>
-                    <button class="btn btn-secondary">Shortlist</button>
-                </div>
-            </div>
-
-            <!-- More mock profiles here... -->
         </div>
 
         <!-- Pagination -->
@@ -205,17 +171,7 @@
       </div>
     </footer>
 </body>
-    <script type="module">
-      import { requireAuth, initLogout } from '../../public/js/auth-utils.js';
-      const initPage = async () => {
-        try {
-          await requireAuth();
-          initLogout();
-        } catch (error) {
-          console.error('Page initialization error:', error);
-        }
-      };
-      document.addEventListener('DOMContentLoaded', initPage);
-    </script>
+    <!-- Student Profiles Script -->
+    <script type="module" src="js/student-profiles.js"></script>
   </body>
 </html>

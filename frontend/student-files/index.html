@@ -25,107 +25,97 @@
       <ul class="nav-links">
         <li><a href="#hero" class="active">Home</a></li>
         <li><a href="internship.html">Internships</a></li>
-        <li><a href="mentorship.html">Mentors</a></li>
+        <li><a href="mentors.html">Mentors</a></li>
         <li><a href="applications.html">My Applications</a></li>
         <li><a href="schedule.html">My Schedule</a></li>
         <li><a href="session.html">My Sessions</a></li>
         <li><a href="student-profile.html">Profile</a></li>
+        <li><a href="notifications.html">Notifications</a></li>
         <li><a href="#">Logout</a></li>
       </ul>
     </nav>
 
-    <!-- hero section -->
-    <section class="hero">
-      <div class="hero-block">
-        <div class="hero-text">
-          <h2>Welcome back, <span id="student-name">[Student Name]</span>!</h2>
-          <p>
-            Your journey to a brighter future starts here. Explore tailored
-            opportunities and connect with a supportive community.
-          </p>
-          <a href="#internships" class="btn discover-btn"
-            >Discover Internships</a
-          >
-          <a href="mentors.html" class="btn mentor-btn">Find a Mentor</a>
-        </div>
-        <div class="hero-image">
-          <img
-            src="../assets/images/hero-image.jpg"
-            alt="Student engaging with online learning"
-          />
-        </div>
+    <!-- Loading State -->
+    <div id="dashboard-loading" class="dashboard-loading" style="display: block;">
+      <div class="loading-container">
+        <div class="loading-spinner"></div>
+        <p>Loading your dashboard...</p>
       </div>
-    </section>
+    </div>
 
-    <!-- stats section -->
-    <section class="stats-section">
-      <h2>Your Progress At A Glance</h2>
-      <div class="stats-cards-grid">
-        <div class="stats-card">
-          <h3>5</h3>
-          <p>Applications Submitted</p>
-        </div>
-        <div class="stats-card">
-          <h3>2</h3>
-          <p>Mentors Connected</p>
-        </div>
-        <div class="stats-card">
-          <h3>3</h3>
-          <p>Internships Saved</p>
-        </div>
-        <div class="stats-card">
-          <h3>1</h3>
-          <p>Active Mentorship</p>
+    <!-- Dashboard Content -->
+    <div id="dashboard-content" class="dashboard-content" style="display: none;">
+      <!-- Notification Bar -->
+      <div id="notification-bar" class="notification-bar" style="display: none;">
+        <div class="notification-content">
+          <i class="fas fa-star" style="color: #fbbf24; margin-right: 8px;"></i>
+          <span id="notification-text">You have new notifications!</span>
+          <button id="view-notifications-btn" class="btn-link">View All</button>
+          <button id="dismiss-notification" class="btn-close">&times;</button>
         </div>
       </div>
-    </section>
-    <!-- internship listing -->
-    <section class="internships-section" id="internships">
-      <h2>Recent Internship Listings</h2>
-      <div class="internship-cards-grid">
-        <div class="internship-card">
-          <h3>Frontend Developer Intern</h3>
-          <p class="company-info">Tech Innovations Inc. · Remote · 3 Months</p>
-          <p class="description">
-            Gain hands-on experience building user interfaces with cutting-edge
-            technologies.
-          </p>
-          <a href="#" class="btn-accent-yellow">Apply Now</a>
+
+      <!-- hero section -->
+      <section class="hero">
+        <div class="hero-block">
+          <div class="hero-text">
+            <h2>Welcome back, <span id="student-name">[Student Name]</span>!</h2>
+            <p>
+              Your journey to a brighter future starts here. Explore tailored
+              opportunities and connect with a supportive community.
+            </p>
+            <a href="internship.html" class="btn discover-btn"
+              >Discover Internships</a
+            >
+            <a href="mentors.html" class="btn mentor-btn">Find a Mentor</a>
+          </div>
+          <div class="hero-image">
+            <img
+              src="../assets/images/hero-image.jpg"
+              alt="Student engaging with online learning"
+            />
+          </div>
         </div>
-        <div class="internship-card">
-          <h3>Digital Marketing Assistant</h3>
-          <p class="company-info">Growth Sparks Agency · Accra · 6 Weeks</p>
-          <p class="description">
-            Help craft engaging campaigns and analyze market trends for real
-            clients.
-          </p>
-          <a href="#" class="btn-accent-yellow">Apply Now</a>
+      </section>
+      <!-- stats section -->
+      <section class="stats-section">
+        <h2>Your Progress At A Glance</h2>
+        <div class="stats-cards-grid">
+          <div class="stats-card">
+            <h3 id="applications-count">-</h3>
+            <p>Applications Submitted</p>
+          </div>
+          <div class="stats-card">
+            <h3 id="shortlisted-count">-</h3>
+            <p>Times Shortlisted</p>
+          </div>
+          <div class="stats-card">
+            <h3 id="interviews-count">-</h3>
+            <p>Interview Invitations</p>
+          </div>
+          <div class="stats-card">
+            <h3 id="active-applications-count">-</h3>
+            <p>Active Applications</p>
+          </div>
         </div>
-        <div class="internship-card">
-          <h3>Data Analyst Internship</h3>
-          <p class="company-info">Insightful Solutions · Kumasi · 4 Months</p>
-          <p class="description">
-            Dive deep into data, extracting valuable insights to drive business
-            decisions.
-          </p>
-          <a href="#" class="btn-accent-yellow">Apply Now</a>
+      </section>
+
+      <!-- internship listing -->
+      <section class="internships-section" id="internships">
+        <h2>Recent Internship Listings</h2>
+        <div class="internship-cards-grid">
+          <!-- Loading state for internships -->
+          <div class="loading-placeholder" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+            <p style="color: #666; font-size: 16px;">Loading recent internships...</p>
+          </div>
         </div>
-        <div class="internship-card">
-          <h3>UI/UX Design Intern</h3>
-          <p class="company-info">Creative Minds Studio · Remote · 2 Months</p>
-          <p class="description">
-            Participate in design sprints, user research, and prototyping for
-            new applications.
-          </p>
-          <a href="#" class="btn-accent-yellow">Apply Now</a>
+        <div class="section-footer-link">
+          <a href="internship.html" class="btn internship-btn"
+            >View All Internships</a
+          >
         </div>
-      </div>
-      <div class="section-footer-link">
-        <a href="internship.html" class="btn internship-btn"
-          >View All Internships</a
-        >
-      </div>
-    </section>
+      </section>
+    </div>
     <!-- mentors section -->
     <section class="mentors-section" id="mentors">
       <h2>Suggested Mentors for You</h2>
@@ -274,5 +264,122 @@
       </div>
     </footer>
     <script type="module" src="js/dashboard.js"></script>
+
+    <style>
+      /* Loading States */
+      .dashboard-loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      }
+
+      .loading-container {
+        text-align: center;
+        color: #6b7280;
+      }
+
+      .loading-spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid #f3f4f6;
+        border-top: 4px solid #3b82f6;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 16px auto;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      /* Notification Bar */
+      .notification-bar {
+        background: linear-gradient(135deg, #fef3cd 0%, #fde047 100%);
+        border: 1px solid #fbbf24;
+        border-radius: 8px;
+        margin: 20px;
+        animation: slideDown 0.3s ease-out;
+      }
+
+      .notification-content {
+        display: flex;
+        align-items: center;
+        padding: 12px 16px;
+        gap: 12px;
+      }
+
+      .notification-content span {
+        flex: 1;
+        color: #92400e;
+        font-weight: 500;
+      }
+
+      .btn-link {
+        background: none;
+        border: none;
+        color: #3b82f6;
+        text-decoration: underline;
+        cursor: pointer;
+        font-weight: 500;
+      }
+
+      .btn-close {
+        background: none;
+        border: none;
+        font-size: 18px;
+        color: #92400e;
+        cursor: pointer;
+        padding: 0;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Empty States */
+      .empty-state {
+        text-align: center;
+        padding: 40px 20px;
+        color: #6b7280;
+      }
+
+      .empty-state h3 {
+        color: #374151;
+        margin-bottom: 8px;
+      }
+
+      .empty-state p {
+        margin: 0;
+        font-size: 14px;
+      }
+
+      /* Loading placeholder improvements */
+      .loading-placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 200px;
+      }
+    </style>
   </body>
 </html>

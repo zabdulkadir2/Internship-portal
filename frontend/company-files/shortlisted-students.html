@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shortlisted Students | CampusConnect</title>
+    <!-- Google Fonts: Poppins for headings, Open Sans for body text -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Link to the dedicated CSS file for this page -->
+    <link rel="stylesheet" href="../company-styles/manage.css" />
+    <link rel="stylesheet" href="css/loading-states.css" />
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="#">CampusConnect</a>
+        </div>
+        <ul class="navbar-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="post.html">Post Internship</a></li>
+            <li><a href="manage.html">Manage Applications</a></li>
+            <li><a href="studentprofile-company.html">Student Profiles</a></li>
+            <li><a href="#" class="active">Shortlisted Students</a></li>
+            <li><a href="company-profiles.html">Company Profile</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="header-content">
+            <h1 class="page-title">Shortlisted Students</h1>
+            <p class="page-tagline">
+                Manage your shortlisted students across all internships and take action on promising candidates.
+            </p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Filter Panel -->
+        <div class="filter-panel card">
+            <input type="text" id="search-shortlisted" placeholder="Search by name, university, or skills...">
+
+            <select id="internship-filter">
+                <option value="all">All Internships</option>
+                <option value="general">General Company Shortlist</option>
+                <!-- Internships will be loaded dynamically -->
+            </select>
+
+            <select id="sort-by">
+                <option value="recent">Most Recent</option>
+                <option value="oldest">Oldest</option>
+                <option value="name">Name (A-Z)</option>
+                <option value="internship">By Internship</option>
+            </select>
+
+            <button class="btn btn-primary">Search</button>
+        </div>
+
+        <!-- Shortlisted Students List -->
+        <div class="shortlisted-list-card card">
+            <div class="bulk-actions">
+                <input type="checkbox" id="select-all" class="bulk-checkbox" />
+                <label for="select-all">Select All</label>
+                <button class="btn btn-secondary" id="bulk-invite-btn">Invite for Interview</button>
+                <button class="btn btn-secondary" id="bulk-remove-btn">Remove from Shortlist</button>
+                <button class="btn btn-secondary" id="bulk-email-btn">Send Email</button>
+            </div>
+
+            <div class="shortlisted-grid" id="shortlisted-grid">
+                <!-- Loading state -->
+                <div class="loading-placeholder" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+                    <p style="color: #666; font-size: 16px;">Loading shortlisted students...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Empty State (initially hidden) -->
+        <div id="empty-state" style="display: none;">
+            <div class="empty-state-content">
+                <i class="fas fa-star" style="font-size: 48px; color: #d1d5db; margin-bottom: 16px;"></i>
+                <h3>No shortlisted students yet</h3>
+                <p>Start building your talent pool by shortlisting promising candidates from the <a href="studentprofile-company.html">Student Profiles</a> page.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Student Detail Modal -->
+    <div id="student-detail-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="modal-header">
+                <img id="modal-photo" src="" alt="Student Photo" class="modal-profile-photo">
+                <h2 id="modal-name">Student Name</h2>
+                <p id="modal-info">University - Major</p>
+                <p id="modal-shortlist-info" style="color: #10b981; font-weight: 500; margin-top: 8px;">
+                    <i class="fas fa-star"></i> Shortlisted for: <span id="modal-internship-title">Internship</span>
+                </p>
+            </div>
+            <div class="modal-body">
+                <div class="detail-section">
+                    <h4>Education</h4>
+                    <p id="modal-university"><strong>University</strong></p>
+                    <p id="modal-degree">Degree - Year</p>
+                </div>
+                <div class="detail-section">
+                    <h4>Skills</h4>
+                    <div id="modal-skills" class="skill-tags">
+                        <!-- Skills will be populated here -->
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <h4>Bio</h4>
+                    <p id="modal-bio">Student bio will appear here.</p>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-primary" id="invite-interview-btn">Invite for Interview</button>
+                <button class="btn btn-success" id="move-to-applications-btn">Move to Applications</button>
+                <button class="btn btn-secondary" id="remove-shortlist-btn">Remove from Shortlist</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">Terms</a>
+                <a href="#">Privacy</a>
+            </div>
+            <div class="footer-socials">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Shortlisted Students Script -->
+    <script type="module" src="js/shortlisted-students.js"></script>
+
+    <style>
+        /* Shortlisted Students Grid */
+        .shortlisted-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .shortlisted-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .shortlisted-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border-color: #cbd5e1;
+        }
+
+        .shortlisted-card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .shortlisted-card-photo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 12px;
+        }
+
+        .shortlisted-card-info h3 {
+            margin: 0 0 4px 0;
+            color: #1e293b;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .shortlisted-card-info p {
+            margin: 0;
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .shortlisted-card-checkbox {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        .shortlisted-internship {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 8px 12px;
+            margin: 12px 0;
+            font-size: 13px;
+            color: #475569;
+        }
+
+        .shortlisted-internship strong {
+            color: #1e293b;
+        }
+
+        .shortlisted-date {
+            font-size: 12px;
+            color: #9ca3af;
+            margin-bottom: 15px;
+        }
+
+        .shortlisted-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .shortlisted-actions .btn {
+            flex: 1;
+            padding: 8px 12px;
+            font-size: 13px;
+            min-width: auto;
+        }
+
+        .shortlisted-star {
+            color: #fbbf24;
+            margin-right: 4px;
+        }
+
+        /* Empty state */
+        .empty-state-content {
+            text-align: center;
+            padding: 60px 20px;
+            color: #6b7280;
+        }
+
+        .empty-state-content h3 {
+            color: #374151;
+            margin-bottom: 8px;
+        }
+
+        .empty-state-content a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .empty-state-content a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .shortlisted-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bulk-actions {
+                flex-direction: column;
+                gap: 10px;
+                align-items: stretch;
+            }
+
+            .bulk-actions .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</body>
+</html>

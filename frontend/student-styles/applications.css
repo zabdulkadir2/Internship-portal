@@ -504,3 +504,156 @@ section h2 {
     font-size: 0.85rem;
     color: #94A3B8;
 }
+
+/* Application Cards and Status Styles */
+.applications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.application-status-group {
+    margin-bottom: 2rem;
+}
+
+.status-header {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.status-header.pending { color: #f59e0b; }
+.status-header.shortlisted { color: #8b5cf6; }
+.status-header.reviewing { color: #06b6d4; }
+.status-header.accepted { color: #10b981; }
+.status-header.rejected { color: #ef4444; }
+.status-header.withdrawn { color: #6b7280; }
+
+.application-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-left: 4px solid #e5e7eb;
+}
+
+.application-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.application-card.status-pending { border-left-color: #f59e0b; }
+.application-card.status-shortlisted { border-left-color: #8b5cf6; }
+.application-card.status-reviewing { border-left-color: #06b6d4; }
+.application-card.status-interview { border-left-color: #3b82f6; }
+.application-card.status-accepted { border-left-color: #10b981; }
+.application-card.status-rejected { border-left-color: #ef4444; }
+.application-card.status-withdrawn { border-left-color: #6b7280; }
+
+.application-header {
+    margin-bottom: 1rem;
+}
+
+.application-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0 0 0.5rem 0;
+}
+
+.company-name {
+    color: #64748b;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.application-meta {
+    margin-bottom: 1rem;
+}
+
+.meta-item {
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    color: #475569;
+}
+
+.meta-item strong {
+    color: #1e293b;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+}
+
+.status-badge.status-pending {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.status-badge.status-shortlisted {
+    background-color: #ede9fe;
+    color: #7c3aed;
+}
+
+.status-badge.status-reviewing {
+    background-color: #cffafe;
+    color: #0e7490;
+}
+
+.status-badge.status-interview {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+}
+
+.status-badge.status-accepted {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.status-badge.status-rejected {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.status-badge.status-withdrawn {
+    background-color: #f3f4f6;
+    color: #374151;
+}
+
+.application-notes {
+    background-color: #f8fafc;
+    padding: 0.75rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    color: #475569;
+}
+
+.application-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.btn-tertiary {
+    background-color: #f1f5f9;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+}
+
+.btn-tertiary:hover {
+    background-color: #e2e8f0;
+    color: #334155;
+}

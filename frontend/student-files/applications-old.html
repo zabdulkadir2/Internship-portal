@@ -4,42 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Applications | CampusConnect</title>
+    <!-- Google Fonts: Poppins for headings, Open Sans for body text -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
       rel="stylesheet"
     />
+    <!-- Font Awesome for social media icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      xintegrity="sha512-ieCDyF4QYVlXF0Kz5a6eGgA5Q/t0O8aNnN9F1iX2j3aV5eO7pB5sC5xL5w5O5h5aO5Q5E5g5n5Q5i5b5q5A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
+    <!-- Link to the dedicated CSS file for this page -->
     <link rel="stylesheet" href="../student-styles/applications.css" />
   </head>
   <body>
-    <!-- Navigation Bar -->
+    <!-- Navbar Section - Reused for consistency -->
     <nav class="nav-container">
-      <div class="logo"><h1>CampusConnect</h1></div>
+      <div class="logo">
+        <h1>CampusConnect</h1>
+      </div>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="internship.html">Internships</a></li>
         <li><a href="mentors.html">Mentors</a></li>
-        <li><a href="#" class="active">My Applications</a></li>
+        <li><a href="#my-applications" class="active">My Applications</a></li>
         <li><a href="schedule.html">My Schedule</a></li>
         <li><a href="session.html">My Sessions</a></li>
         <li><a href="student-profile.html">Profile</a></li>
-        <li><a href="notifications.html">Notifications</a></li>
         <li><a href="#">Logout</a></li>
       </ul>
     </nav>
-
-    <!-- Page Header -->
-    <header class="page-header">
-      <div class="header-content">
-        <h1 class="page-title">My Applications</h1>
-        <p class="page-tagline">
-          Track your internship applications and manage your opportunities.
-        </p>
-      </div>
-    </header>
 
     <!-- Loading State -->
     <div id="applications-loading" class="applications-loading" style="display: block;">
@@ -51,7 +48,7 @@
 
     <!-- Applications Content -->
     <div id="applications-content" class="applications-content" style="display: none;">
-      <!-- Application Summary -->
+      <!-- Application Summary - Moved to top -->
       <section class="application-summary-section">
         <div class="summary-cards-grid">
           <div class="summary-card">
@@ -71,15 +68,14 @@
             <p>Accepted Offers</p>
           </div>
         </div>
-      </section>
-
-      <!-- Filters -->
+      <!-- Filters or Sorting - Redesigned to match image inspiration -->
       <section class="applications-filter-section">
         <div class="filter-controls-container">
           <div class="filter-dropdowns">
             <select class="filter-select" id="status-filter">
               <option value="">Filter by Status</option>
               <option value="applied">Applied</option>
+              <option value="pending">Pending</option>
               <option value="under-review">Under Review</option>
               <option value="interview-scheduled">Interview Scheduled</option>
               <option value="shortlisted">Shortlisted</option>
@@ -98,7 +94,7 @@
             </select>
           </div>
           <div class="filter-actions">
-            <button class="btn btn-secondary" id="apply-filters-btn">
+            <button class="btn btn-secondary apply-filters-button" id="apply-filters-btn">
               Apply Filters
             </button>
           </div>
@@ -112,87 +108,106 @@
         </div>
       </section>
     </div>
+        <!-- Static table removed - using dynamic applications-list -->
+            <tr>
+              <td>Frontend Developer Intern</td>
+              <td>Tech Innovations Inc.</td>
+              <td>Remote</td>
+              <td>Full-time</td>
+              <td><span class="status-tag status-accepted">Accepted</span></td>
+              <td>July 5, 2025</td>
+              <td>
+                <button class="action-button">View</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Digital Marketing Assistant</td>
+              <td>Growth Sparks Agency</td>
+              <td>Accra, Ghana</td>
+              <td>Part-time</td>
+              <td>
+                <span class="status-tag status-interview">Interview</span>
+              </td>
+              <td>June 28, 2025</td>
+              <td>
+                <button class="action-button schedule-interview">
+                  Schedule Interview
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>Data Analyst Internship</td>
+              <td>Insightful Solutions</td>
+              <td>Kumasi, Ghana</td>
+              <td>Full-time</td>
+              <td><span class="status-tag status-pending">Pending</span></td>
+              <td>June 15, 2025</td>
+              <td>
+                <button class="action-button withdraw">Withdraw</button>
+              </td>
+            </tr>
+            <tr>
+              <td>UI/UX Design Intern</td>
+              <td>Creative Minds Studio</td>
+              <td>Remote</td>
+              <td>Part-time</td>
+              <td><span class="status-tag status-rejected">Rejected</span></td>
+              <td>May 20, 2025</td>
+              <td>
+                <button class="action-button">View</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Software Engineering Intern</td>
+              <td>Global Solutions Ltd.</td>
+              <td>Accra, Ghana</td>
+              <td>Full-time</td>
+              <td>
+                <span class="status-tag status-submitted">Submitted</span>
+              </td>
+              <td>July 8, 2025</td>
+              <td>
+                <button class="action-button withdraw">Withdraw</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-    <!-- Footer -->
+      <!-- Empty State (Hidden by default, can be shown with JS) -->
+      <div class="empty-state" style="display: none">
+        <p>
+          You haven’t applied to any internships yet. Start your journey today!
+        </p>
+        <a href="internship.html" class="btn btn-primary">Browse Internships</a>
+      </div>
+    </section>
+
+    <!-- Consistent Footer - Reused for consistency -->
     <footer class="footer-section">
       <div class="footer-container">
+        <!-- Quick Links -->
         <div class="footer-links">
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
           <a href="#">Terms</a>
           <a href="#">Privacy</a>
         </div>
+
+        <!-- Social Media Icons -->
         <div class="footer-socials">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
           <a href="#"><i class="fab fa-twitter"></i></a>
           <a href="#"><i class="fab fa-linkedin-in"></i></a>
           <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
+
+        <!-- Copyright -->
         <div class="footer-bottom">
           <p>&copy; 2025 CampusConnect. All rights reserved.</p>
         </div>
       </div>
     </footer>
-
     <script type="module" src="js/applications.js"></script>
-
-    <style>
-      /* Loading States */
-      .applications-loading {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.95);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 9999;
-      }
-
-      .loading-container {
-        text-align: center;
-        color: #6b7280;
-      }
-
-      .loading-spinner {
-        width: 40px;
-        height: 40px;
-        border: 4px solid #f3f4f6;
-        border-top: 4px solid #3b82f6;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-        margin: 0 auto 16px auto;
-      }
-
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-
-      .applications-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-      }
-
-      .page-header {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        padding: 60px 0;
-        text-align: center;
-      }
-
-      .page-title {
-        font-size: 2.5rem;
-        margin-bottom: 8px;
-      }
-
-      .page-tagline {
-        font-size: 1.1rem;
-        opacity: 0.9;
-      }
-    </style>
   </body>
 </html>

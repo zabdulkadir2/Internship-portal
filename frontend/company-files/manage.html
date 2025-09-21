@@ -15,6 +15,7 @@
     />
     <!-- Link to the external CSS file -->
     <link rel="stylesheet" href="../company-styles/manage.css">
+    <link rel="stylesheet" href="css/loading-states.css">
   </head>
   <body>
     <!-- Navigation Bar -->
@@ -27,6 +28,7 @@
         <li><a href="post.html">Post Internship</a></li>
         <li><a href="#" class="active">Manage Applications</a></li>
         <li><a href="studentprofile-company.html">Student Profiles</a></li>
+        <li><a href="shortlisted-students.html">Shortlisted Students</a></li>
         <li><a href="company-profiles.html">Company Profile</a></li>
         <li><a href="#">Logout</a></li>
       </ul>
@@ -66,6 +68,7 @@
             <option value="applied">Applied</option>
             <option value="under-review">Under Review</option>
             <option value="interview-scheduled">Interview Scheduled</option>
+            <option value="shortlisted">Shortlisted</option>
             <option value="rejected">Rejected</option>
             <option value="hired">Hired</option>
           </select>
@@ -104,67 +107,12 @@
                 </tr>
               </thead>
               <tbody>
-                <!-- Mock Application Rows -->
+                <!-- Applications will be loaded here -->
                 <tr>
-                  <td><input type="checkbox" class="bulk-checkbox" /></td>
-                  <td class="applicant-info">
-                    <img
-                      src="https://placehold.co/40x40/E2E8F0/A0B2C4?text=JD"
-                      alt="Profile Photo"
-                      class="profile-photo"
-                    />
-                    <span>John Doe</span>
-                  </td>
-                  <td>Software Engineering Intern</td>
-                  <td>2025-08-01</td>
-                  <td>
-                    <span class="status-badge status-applied">Applied</span>
-                  </td>
-                  <td class="actions">
-                    <button class="btn btn-tertiary">View Details</button>
+                  <td colspan="6" class="loading-placeholder">
+                    <p style="text-align: center; padding: 20px; color: #666;">Loading applications...</p>
                   </td>
                 </tr>
-                <tr>
-                  <td><input type="checkbox" class="bulk-checkbox" /></td>
-                  <td class="applicant-info">
-                    <img
-                      src="https://placehold.co/40x40/E2E8F0/A0B2C4?text=JS"
-                      alt="Profile Photo"
-                      class="profile-photo"
-                    />
-                    <span>Jane Smith</span>
-                  </td>
-                  <td>UX Design Intern</td>
-                  <td>2025-07-28</td>
-                  <td>
-                    <span class="status-badge status-review">Under Review</span>
-                  </td>
-                  <td class="actions">
-                    <button class="btn btn-tertiary">View Details</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" class="bulk-checkbox" /></td>
-                  <td class="applicant-info">
-                    <img
-                      src="https://placehold.co/40x40/E2E8F0/A0B2C4?text=MG"
-                      alt="Profile Photo"
-                      class="profile-photo"
-                    />
-                    <span>Mike Green</span>
-                  </td>
-                  <td>Marketing Specialist Intern</td>
-                  <td>2025-07-25</td>
-                  <td>
-                    <span class="status-badge status-interview"
-                      >Interview Scheduled</span
-                    >
-                  </td>
-                  <td class="actions">
-                    <button class="btn btn-tertiary">View Details</button>
-                  </td>
-                </tr>
-                <!-- Add more rows with different statuses here... -->
               </tbody>
             </table>
           </div>
@@ -258,18 +206,7 @@
         </div>
       </div>
     </footer>
-    <!-- Authentication and Logout Script -->
-    <script type="module">
-      import { requireAuth, initLogout } from '../../public/js/auth-utils.js';
-      const initPage = async () => {
-        try {
-          await requireAuth();
-          initLogout();
-        } catch (error) {
-          console.error('Page initialization error:', error);
-        }
-      };
-      document.addEventListener('DOMContentLoaded', initPage);
-    </script>
+    <!-- Manage Applications Script -->
+    <script type="module" src="js/manage-applications.js?v=2"></script>
   </body>
 </html>

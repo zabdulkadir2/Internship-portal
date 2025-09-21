@@ -423,6 +423,56 @@ a:hover {
 .detail-section h4 {
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
+    color: #1E3A8A;
+}
+
+/* Enhanced Application Details */
+.resume-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.resume-info p {
+    margin: 0;
+    font-weight: 500;
+}
+
+.cover-letter-content, .contact-details, .availability-info, .metadata-info {
+    margin-top: 0.5rem;
+}
+
+.contact-details p, .availability-info p, .metadata-info p {
+    margin: 0.25rem 0;
+}
+
+.contact-details a, .availability-info a {
+    color: #1E3A8A;
+    text-decoration: none;
+}
+
+.contact-details a:hover, .availability-info a:hover {
+    text-decoration: underline;
+}
+
+.skills-section .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.skills-section .skill-tag {
+    background: #E0F2FE;
+    color: #0369A1;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.modal-body .detail-section:last-child {
+    margin-bottom: 0;
 }
 
 .skill-tags {

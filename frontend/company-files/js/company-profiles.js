@@ -1,6 +1,7 @@
 import { requireAuth, initLogout, getCurrentUser } from '../../../public/js/auth-utils.js';
-import { doc, updateDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+import { doc, updateDoc, collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 import { db } from '../../../public/js/firebase.js';
+import { initializeDataManager, getDataManager, formatters } from './data-integration.js';
 
 // Initialize company profile page
 const initCompanyProfile = async () => {
@@ -14,8 +15,18 @@ const initCompanyProfile = async () => {
         // Initialize logout functionality
         initLogout();
 
+        // Get current user and initialize data manager
+        const userData = await getCurrentUser();
+        if (userData.role !== 'employer') {
+            console.warn('User is not an employer, redirecting to appropriate dashboard');
+            window.location.href = '/public/index.html';
+            return;
+        }
+
+        const dataManager = initializeDataManager(userData.uid);
+
         // Load and populate company profile data
-        await loadCompanyData();
+        await loadCompanyData(userData, dataManager);
 
         // Initialize form handlers
         initFormHandlers();
@@ -37,16 +48,8 @@ const initCompanyProfile = async () => {
 };
 
 // Load company profile data and populate display
-const loadCompanyData = async () => {
+const loadCompanyData = async (userData, dataManager) => {
     try {
-        const userData = await getCurrentUser();
-
-        if (userData.role !== 'employer') {
-            console.warn('User is not an employer, redirecting to appropriate dashboard');
-            window.location.href = '/public/index.html';
-            return;
-        }
-
         // Populate company display with user data
         populateCompanyDisplay(userData);
 
@@ -55,6 +58,12 @@ const loadCompanyData = async () => {
 
         // Update logo if exists
         updateLogo(userData.logoUrl);
+
+        // Load dynamic data
+        await Promise.all([
+            loadInternshipListings(dataManager),
+            loadCompanyStatistics(dataManager)
+        ]);
 
     } catch (error) {
         console.error('Error loading company data:', error);
@@ -555,6 +564,117 @@ window.addEventListener('beforeunload', (e) => {
         e.returnValue = '';
     }
 });
+
+// Load internship listings
+const loadInternshipListings = async (dataManager) => {
+    try {
+        const internships = await dataManager.getInternships();
+        const applications = await dataManager.getApplications();
+
+        displayInternshipListings(internships, applications);
+    } catch (error) {
+        console.error('Error loading internship listings:', error);
+        showEmptyInternships();
+    }
+};
+
+// Display internship listings
+const displayInternshipListings = (internships, applications) => {
+    const listingsContainer = document.getElementById('internship-listings');
+    if (!listingsContainer) return;
+
+    // Remove loading placeholder
+    const loadingPlaceholder = listingsContainer.querySelector('.loading-placeholder');
+    if (loadingPlaceholder) {
+        loadingPlaceholder.remove();
+    }
+
+    if (internships.length === 0) {
+        showEmptyInternships();
+        return;
+    }
+
+    // Calculate application counts for each internship
+    const internshipsWithCounts = internships.map(internship => {
+        const applicationCount = applications.filter(app => app.internshipId === internship.id).length;
+        return { ...internship, applicationCount };
+    });
+
+    listingsContainer.innerHTML = internshipsWithCounts.map(internship => `
+        <div class="job-card">
+            <div class="job-details">
+                <h3 class="job-title">${internship.title}</h3>
+                <p class="job-location">${internship.location || 'Location not specified'}</p>
+                <p class="job-duration">${internship.duration || 'Duration not specified'}</p>
+                <p class="job-deadline">Deadline: ${formatters.date(internship.deadline) || 'No deadline set'}</p>
+                <div class="job-stats" style="margin-top: 10px;">
+                    <span class="stat-badge" style="background: #f3f4f6; color: #374151; padding: 4px 8px; border-radius: 12px; font-size: 12px;">
+                        ${internship.applicationCount} ${internship.applicationCount === 1 ? 'application' : 'applications'}
+                    </span>
+                    <span class="status-badge status-${internship.status || 'active'}" style="margin-left: 8px; padding: 4px 8px; border-radius: 12px; font-size: 12px;">
+                        ${formatters.status(internship.status || 'active')}
+                    </span>
+                </div>
+            </div>
+            <div class="job-actions" style="display: flex; flex-direction: column; gap: 8px;">
+                <a href="manage.html?internship=${internship.id}" class="btn btn-secondary" style="text-align: center; padding: 8px 16px;">View Applications</a>
+                <a href="edit-internship.html?id=${internship.id}" class="btn btn-tertiary" style="text-align: center; padding: 8px 16px;">Edit Details</a>
+            </div>
+        </div>
+    `).join('');
+};
+
+// Show empty internships state
+const showEmptyInternships = () => {
+    const listingsContainer = document.getElementById('internship-listings');
+    if (!listingsContainer) return;
+
+    listingsContainer.innerHTML = `
+        <div class="empty-state" style="grid-column: 1 / -1; text-align: center; padding: 40px; background: #f9fafb; border: 2px dashed #d1d5db; border-radius: 12px;">
+            <div style="color: #6b7280; margin-bottom: 16px;">
+                <i class="fas fa-briefcase" style="font-size: 48px; opacity: 0.5;"></i>
+            </div>
+            <h3 style="color: #374151; margin-bottom: 8px;">No Internships Posted Yet</h3>
+            <p style="color: #6b7280; margin-bottom: 20px;">Start attracting talented students by posting your first internship opportunity!</p>
+            <a href="post.html" class="btn btn-primary">Post Your First Internship</a>
+        </div>
+    `;
+};
+
+// Load company statistics
+const loadCompanyStatistics = async (dataManager) => {
+    try {
+        const statistics = await dataManager.getStatistics();
+        displayCompanyStatistics(statistics);
+    } catch (error) {
+        console.error('Error loading company statistics:', error);
+        // Keep placeholder values
+    }
+};
+
+// Display company statistics
+const displayCompanyStatistics = (stats) => {
+    const elements = {
+        'total-internships': stats.totalInternships || 0,
+        'total-applications': stats.totalApplications || 0,
+        'students-hired': stats.hiredApplications || 0,
+        'active-internships': stats.activeInternships || 0
+    };
+
+    Object.entries(elements).forEach(([id, value]) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.textContent = value;
+
+            // Add a subtle animation
+            element.style.opacity = '0';
+            setTimeout(() => {
+                element.style.transition = 'opacity 0.5s ease';
+                element.style.opacity = '1';
+            }, 100);
+        }
+    });
+};
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', initCompanyProfile);

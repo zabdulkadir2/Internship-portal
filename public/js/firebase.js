@@ -9,6 +9,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+import { getStorage } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-storage.js";
 
 // Your Firebase configuration
   // TODO: Add SDKs for Firebase products that you want to use
@@ -34,6 +35,8 @@ const analytics = getAnalytics(app);
 const auth = getAuth(app);
 // Initialize Firestore
 export const db = getFirestore(app);
+// Initialize Firebase Storage
+export const storage = getStorage(app);
 // Google Auth Provider
 export const provider = new GoogleAuthProvider();
 

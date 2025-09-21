@@ -16,6 +16,7 @@
     />
     <!-- Link to the dedicated CSS file for this page -->
     <link rel="stylesheet" href="../company-styles/index.css" />
+    <link rel="stylesheet" href="css/loading-states.css" />
   </head>
   <body>
     <!-- Navbar Section - Consistent with other portals -->
@@ -27,8 +28,8 @@
         <li><a href="#"  class="active">Home</a></li>
         <li><a href="post.html">Post Internship</a></li>
         <li><a href="manage.html">Manage Applications</a></li>
-        <li><a href="student-profile.html">Student Profiles</a></li>
-        <li><a href="company-profile.html">Company Profile</a></li>
+        <li><a href="studentprofile-company.html">Student Profiles</a></li>
+        <li><a href="company-profiles.html">Company Profile</a></li>
         <li><a href="#">Logout</a></li>
       </ul>
     </nav>
@@ -42,8 +43,8 @@
             Find the right student talent and manage your internships easily.
           </p>
           <div class="hero-actions">
-            <a href="#" class="btn btn-primary">Post New Internship</a>
-            <a href="#" class="btn btn-secondary">View Applications</a>
+            <a href="post.html" class="btn btn-primary">Post New Internship</a>
+            <a href="manage.html" class="btn btn-secondary">View Applications</a>
           </div>
         </div>
         <!-- Hero Image Container - Replace the src with your own image URL -->
@@ -63,17 +64,17 @@
       <div class="stats-grid">
         <div class="stat-card">
           <i class="fas fa-user-graduate icon-large"></i>
-          <h3>15</h3>
+          <h3>-</h3>
           <p>Applications Received</p>
         </div>
         <div class="stat-card">
           <i class="fas fa-bullhorn icon-large"></i>
-          <h3>3</h3>
+          <h3>-</h3>
           <p>Active Internship Posts</p>
         </div>
         <div class="stat-card">
           <i class="fas fa-folder-open icon-large"></i>
-          <h3>8</h3>
+          <h3>-</h3>
           <p>Shortlisted Students</p>
         </div>
       </div>
@@ -83,56 +84,13 @@
     <section class="recent-applications-section">
       <h2>Recent Applications</h2>
       <div class="applications-list">
-        <!-- Application Card 1 -->
-        <div class="application-card">
-          <div class="app-info">
-            <h3 class="student-name">
-              Aisha Mohammed
-              <span class="student-program">(Computer Science)</span>
-            </h3>
-            <p class="internship-title">
-              Applied for: Junior Software Engineer Internship
-            </p>
-            <p class="submission-date">Submitted on: July 28, 2025</p>
-          </div>
-          <div class="app-actions">
-            <span class="status-tag status-pending">Pending</span>
-            <a href="#" class="btn action-button">Review Application</a>
-          </div>
-        </div>
-        <!-- Application Card 2 -->
-        <div class="application-card">
-          <div class="app-info">
-            <h3 class="student-name">
-              Kwame Nkrumah <span class="student-program">(Marketing)</span>
-            </h3>
-            <p class="internship-title">
-              Applied for: Digital Marketing Intern
-            </p>
-            <p class="submission-date">Submitted on: July 27, 2025</p>
-          </div>
-          <div class="app-actions">
-            <span class="status-tag status-reviewed">Reviewed</span>
-            <a href="#" class="btn action-button">Review Application</a>
-          </div>
-        </div>
-        <!-- Application Card 3 -->
-        <div class="application-card">
-          <div class="app-info">
-            <h3 class="student-name">
-              Fatima Ali <span class="student-program">(Graphic Design)</span>
-            </h3>
-            <p class="internship-title">Applied for: UI/UX Designer Intern</p>
-            <p class="submission-date">Submitted on: July 26, 2025</p>
-          </div>
-          <div class="app-actions">
-            <span class="status-tag status-pending">Pending</span>
-            <a href="#" class="btn action-button">Review Application</a>
-          </div>
+        <!-- Loading state - will be replaced by real data -->
+        <div class="loading-placeholder">
+          <p>Loading recent applications...</p>
         </div>
       </div>
       <div class="section-footer-link">
-        <a href="#" class="btn btn-secondary">View All Applications</a>
+        <a href="manage.html" class="btn btn-secondary">View All Applications</a>
       </div>
     </section>
 
@@ -140,33 +98,13 @@
     <section class="latest-internships-section">
       <h2>Latest Internship Posts</h2>
       <div class="internships-list">
-        <!-- Internship Card 1 -->
-        <div class="internship-card">
-          <div class="internship-info">
-            <h3 class="internship-title">
-              Junior Software Engineer Internship
-            </h3>
-            <p class="post-date">Posted on: July 25, 2025</p>
-            <p class="applications-count">Applications: 7</p>
-          </div>
-          <div class="internship-actions">
-            <a href="#" class="btn action-button">Edit or Manage</a>
-          </div>
-        </div>
-        <!-- Internship Card 2 -->
-        <div class="internship-card">
-          <div class="internship-info">
-            <h3 class="internship-title">Digital Marketing Intern</h3>
-            <p class="post-date">Posted on: July 20, 2025</p>
-            <p class="applications-count">Applications: 5</p>
-          </div>
-          <div class="internship-actions">
-            <a href="#" class="btn action-button">Edit or Manage</a>
-          </div>
+        <!-- Loading state - will be replaced by real data -->
+        <div class="loading-placeholder">
+          <p>Loading your internship posts...</p>
         </div>
       </div>
       <div class="section-footer-link">
-        <a href="#" class="btn btn-primary">Post New Internship</a>
+        <a href="post.html" class="btn btn-primary">Post New Internship</a>
       </div>
     </section>
 

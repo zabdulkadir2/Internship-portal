@@ -612,6 +612,386 @@ section h2 {
     }
 }
 
+/* Application Form Modal Styles */
+.application-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.application-modal {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    margin: auto;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #1E3A8A, #3B82F6);
+    color: white;
+    padding: 1.5rem 2rem;
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.close-modal:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.modal-content {
+    padding: 2rem;
+}
+
+.application-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.form-section {
+    border-bottom: 1px solid #E5E7EB;
+    padding-bottom: 1.5rem;
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1E3A8A;
+    margin: 0 0 1rem 0;
+}
+
+.internship-summary {
+    background: #F8FAFC;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #1E3A8A;
+}
+
+.internship-summary h3 {
+    margin: 0 0 0.5rem 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    color: #1E3A8A;
+}
+
+.internship-summary p {
+    margin: 0.25rem 0;
+    color: #64748B;
+    font-size: 0.9rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #374151;
+    font-size: 0.9rem;
+}
+
+.form-group label.required::after {
+    content: " *";
+    color: #EF4444;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    padding: 0.75rem;
+    border: 1px solid #D1D5DB;
+    border-radius: 6px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #1E3A8A;
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+}
+
+.form-group small {
+    color: #6B7280;
+    font-size: 0.8rem;
+}
+
+/* File Upload Styles */
+.file-upload-container {
+    position: relative;
+    border: 2px dashed #D1D5DB;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.file-upload-container:hover {
+    border-color: #1E3A8A;
+    background-color: #F8FAFC;
+}
+
+.file-upload-container input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-upload-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.file-upload-text i {
+    font-size: 2rem;
+    color: #6B7280;
+}
+
+.file-upload-text span {
+    font-weight: 600;
+    color: #374151;
+}
+
+.file-upload-text small {
+    color: #6B7280;
+    font-size: 0.8rem;
+}
+
+.file-upload-success {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #10B981;
+    font-weight: 600;
+}
+
+.file-upload-success i {
+    font-size: 1.25rem;
+}
+
+/* Character Count */
+.character-count {
+    text-align: right;
+    font-size: 0.8rem;
+    color: #6B7280;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    padding-top: 1rem;
+    border-top: 1px solid #E5E7EB;
+}
+
+.btn-spinner {
+    display: inline-block;
+    margin-left: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .application-modal {
+        margin: 10px;
+        max-height: calc(100vh - 20px);
+    }
+
+    .modal-header {
+        padding: 1rem 1.5rem;
+    }
+
+    .modal-content {
+        padding: 1.5rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .file-upload-container {
+        padding: 1rem;
+    }
+}
+
+/* Animation */
+.application-modal-overlay.show {
+    display: flex;
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+.application-modal-overlay.show .application-modal {
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: scale(0.9) translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Error States */
+.form-group.error input,
+.form-group.error textarea,
+.form-group.error select {
+    border-color: #EF4444;
+}
+
+.form-group .error-message {
+    color: #EF4444;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+}
+
+/* Success States */
+.form-group.success input,
+.form-group.success textarea,
+.form-group.success select {
+    border-color: #10B981;
+}
+
+/* Apply Button Status Styles */
+.btn-status-pending {
+    background-color: #fbbf24 !important;
+    color: #92400e !important;
+    box-shadow: 0 1px 3px rgba(251, 191, 36, 0.3);
+}
+
+.btn-status-under-review {
+    background-color: #3b82f6 !important;
+    color: white !important;
+    box-shadow: 0 1px 3px rgba(59, 130, 246, 0.3);
+}
+
+.btn-status-interview-scheduled {
+    background-color: #8b5cf6 !important;
+    color: white !important;
+    box-shadow: 0 1px 3px rgba(139, 92, 246, 0.3);
+}
+
+.btn-status-shortlisted {
+    background-color: #10b981 !important;
+    color: white !important;
+    box-shadow: 0 1px 3px rgba(16, 185, 129, 0.3);
+    animation: pulse 2s infinite;
+}
+
+.btn-status-accepted,
+.btn-status-hired {
+    background-color: #10b981 !important;
+    color: white !important;
+    box-shadow: 0 1px 3px rgba(16, 185, 129, 0.3);
+    border: 2px solid #059669;
+}
+
+.btn-status-rejected,
+.btn-status-withdrawn {
+    background-color: #1E3A8A !important;
+    color: white !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease;
+}
+
+.btn-status-rejected:hover,
+.btn-status-withdrawn:hover {
+    background-color: #1e40af !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(30, 58, 138, 0.3);
+}
+
+/* Pulse animation for shortlisted status */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
 /* Footer Section - Consistent with other pages */
 .footer-section {
     background-color: #0F172A;

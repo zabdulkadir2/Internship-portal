@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Applications | CampusConnect</title>
+    <title>Notifications | CampusConnect</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
       rel="stylesheet"
@@ -12,7 +12,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="../student-styles/applications.css" />
+    <link rel="stylesheet" href="../student-styles/notifications.css" />
   </head>
   <body>
     <!-- Navigation Bar -->
@@ -22,93 +22,67 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="internship.html">Internships</a></li>
         <li><a href="mentors.html">Mentors</a></li>
-        <li><a href="#" class="active">My Applications</a></li>
+        <li><a href="applications.html">My Applications</a></li>
         <li><a href="schedule.html">My Schedule</a></li>
         <li><a href="session.html">My Sessions</a></li>
         <li><a href="student-profile.html">Profile</a></li>
-        <li><a href="notifications.html">Notifications</a></li>
-        <li><a href="#">Logout</a></li>
+        <li><a href="#" class="active">Notifications</a></li>
+        <li><a href="#" id="logout-btn">Logout</a></li>
       </ul>
     </nav>
 
     <!-- Page Header -->
     <header class="page-header">
       <div class="header-content">
-        <h1 class="page-title">My Applications</h1>
+        <h1 class="page-title">Notifications</h1>
         <p class="page-tagline">
-          Track your internship applications and manage your opportunities.
+          Stay updated with your application status and important announcements.
         </p>
       </div>
     </header>
 
     <!-- Loading State -->
-    <div id="applications-loading" class="applications-loading" style="display: block;">
+    <div id="notifications-loading" class="notifications-loading" style="display: block;">
       <div class="loading-container">
         <div class="loading-spinner"></div>
-        <p>Loading your applications...</p>
+        <p>Loading your notifications...</p>
       </div>
     </div>
 
-    <!-- Applications Content -->
-    <div id="applications-content" class="applications-content" style="display: none;">
-      <!-- Application Summary -->
-      <section class="application-summary-section">
-        <div class="summary-cards-grid">
-          <div class="summary-card">
-            <h3 id="total-applications">-</h3>
-            <p>Total Applications</p>
+    <!-- Notifications Content -->
+    <div id="notifications-content" class="notifications-content" style="display: none;">
+      <!-- Notification Controls -->
+      <section class="notification-controls-section">
+        <div class="controls-container">
+          <div class="notification-stats">
+            <div class="stat-item">
+              <span class="stat-number" id="total-notifications">-</span>
+              <span class="stat-label">Total</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" id="unread-notifications">-</span>
+              <span class="stat-label">Unread</span>
+            </div>
           </div>
-          <div class="summary-card">
-            <h3 id="reviewed-applications">-</h3>
-            <p>Reviewed Applications</p>
-          </div>
-          <div class="summary-card">
-            <h3 id="active-applications">-</h3>
-            <p>Active Applications</p>
-          </div>
-          <div class="summary-card">
-            <h3 id="accepted-applications">-</h3>
-            <p>Accepted Offers</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Filters -->
-      <section class="applications-filter-section">
-        <div class="filter-controls-container">
-          <div class="filter-dropdowns">
-            <select class="filter-select" id="status-filter">
-              <option value="">Filter by Status</option>
-              <option value="applied">Applied</option>
-              <option value="under-review">Under Review</option>
-              <option value="interview-scheduled">Interview Scheduled</option>
-              <option value="shortlisted">Shortlisted</option>
-              <option value="accepted">Accepted</option>
-              <option value="rejected">Rejected</option>
-            </select>
-            <select class="filter-select" id="company-filter">
-              <option value="">Filter by Company</option>
-              <!-- Companies will be populated dynamically -->
-            </select>
-            <select class="filter-select" id="sort-filter">
-              <option value="newest">Sort by: Newest First</option>
-              <option value="oldest">Oldest First</option>
-              <option value="status">By Status</option>
-              <option value="company">By Company</option>
-            </select>
-          </div>
-          <div class="filter-actions">
-            <button class="btn btn-secondary" id="apply-filters-btn">
-              Apply Filters
+          <div class="control-actions">
+            <button class="btn btn-secondary" id="mark-all-read-btn">
+              <i class="fas fa-check-double"></i> Mark All Read
             </button>
+            <select class="filter-select" id="notification-filter">
+              <option value="">All Notifications</option>
+              <option value="application">Application Updates</option>
+              <option value="shortlist">Shortlist Alerts</option>
+              <option value="interview">Interview Invitations</option>
+              <option value="system">System Announcements</option>
+            </select>
           </div>
         </div>
       </section>
 
-      <!-- Applications List -->
-      <section class="applications-list-section">
-        <div class="applications-list">
-          <!-- Applications will be populated by JavaScript -->
+      <!-- Notifications List -->
+      <section class="notifications-list-section">
+        <div class="notifications-list">
+          <!-- Notifications will be populated by JavaScript -->
         </div>
       </section>
     </div>
@@ -134,11 +108,11 @@
       </div>
     </footer>
 
-    <script type="module" src="js/applications.js"></script>
+    <script type="module" src="js/notifications.js"></script>
 
     <style>
       /* Loading States */
-      .applications-loading {
+      .notifications-loading {
         position: fixed;
         top: 0;
         left: 0;
@@ -171,8 +145,8 @@
         100% { transform: rotate(360deg); }
       }
 
-      .applications-content {
-        max-width: 1200px;
+      .notifications-content {
+        max-width: 800px;
         margin: 0 auto;
         padding: 20px;
       }
