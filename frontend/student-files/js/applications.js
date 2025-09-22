@@ -63,6 +63,9 @@ const setupEventHandlers = () => {
 
     // Setup action button handlers
     setupActionHandlers();
+
+    // Setup modal handlers
+    setupModalHandlers();
 };
 
 // Setup real-time listeners for applications and shortlists
@@ -72,8 +75,7 @@ const setupRealTimeListeners = () => {
     // Listen for application changes
     const applicationsQuery = query(
         collection(db, 'applications'),
-        where('studentId', '==', currentUser.uid),
-        orderBy('createdAt', 'desc')
+        where('studentId', '==', currentUser.uid)
     );
 
     onSnapshot(applicationsQuery, (snapshot) => {
@@ -90,6 +92,13 @@ const setupRealTimeListeners = () => {
                 hasChanges = true;
                 showStatusChangeNotification(appData, existingApp.status);
             }
+        });
+
+        // Sort applications by creation date (newest first)
+        newApplications.sort((a, b) => {
+            const dateA = a.createdAt?.toDate?.() || new Date(a.createdAt || 0);
+            const dateB = b.createdAt?.toDate?.() || new Date(b.createdAt || 0);
+            return dateB - dateA;
         });
 
         // Update applications if there are changes
@@ -163,8 +172,7 @@ const loadApplications = async () => {
 const loadUserApplications = async () => {
     const q = query(
         collection(db, 'applications'),
-        where('studentId', '==', currentUser.uid),
-        orderBy('createdAt', 'desc')
+        where('studentId', '==', currentUser.uid)
     );
 
     const querySnapshot = await getDocs(q);
@@ -177,7 +185,21 @@ const loadUserApplications = async () => {
         });
     });
 
+    // Sort applications by creation date (newest first)
+    userApplications.sort((a, b) => {
+        const dateA = a.createdAt?.toDate?.() || new Date(a.createdAt || 0);
+        const dateB = b.createdAt?.toDate?.() || new Date(b.createdAt || 0);
+        return dateB - dateA;
+    });
+
     console.log('Loaded applications:', userApplications.length);
+
+    // Debug: Log all application statuses
+    console.log('Application statuses:', userApplications.map(app => ({
+        title: app.internshipTitle,
+        status: app.status,
+        shortlisted: app.shortlisted
+    })));
 };
 
 // Load shortlist status for this student
@@ -307,6 +329,19 @@ const applyFilters = () => {
     displayApplications();
 };
 
+// Clear all filters
+const clearAllFilters = () => {
+    if (statusFilter) statusFilter.value = '';
+    if (companyFilter) companyFilter.value = '';
+    if (sortFilter) sortFilter.value = 'newest';
+
+    filteredApplications = [...userApplications];
+    applyFilters(); // This will sort and display
+};
+
+// Make clearAllFilters available globally for the button onclick
+window.clearAllFilters = clearAllFilters;
+
 // Display applications
 const displayApplications = () => {
     if (!applicationsContainer) return;
@@ -314,18 +349,30 @@ const displayApplications = () => {
     if (filteredApplications.length === 0) {
         if (userApplications.length === 0) {
             applicationsContainer.innerHTML = `
-                <div class="no-applications" style="text-align: center; padding: 60px 20px; color: #6b7280;">
-                    <h3>No Applications Yet</h3>
-                    <p>You haven't submitted any internship applications yet.</p>
-                    <a href="internship.html" class="btn btn-primary" style="margin-top: 16px;">Browse Internships</a>
+                <div class="empty-state" style="text-align: center; padding: 80px 20px; color: #6b7280; background: #f9fafb; border-radius: 12px; border: 2px dashed #d1d5db;">
+                    <div style="font-size: 4rem; margin-bottom: 24px; opacity: 0.5;">📄</div>
+                    <h3 style="margin-bottom: 12px; color: #374151;">No Applications Yet</h3>
+                    <p style="margin-bottom: 32px; max-width: 400px; margin-left: auto; margin-right: auto;">
+                        Ready to jumpstart your career? Browse our internship opportunities and submit your first application today!
+                    </p>
+                    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                        <a href="internship.html" class="btn btn-primary">Browse Internships</a>
+                        <a href="student-profile.html" class="btn btn-secondary">Complete Profile</a>
+                    </div>
                 </div>
             `;
         } else {
             applicationsContainer.innerHTML = `
-                <div class="no-applications" style="text-align: center; padding: 60px 20px; color: #6b7280;">
-                    <h3>No Applications Match Your Filters</h3>
-                    <p>Try adjusting your filters to see more results.</p>
-                    <button onclick="clearFilters()" class="btn btn-secondary" style="margin-top: 16px;">Clear Filters</button>
+                <div class="empty-state" style="text-align: center; padding: 60px 20px; color: #6b7280; background: #f9fafb; border-radius: 12px;">
+                    <div style="font-size: 3rem; margin-bottom: 24px; opacity: 0.5;">🔍</div>
+                    <h3 style="margin-bottom: 12px; color: #374151;">No Applications Match Your Filters</h3>
+                    <p style="margin-bottom: 32px;">
+                        Try adjusting your search criteria or clear all filters to see your applications.
+                    </p>
+                    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                        <button onclick="clearAllFilters()" class="btn btn-primary">Clear All Filters</button>
+                        <a href="internship.html" class="btn btn-secondary">Find More Internships</a>
+                    </div>
                 </div>
             `;
         }
@@ -334,6 +381,14 @@ const displayApplications = () => {
 
     // Group applications by status
     const groupedApps = groupApplicationsByStatus(filteredApplications);
+
+    // Debug: Log grouped applications
+    console.log('Grouped applications:', groupedApps);
+    console.log('Filtered applications:', filteredApplications.map(app => ({
+        title: app.internshipTitle,
+        status: app.status,
+        shortlisted: app.shortlisted
+    })));
 
     applicationsContainer.innerHTML = Object.entries(groupedApps).map(([status, apps]) => {
         if (apps.length === 0) return '';
@@ -351,12 +406,16 @@ const displayApplications = () => {
 
 // Group applications by status
 const groupApplicationsByStatus = (applications) => {
-    const statusOrder = ['pending', 'reviewing', 'shortlisted', 'accepted', 'rejected', 'withdrawn'];
+    const statusOrder = ['pending', 'applied', 'under-review', 'reviewing', 'interview-scheduled', 'interview', 'shortlisted', 'accepted', 'hired', 'rejected', 'withdrawn'];
 
     const groups = applications.reduce((groups, app) => {
         let status = app.status || 'pending';
 
-        // Handle shortlisted status
+        // Normalize status values
+        if (status === 'reviewing') status = 'under-review';
+        if (status === 'interview') status = 'interview-scheduled';
+
+        // Handle shortlisted status (shortlisted takes priority for display)
         if (app.shortlisted && (!app.status || ['applied', 'pending'].includes(app.status))) {
             status = 'shortlisted';
         }
@@ -368,10 +427,24 @@ const groupApplicationsByStatus = (applications) => {
         return groups;
     }, {});
 
-    // Return groups in order
+    // Debug: Log all groups found
+    console.log('All groups found:', Object.keys(groups));
+    console.log('Groups with applications:', groups);
+
+    // Return groups in order, but also include any groups not in the order
     const orderedGroups = {};
+
+    // First add groups in the preferred order
     statusOrder.forEach(status => {
         if (groups[status] && groups[status].length > 0) {
+            orderedGroups[status] = groups[status];
+        }
+    });
+
+    // Then add any groups that weren't in the order (to catch unexpected status values)
+    Object.keys(groups).forEach(status => {
+        if (!statusOrder.includes(status) && groups[status].length > 0) {
+            console.warn('Unexpected status found:', status);
             orderedGroups[status] = groups[status];
         }
     });
@@ -552,9 +625,13 @@ const getStatusDisplayName = (status) => {
         'accepted': 'Accepted',
         'hired': 'Hired',
         'rejected': 'Not Selected',
-        'withdrawn': 'Withdrawn'
+        'withdrawn': 'Withdrawn',
+        // Handle any potential variations
+        'not selected': 'Not Selected',
+        'not_selected': 'Not Selected',
+        'NOT SELECTED': 'Not Selected'
     };
-    return statusMap[status] || 'Unknown';
+    return statusMap[status] || statusMap[status?.toLowerCase()] || (status ? status.charAt(0).toUpperCase() + status.slice(1) : 'Unknown');
 };
 
 // Make functions available globally
@@ -631,8 +708,161 @@ const viewApplicationDetails = (applicationId) => {
     const application = userApplications.find(app => app.id === applicationId);
     if (!application) return;
 
-    // TODO: Implement modal or detailed view
-    alert(`Application Details:\n\nPosition: ${application.internshipTitle}\nCompany: ${application.companyName}\nStatus: ${getStatusDisplayName(application.status || 'pending')}\nApplied: ${formatDate(application.createdAt)}`);
+    // Populate modal content
+    populateApplicationModal(application);
+
+    // Show modal
+    const modal = document.getElementById('application-details-modal');
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+};
+
+// Populate application details modal
+const populateApplicationModal = (application) => {
+    const modalTitle = document.getElementById('modal-application-title');
+    const modalContent = document.getElementById('modal-application-content');
+    const viewInternshipBtn = document.getElementById('view-internship-btn');
+
+    if (modalTitle) {
+        modalTitle.textContent = `Application: ${application.internshipTitle}`;
+    }
+
+    if (modalContent) {
+        const statusClass = getStatusClass(application.status || 'pending');
+        const statusDisplay = getStatusDisplayName(application.status || 'pending');
+
+        modalContent.innerHTML = `
+            <div class="detail-section">
+                <h4>Position Information</h4>
+                <div class="detail-info">
+                    <p><strong>Position:</strong> ${escapeHtml(application.internshipTitle || 'N/A')}</p>
+                    <p><strong>Company:</strong> ${escapeHtml(application.companyName || 'N/A')}</p>
+                    <p><strong>Location:</strong> ${escapeHtml(application.location || 'Not specified')}</p>
+                    <p><strong>Duration:</strong> ${escapeHtml(application.duration || 'Not specified')}</p>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <h4>Application Status</h4>
+                <div class="detail-info">
+                    <p><strong>Current Status:</strong> <span class="status-display ${statusClass}">${statusDisplay}</span></p>
+                    <p><strong>Applied Date:</strong> ${formatDate(application.createdAt)}</p>
+                    ${application.updatedAt && application.updatedAt !== application.createdAt ?
+                        `<p><strong>Last Updated:</strong> ${formatDate(application.updatedAt)}</p>` : ''
+                    }
+                    ${application.shortlisted ? '<p><strong>🌟 Shortlisted:</strong> Yes</p>' : ''}
+                </div>
+            </div>
+
+            ${application.coverLetter ? `
+                <div class="detail-section">
+                    <h4>Cover Letter</h4>
+                    <div class="detail-info">
+                        <p>${escapeHtml(application.coverLetter).replace(/\n/g, '<br>')}</p>
+                    </div>
+                </div>
+            ` : ''}
+
+            ${application.relevantSkills && application.relevantSkills.length > 0 ? `
+                <div class="detail-section">
+                    <h4>Relevant Skills</h4>
+                    <div class="skill-tags">
+                        ${application.relevantSkills.map(skill => `<span class="skill-tag">${escapeHtml(skill)}</span>`).join('')}
+                    </div>
+                </div>
+            ` : ''}
+
+            ${application.startDate ? `
+                <div class="detail-section">
+                    <h4>Availability</h4>
+                    <div class="detail-info">
+                        <p><strong>Earliest Start Date:</strong> ${formatDate(application.startDate)}</p>
+                        ${application.preferredDuration ? `<p><strong>Preferred Duration:</strong> ${escapeHtml(application.preferredDuration)}</p>` : ''}
+                    </div>
+                </div>
+            ` : ''}
+
+            ${application.resumeUrl ? `
+                <div class="detail-section">
+                    <h4>Resume</h4>
+                    <div class="detail-info">
+                        <p><strong>Resume:</strong> <a href="${application.resumeUrl}" target="_blank" rel="noopener noreferrer">View Resume</a></p>
+                    </div>
+                </div>
+            ` : ''}
+
+            ${application.additionalInfo ? `
+                <div class="detail-section">
+                    <h4>Additional Information</h4>
+                    <div class="detail-info">
+                        <p>${escapeHtml(application.additionalInfo).replace(/\n/g, '<br>')}</p>
+                    </div>
+                </div>
+            ` : ''}
+
+            ${application.phone || application.linkedin || application.portfolio ? `
+                <div class="detail-section">
+                    <h4>Contact Information</h4>
+                    <div class="detail-info">
+                        ${application.phone ? `<p><strong>Phone:</strong> ${escapeHtml(application.phone)}</p>` : ''}
+                        ${application.linkedin ? `<p><strong>LinkedIn:</strong> <a href="${application.linkedin}" target="_blank" rel="noopener noreferrer">${escapeHtml(application.linkedin)}</a></p>` : ''}
+                        ${application.portfolio ? `<p><strong>Portfolio:</strong> <a href="${application.portfolio}" target="_blank" rel="noopener noreferrer">${escapeHtml(application.portfolio)}</a></p>` : ''}
+                    </div>
+                </div>
+            ` : ''}
+        `;
+    }
+
+    // Show/hide view internship button and set up click handler
+    if (viewInternshipBtn) {
+        if (application.internshipId) {
+            viewInternshipBtn.style.display = 'inline-block';
+            viewInternshipBtn.onclick = () => {
+                window.location.href = `internship.html#internship-${application.internshipId}`;
+            };
+        } else {
+            viewInternshipBtn.style.display = 'none';
+        }
+    }
+};
+
+// Setup modal event handlers
+const setupModalHandlers = () => {
+    const modal = document.getElementById('application-details-modal');
+    const closeBtn = document.getElementById('close-details-modal');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+
+    const closeModal = () => {
+        if (modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    };
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', closeModal);
+    }
+
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    }
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && modal.style.display === 'flex') {
+            closeModal();
+        }
+    });
 };
 
 // Withdraw application
@@ -752,16 +982,27 @@ const hideLoading = () => {
     if (applicationsContent) applicationsContent.style.display = 'block';
 };
 
-const showError = (message) => {
+const showError = (message, showRetry = true) => {
     if (applicationsContainer) {
         applicationsContainer.innerHTML = `
-            <div class="error-message" style="text-align: center; padding: 40px; color: #dc2626; background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px;">
-                <h3>Error</h3>
-                <p>${message}</p>
-                <button onclick="location.reload()" class="btn btn-primary" style="margin-top: 16px;">Retry</button>
+            <div class="error-state" style="text-align: center; padding: 60px 20px; color: #dc2626; background: #fef2f2; border: 1px solid #fecaca; border-radius: 12px;">
+                <div style="font-size: 3rem; margin-bottom: 24px; opacity: 0.5;">⚠️</div>
+                <h3 style="margin-bottom: 12px; color: #991b1b;">Something went wrong</h3>
+                <p style="margin-bottom: 32px; max-width: 400px; margin-left: auto; margin-right: auto;">
+                    ${message}
+                </p>
+                ${showRetry ? `
+                    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                        <button onclick="location.reload()" class="btn btn-primary">Retry</button>
+                        <a href="internship.html" class="btn btn-secondary">Browse Internships</a>
+                    </div>
+                ` : ''}
             </div>
         `;
     }
+
+    // Also hide loading if it's still showing
+    hideLoading();
 };
 
 // Initialize when DOM is loaded
