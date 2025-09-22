@@ -291,10 +291,10 @@ a:hover {
 .status-applied {
     background-color: #3B82F6;
 }
-.status-review {
+.status-under-review {
     background-color: #F59E0B;
 }
-.status-interview {
+.status-interview-scheduled {
     background-color: #10B981;
 }
 .status-rejected {
@@ -302,6 +302,9 @@ a:hover {
 }
 .status-hired {
     background-color: #22C55E;
+}
+.status-shortlisted {
+    background-color: #F59E0B;
 }
 
 .actions .btn {

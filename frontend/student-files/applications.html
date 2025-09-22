@@ -83,7 +83,7 @@
               <option value="under-review">Under Review</option>
               <option value="interview-scheduled">Interview Scheduled</option>
               <option value="shortlisted">Shortlisted</option>
-              <option value="accepted">Accepted</option>
+              <option value="hired">Hired</option>
               <option value="rejected">Rejected</option>
             </select>
             <select class="filter-select" id="company-filter">
@@ -134,7 +134,26 @@
       </div>
     </footer>
 
-    <script type="module" src="js/applications.js"></script>
+    <!-- Application Details Modal -->
+    <div id="application-details-modal" class="modal-overlay" style="display: none;">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h2 id="modal-application-title">Application Details</h2>
+          <button class="modal-close" id="close-details-modal">&times;</button>
+        </div>
+        <div class="modal-content">
+          <div id="modal-application-content">
+            <!-- Application details will be populated here -->
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" id="close-modal-btn">Close</button>
+          <button class="btn btn-primary" id="view-internship-btn" style="display: none;">View Internship</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="js/applications.js?v=4"></script>
 
     <style>
       /* Loading States */
@@ -193,6 +212,132 @@
         font-size: 1.1rem;
         opacity: 0.9;
       }
+
+      /* Modal Styles */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .modal-container {
+        background: white;
+        border-radius: 12px;
+        max-width: 800px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 32px;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .modal-header h2 {
+        margin: 0;
+        font-size: 1.5rem;
+        color: #1f2937;
+      }
+
+      .modal-close {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #6b7280;
+        padding: 0;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        transition: background-color 0.2s;
+      }
+
+      .modal-close:hover {
+        background-color: #f3f4f6;
+        color: #374151;
+      }
+
+      .modal-content {
+        padding: 32px;
+      }
+
+      .modal-footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+        padding: 24px 32px;
+        border-top: 1px solid #e5e7eb;
+        background-color: #f9fafb;
+      }
+
+      .detail-section {
+        margin-bottom: 24px;
+      }
+
+      .detail-section h4 {
+        color: #1f2937;
+        margin-bottom: 12px;
+        font-size: 1.1rem;
+      }
+
+      .detail-info p {
+        margin: 8px 0;
+        color: #374151;
+      }
+
+      .detail-info strong {
+        color: #1f2937;
+        font-weight: 600;
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 8px;
+      }
+
+      .skill-tag {
+        background: #e0e7ff;
+        color: #3730a3;
+        padding: 4px 12px;
+        border-radius: 16px;
+        font-size: 0.875rem;
+        font-weight: 500;
+      }
+
+      .status-display {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-weight: 500;
+        font-size: 0.875rem;
+      }
+
+      .status-pending { background: #fef3c7; color: #92400e; }
+      .status-under-review { background: #dbeafe; color: #1e40af; }
+      .status-shortlisted { background: #d1fae5; color: #065f46; }
+      .status-accepted { background: #dcfce7; color: #166534; }
+      .status-rejected { background: #fee2e2; color: #991b1b; }
+      .status-withdrawn { background: #f3f4f6; color: #6b7280; }
     </style>
   </body>
 </html>

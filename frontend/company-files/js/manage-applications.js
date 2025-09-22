@@ -559,7 +559,6 @@ const showStatusChangeDialog = (applicationId) => {
         { value: 'under-review', label: 'Under Review' },
         { value: 'interview-scheduled', label: 'Interview Scheduled' },
         { value: 'shortlisted', label: 'Shortlisted' },
-        { value: 'shortlisted', label: 'Shortlisted' },
         { value: 'hired', label: 'Hired' },
         { value: 'rejected', label: 'Rejected' }
     ];
