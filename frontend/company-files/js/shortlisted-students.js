@@ -1,6 +1,6 @@
 import { requireAuth, initLogout, getCurrentUser } from '../../../public/js/auth-utils.js';
 import { db } from '../../../public/js/firebase.js';
-import { collection, getDocs, getDoc, doc, deleteDoc, setDoc, query, where } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+import { collection, getDocs, getDoc, doc, deleteDoc, query, where } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
 // DOM elements
 const shortlistedGrid = document.getElementById('shortlisted-grid');
@@ -87,12 +87,10 @@ const loadShortlistedData = async () => {
     try {
         showLoading();
 
-        // Load data in parallel
-        await Promise.all([
-            loadCompanyInternships(),
-            loadShortlistedStudents(),
-            loadStudentProfiles()
-        ]);
+        // Load data sequentially to ensure shortlisted students are loaded before profiles
+        await loadCompanyInternships();
+        await loadShortlistedStudents();
+        await loadStudentProfiles();
 
         // Populate internship filter
         populateInternshipFilter();
@@ -141,10 +139,15 @@ const loadShortlistedStudents = async () => {
         );
 
         const shortlistSnapshot = await getDocs(shortlistQuery);
-        allShortlistedStudents = shortlistSnapshot.docs.map(doc => ({
-            id: doc.id,
-            ...doc.data()
-        }));
+        allShortlistedStudents = shortlistSnapshot.docs.map(doc => {
+            const data = doc.data();
+            return {
+                id: doc.id,
+                ...data,
+                // Ensure createdAt is properly converted
+                createdAt: data.createdAt?.toDate?.() || data.createdAt || new Date()
+            };
+        });
 
         filteredShortlistedStudents = [...allShortlistedStudents];
         console.log('Loaded shortlisted students:', allShortlistedStudents.length);
@@ -161,28 +164,31 @@ const loadStudentProfiles = async () => {
         const studentIds = [...new Set(allShortlistedStudents.map(s => s.studentId))];
 
         if (studentIds.length === 0) {
+            console.log('No student IDs found, skipping profile loading');
             return;
         }
 
-        // Load student profiles in batches (Firestore 'in' limit is 10)
-        for (let i = 0; i < studentIds.length; i += 10) {
-            const batch = studentIds.slice(i, i + 10);
-            const studentsQuery = query(
-                collection(db, 'users'),
-                where('__name__', 'in', batch)
-            );
+        // Load student profiles individually (more reliable than batch query)
+        for (const studentId of studentIds) {
+            try {
+                const studentDoc = await getDoc(doc(db, 'users', studentId));
 
-            const studentsSnapshot = await getDocs(studentsQuery);
-            studentsSnapshot.docs.forEach(doc => {
-                studentProfiles.set(doc.id, doc.data());
-            });
+                if (studentDoc.exists()) {
+                    const profile = studentDoc.data();
+                    studentProfiles.set(studentId, profile);
+                } else {
+                    console.warn(`Student document does not exist for ID: ${studentId}`);
+                }
+            } catch (error) {
+                console.error(`Error loading profile for student ${studentId}:`, error);
+            }
         }
 
         console.log('Loaded student profiles:', studentProfiles.size);
 
     } catch (error) {
         console.error('Error loading student profiles:', error);
-        // Continue without full profile data
+        // Individual loading is now the primary method, so any error here is unexpected
     }
 };
 
@@ -218,6 +224,7 @@ const displayShortlistedStudents = () => {
 
     shortlistedGrid.innerHTML = filteredShortlistedStudents.map(shortlist => {
         const student = studentProfiles.get(shortlist.studentId) || {};
+
         const internshipTitle = shortlist.internshipId === 'general'
             ? 'General Company Shortlist'
             : companyInternships[shortlist.internshipId]?.title || 'Unknown Internship';

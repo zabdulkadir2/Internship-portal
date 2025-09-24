@@ -1,6 +1,6 @@
 import { requireAuth, initLogout, getCurrentUser } from '../../../public/js/auth-utils.js';
 import { db } from '../../../public/js/firebase.js';
-import { collection, getDocs, getDoc, doc, updateDoc, addDoc, query, where, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+import { collection, getDocs, getDoc, doc, updateDoc, addDoc, setDoc, query, where, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
 // DOM elements
 const applicationsTableBody = document.querySelector('.applications-table tbody');
@@ -519,6 +519,20 @@ const setupModalActions = (application) => {
     newRejectBtn?.addEventListener('click', () => updateApplicationStatus(application.id, 'rejected'));
 };
 
+// Add student to shortlist
+const addToShortlist = async (studentId, internshipId) => {
+    const shortlistId = `${currentUser.uid}_${internshipId}_${studentId}`;
+    const shortlistRef = doc(db, 'shortlists', shortlistId);
+
+    await setDoc(shortlistRef, {
+        companyId: currentUser.uid,
+        studentId: studentId,
+        internshipId: internshipId,
+        createdAt: new Date(),
+        companyName: currentUser.companyName || 'Unknown Company'
+    });
+};
+
 // Update application status
 const updateApplicationStatus = async (applicationId, newStatus) => {
     try {
@@ -529,6 +543,21 @@ const updateApplicationStatus = async (applicationId, newStatus) => {
             status: newStatus,
             updatedAt: new Date()
         });
+
+        // If status is shortlisted, also create/update shortlist entry
+        if (newStatus === 'shortlisted') {
+            const application = allApplications.find(app => app.id === applicationId);
+            if (application) {
+                await addToShortlist(application.studentId, application.internshipId);
+
+                // Update local shortlisted students data
+                const internshipId = application.internshipId || 'general';
+                if (!shortlistedStudents.has(internshipId)) {
+                    shortlistedStudents.set(internshipId, new Set());
+                }
+                shortlistedStudents.get(internshipId).add(application.studentId);
+            }
+        }
 
         // Create notification for student
         await createNotificationForStudent(applicationId, newStatus);
@@ -566,8 +595,9 @@ const showStatusChangeDialog = (applicationId) => {
         { value: 'rejected', label: 'Rejected' }
     ];
 
+    const application = allApplications.find(app => app.id === applicationId);
     const statusOptions = statuses.map(status =>
-        `<option value="${status.value}">${status.label}</option>`
+        `<option value="${status.value}" ${status.value === application.status ? 'selected' : ''}>${status.label}</option>`
     ).join('');
 
     const dialogHTML = `
@@ -963,17 +993,38 @@ const updateBulkApplicationStatus = async (applicationIds, newStatus) => {
             });
         });
 
+        // Handle shortlisting for bulk operations
+        const shortlistPromises = [];
+        if (newStatus === 'shortlisted') {
+            applicationIds.forEach(id => {
+                const application = allApplications.find(app => app.id === id);
+                if (application) {
+                    shortlistPromises.push(addToShortlist(application.studentId, application.internshipId));
+                }
+            });
+        }
+
         const notificationPromises = applicationIds.map(id =>
             createNotificationForStudent(id, newStatus)
         );
 
-        await Promise.all([...updatePromises, ...notificationPromises]);
+        await Promise.all([...updatePromises, ...shortlistPromises, ...notificationPromises]);
 
         // Update local data
         applicationIds.forEach(id => {
             const appIndex = allApplications.findIndex(app => app.id === id);
             if (appIndex !== -1) {
                 allApplications[appIndex].status = newStatus;
+
+                // Update local shortlisted students data if shortlisted
+                if (newStatus === 'shortlisted') {
+                    const application = allApplications[appIndex];
+                    const internshipId = application.internshipId || 'general';
+                    if (!shortlistedStudents.has(internshipId)) {
+                        shortlistedStudents.set(internshipId, new Set());
+                    }
+                    shortlistedStudents.get(internshipId).add(application.studentId);
+                }
             }
         });
 
@@ -1075,23 +1126,10 @@ const getStatusDisplayName = (status) => {
     return statusMap[status] || 'Applied';
 };
 
-// Get status display with shortlist information
+// Get status display
 const getStatusDisplay = (app) => {
     const applicationStatus = app.status || 'applied';
-    const internshipShortlist = shortlistedStudents.get(app.internshipId || 'general') || new Set();
-    const isShortlisted = internshipShortlist.has(app.studentId);
-
-    let statusBadges = [];
-
-    // Application status badge
-    statusBadges.push(`<span class="status-badge status-${applicationStatus}">${formatStatus(applicationStatus)}</span>`);
-
-    // Shortlisted badge if applicable
-    if (isShortlisted && applicationStatus !== 'shortlisted') {
-        statusBadges.push(`<span class="status-badge status-shortlisted" style="margin-left: 5px;">⭐ Shortlisted</span>`);
-    }
-
-    return statusBadges.join('');
+    return `<span class="status-badge status-${applicationStatus}">${formatStatus(applicationStatus)}</span>`;
 };
 
 // Loading state
