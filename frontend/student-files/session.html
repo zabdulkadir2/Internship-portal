@@ -21,23 +21,8 @@
     <link rel="stylesheet" href="../student-styles/session.css" />
   </head>
   <body>
-    <!-- Navbar Section - Reused for consistency -->
-    <nav class="nav-container">
-      <div class="logo">
-        <h1>CampusConnect</h1>
-      </div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="internship.html">Internships</a></li>
-        <li><a href="mentors.html">Mentors</a></li>
-        <li><a href="applications.html">My Applications</a></li>
-        <li><a href="schedule.html">My Schedule</a></li>
-        <li><a href="#my-sessions" class="active">My Sessions</a></li>
-        <li><a href="student-profile.html">Profile</a></li>
-        <li><a href="notifications.html">Notifications</a></li>
-        <li><a href="#" id="logout-btn">Logout</a></li>
-      </ul>
-    </nav>
+    <!-- Shared Navbar Component -->
+    <div id="navbar-placeholder"></div>
 
     <!-- Page Hero / Header Section -->
     <section class="page-hero">
@@ -196,5 +181,8 @@
       // Initialize when DOM is loaded
       document.addEventListener('DOMContentLoaded', initPage);
     </script>
+
+    <!-- Shared Navbar Component -->
+    <script type="module" src="../../public/js/shared-navbar.js"></script>
   </body>
 </html>

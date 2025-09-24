@@ -32,9 +32,6 @@ const initPage = async () => {
             return;
         }
 
-        // Initialize logout functionality
-        initLogout();
-
         // Setup event handlers
         setupEventHandlers();
 
@@ -43,6 +40,8 @@ const initPage = async () => {
 
         // Setup real-time listeners
         setupRealTimeListeners();
+
+        // Note: Logout and notification badge now handled by shared navbar
 
         // Hide loading and show content
         hideLoading();
@@ -1004,6 +1003,8 @@ const showError = (message, showRetry = true) => {
     // Also hide loading if it's still showing
     hideLoading();
 };
+
+// Note: Notification badge functionality moved to shared navbar component
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', initPage);

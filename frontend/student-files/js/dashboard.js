@@ -27,8 +27,7 @@ const initDashboard = async () => {
             return;
         }
 
-        // Initialize logout functionality
-        initLogout();
+        // Note: Logout now handled by shared navbar
 
         // Update student name
         updateStudentInfo();

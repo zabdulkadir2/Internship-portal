@@ -11,8 +11,7 @@ const initStudentProfile = async () => {
         // Ensure user is authenticated
         await requireAuth();
 
-        // Initialize logout functionality
-        initLogout();
+        // Note: Logout now handled by shared navbar
 
         // Load and populate user profile data
         await loadProfileData();

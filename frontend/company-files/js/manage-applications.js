@@ -1,6 +1,6 @@
 import { requireAuth, initLogout, getCurrentUser } from '../../../public/js/auth-utils.js';
 import { db } from '../../../public/js/firebase.js';
-import { collection, getDocs, getDoc, doc, updateDoc, query, where, orderBy } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+import { collection, getDocs, getDoc, doc, updateDoc, addDoc, query, where, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
 // DOM elements
 const applicationsTableBody = document.querySelector('.applications-table tbody');
@@ -514,7 +514,7 @@ const setupModalActions = (application) => {
     rejectBtn?.parentNode?.replaceChild(newRejectBtn, rejectBtn);
 
     // Add new listeners
-    newScheduleBtn?.addEventListener('click', () => updateApplicationStatus(application.id, 'interview-scheduled'));
+    newScheduleBtn?.addEventListener('click', () => showInterviewSchedulingDialog(application.id));
     newStatusBtn?.addEventListener('click', () => showStatusChangeDialog(application.id));
     newRejectBtn?.addEventListener('click', () => updateApplicationStatus(application.id, 'rejected'));
 };
@@ -529,6 +529,9 @@ const updateApplicationStatus = async (applicationId, newStatus) => {
             status: newStatus,
             updatedAt: new Date()
         });
+
+        // Create notification for student
+        await createNotificationForStudent(applicationId, newStatus);
 
         // Update local data
         const appIndex = allApplications.findIndex(app => app.id === applicationId);
@@ -599,6 +602,228 @@ const showStatusChangeDialog = (applicationId) => {
         overlay.remove();
         updateApplicationStatus(applicationId, newStatus);
     });
+};
+
+// Show interview scheduling dialog
+const showInterviewSchedulingDialog = (applicationId) => {
+    const application = allApplications.find(app => app.id === applicationId);
+    if (!application) return;
+
+    const dialogHTML = `
+        <div class="interview-dialog-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 10001; display: flex; align-items: center; justify-content: center;">
+            <div class="interview-dialog" style="background: white; padding: 32px; border-radius: 12px; min-width: 400px; max-width: 500px; max-height: 90vh; overflow-y: auto;">
+                <h3 style="margin: 0 0 24px 0; color: #1e3a8a;">Schedule Interview</h3>
+
+                <div style="margin-bottom: 16px;">
+                    <strong>Candidate:</strong> ${escapeHtml(application.student.fullName || 'Unknown Student')}
+                </div>
+                <div style="margin-bottom: 24px;">
+                    <strong>Position:</strong> ${escapeHtml(application.internshipTitle)}
+                </div>
+
+                <form id="interview-form">
+                    <div style="margin-bottom: 16px;">
+                        <label style="display: block; margin-bottom: 4px; font-weight: 500;">Interview Date & Time *</label>
+                        <input type="datetime-local" id="interview-datetime" required
+                               style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px;" />
+                    </div>
+
+                    <div style="margin-bottom: 16px;">
+                        <label style="display: block; margin-bottom: 4px; font-weight: 500;">Interview Type *</label>
+                        <select id="interview-type" required
+                                style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px;">
+                            <option value="">Select interview type...</option>
+                            <option value="video-call">Video Call</option>
+                            <option value="phone-call">Phone Call</option>
+                            <option value="in-person">In-Person</option>
+                            <option value="panel">Panel Interview</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-bottom: 16px;">
+                        <label style="display: block; margin-bottom: 4px; font-weight: 500;">Meeting Link / Location</label>
+                        <input type="text" id="interview-location" placeholder="e.g., https://meet.google.com/abc-def-ghi or Office Address"
+                               style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px;" />
+                    </div>
+
+                    <div style="margin-bottom: 16px;">
+                        <label style="display: block; margin-bottom: 4px; font-weight: 500;">Duration (minutes)</label>
+                        <select id="interview-duration"
+                                style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px;">
+                            <option value="30">30 minutes</option>
+                            <option value="45">45 minutes</option>
+                            <option value="60" selected>1 hour</option>
+                            <option value="90">1.5 hours</option>
+                            <option value="120">2 hours</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-bottom: 24px;">
+                        <label style="display: block; margin-bottom: 4px; font-weight: 500;">Additional Notes</label>
+                        <textarea id="interview-notes" rows="3" placeholder="Any additional instructions or notes for the candidate..."
+                                  style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; resize: vertical;"></textarea>
+                    </div>
+
+                    <div style="display: flex; gap: 12px; justify-content: flex-end;">
+                        <button type="button" id="cancel-interview" class="btn btn-secondary">Cancel</button>
+                        <button type="submit" id="schedule-interview" class="btn btn-primary">Schedule Interview</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    `;
+
+    document.body.insertAdjacentHTML('beforeend', dialogHTML);
+
+    // Set minimum date to today
+    const datetimeInput = document.getElementById('interview-datetime');
+    const now = new Date();
+    const minDateTime = now.toISOString().slice(0, 16);
+    datetimeInput.min = minDateTime;
+
+    const overlay = document.querySelector('.interview-dialog-overlay');
+    const cancelBtn = document.getElementById('cancel-interview');
+    const form = document.getElementById('interview-form');
+
+    cancelBtn.addEventListener('click', () => overlay.remove());
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) overlay.remove();
+    });
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        await scheduleInterview(applicationId, {
+            dateTime: document.getElementById('interview-datetime').value,
+            type: document.getElementById('interview-type').value,
+            location: document.getElementById('interview-location').value,
+            duration: document.getElementById('interview-duration').value,
+            notes: document.getElementById('interview-notes').value
+        });
+        overlay.remove();
+    });
+};
+
+// Schedule interview for application
+const scheduleInterview = async (applicationId, interviewDetails) => {
+    try {
+        showLoading();
+
+        const interviewDateTime = new Date(interviewDetails.dateTime);
+
+        // Update application with interview details and set status to interview-scheduled
+        const applicationRef = doc(db, 'applications', applicationId);
+        await updateDoc(applicationRef, {
+            status: 'interview-scheduled',
+            interviewDateTime: interviewDateTime,
+            interviewType: interviewDetails.type,
+            interviewLocation: interviewDetails.location,
+            interviewDuration: parseInt(interviewDetails.duration),
+            interviewNotes: interviewDetails.notes || null,
+            interviewMeetingLink: interviewDetails.location.startsWith('http') ? interviewDetails.location : null,
+            interviewStatus: 'pending',
+            updatedAt: new Date()
+        });
+
+        // Create notification for student with interview details
+        await createInterviewNotificationForStudent(applicationId, interviewDateTime, interviewDetails);
+
+        // Update local data
+        const appIndex = allApplications.findIndex(app => app.id === applicationId);
+        if (appIndex !== -1) {
+            allApplications[appIndex].status = 'interview-scheduled';
+            allApplications[appIndex].interviewDateTime = interviewDateTime;
+            allApplications[appIndex].interviewType = interviewDetails.type;
+            allApplications[appIndex].interviewLocation = interviewDetails.location;
+            allApplications[appIndex].interviewDuration = parseInt(interviewDetails.duration);
+            allApplications[appIndex].interviewNotes = interviewDetails.notes;
+            allApplications[appIndex].interviewMeetingLink = interviewDetails.location.startsWith('http') ? interviewDetails.location : null;
+            allApplications[appIndex].interviewStatus = 'pending';
+        }
+
+        // Refresh display
+        applyFilters();
+
+        // Close modal if open
+        closeModal();
+
+        showSuccess(`Interview scheduled for ${formatDate(interviewDateTime)}`);
+
+    } catch (error) {
+        console.error('Error scheduling interview:', error);
+        showError('Failed to schedule interview. Please try again.');
+    } finally {
+        hideLoading();
+    }
+};
+
+// Create enhanced interview notification for student
+const createInterviewNotificationForStudent = async (applicationId, interviewDateTime, interviewDetails) => {
+    try {
+        // Find the application to get student and internship details
+        const application = allApplications.find(app => app.id === applicationId);
+        if (!application) {
+            console.error('Application not found for interview notification');
+            return;
+        }
+
+        const companyName = application.companyName || 'the company';
+        const internshipTitle = application.internshipTitle || 'your application';
+
+        // Format interview details for notification
+        const interviewDate = interviewDateTime.toLocaleDateString('en-US', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        const interviewTime = interviewDateTime.toLocaleTimeString('en-US', {
+            hour: 'numeric',
+            minute: '2-digit',
+            timeZoneName: 'short'
+        });
+
+        let locationText = '';
+        if (interviewDetails.location) {
+            locationText = interviewDetails.location.startsWith('http') ?
+                'Virtual meeting (link provided)' :
+                interviewDetails.location;
+        }
+
+        // Create detailed notification message
+        let notificationMessage = `Great news! You have been invited for an interview at ${companyName} for the ${internshipTitle} position.\n\n`;
+        notificationMessage += `📅 Date: ${interviewDate}\n`;
+        notificationMessage += `⏰ Time: ${interviewTime}\n`;
+        notificationMessage += `📍 Location: ${locationText}\n`;
+        notificationMessage += `⏱️ Duration: ${interviewDetails.duration} minutes\n`;
+
+        if (interviewDetails.notes) {
+            notificationMessage += `\n📝 Additional Notes:\n${interviewDetails.notes}`;
+        }
+
+        notificationMessage += `\n\nPlease check your schedule and prepare for the interview. Good luck!`;
+
+        // Create notification in Firestore
+        const notification = {
+            recipientId: application.studentId,
+            type: 'interview',
+            title: 'Interview Scheduled!',
+            message: notificationMessage,
+            companyName: companyName,
+            internshipTitle: internshipTitle,
+            applicationId: applicationId,
+            interviewDateTime: interviewDateTime,
+            actionUrl: 'schedule.html',
+            read: false,
+            createdAt: serverTimestamp()
+        };
+
+        await addDoc(collection(db, 'notifications'), notification);
+        console.log('Interview notification created for student:', notification);
+
+    } catch (error) {
+        console.error('Error creating interview notification:', error);
+        // Don't fail the interview scheduling if notification creation fails
+    }
 };
 
 // Handle select all checkbox
@@ -729,7 +954,8 @@ const updateBulkApplicationStatus = async (applicationIds, newStatus) => {
     try {
         showLoading();
 
-        const promises = applicationIds.map(id => {
+        // Update applications and create notifications in parallel
+        const updatePromises = applicationIds.map(id => {
             const applicationRef = doc(db, 'applications', id);
             return updateDoc(applicationRef, {
                 status: newStatus,
@@ -737,7 +963,11 @@ const updateBulkApplicationStatus = async (applicationIds, newStatus) => {
             });
         });
 
-        await Promise.all(promises);
+        const notificationPromises = applicationIds.map(id =>
+            createNotificationForStudent(id, newStatus)
+        );
+
+        await Promise.all([...updatePromises, ...notificationPromises]);
 
         // Update local data
         applicationIds.forEach(id => {
@@ -878,7 +1108,7 @@ const showLoading = () => {
         display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 9999;
+        z-index: 10002;
         font-size: 16px;
         font-weight: 500;
     `;
@@ -965,6 +1195,92 @@ const checkInternshipFilter = () => {
                 pageTitle.innerHTML = `Manage Applications <small style="font-size: 0.6em; color: #6b7280; display: block; margin-top: 5px;">Showing applications for: ${internshipTitle}</small>`;
             }
         }
+    }
+};
+
+// Create notification for student when application status changes
+const createNotificationForStudent = async (applicationId, newStatus) => {
+    try {
+        // Find the application to get student and internship details
+        const application = allApplications.find(app => app.id === applicationId);
+        if (!application) {
+            console.error('Application not found for notification');
+            return;
+        }
+
+        // Generate notification content based on status
+        const notificationContent = generateNotificationContent(newStatus, application);
+
+        // Create notification in Firestore
+        const notification = {
+            recipientId: application.studentId,
+            type: notificationContent.type,
+            title: notificationContent.title,
+            message: notificationContent.message,
+            companyName: application.companyName || 'Unknown Company',
+            internshipTitle: application.internshipTitle || 'Unknown Position',
+            applicationId: applicationId,
+            actionUrl: 'applications.html',
+            read: false,
+            createdAt: serverTimestamp()
+        };
+
+        await addDoc(collection(db, 'notifications'), notification);
+        console.log('Notification created for student:', notification);
+
+    } catch (error) {
+        console.error('Error creating notification:', error);
+        // Don't fail the status update if notification creation fails
+    }
+};
+
+// Generate notification content based on status
+const generateNotificationContent = (status, application) => {
+    const companyName = application.companyName || 'the company';
+    const internshipTitle = application.internshipTitle || 'your application';
+
+    switch (status) {
+        case 'under-review':
+            return {
+                type: 'application',
+                title: 'Application Under Review',
+                message: `Great news! Your application for ${internshipTitle} at ${companyName} is now under review. We'll keep you updated on the progress.`
+            };
+
+        case 'interview-scheduled':
+            return {
+                type: 'interview',
+                title: 'Interview Invitation',
+                message: `Congratulations! You have been invited for an interview at ${companyName} for the ${internshipTitle} position. Please check your email for details.`
+            };
+
+        case 'shortlisted':
+            return {
+                type: 'shortlist',
+                title: 'You\'ve been shortlisted!',
+                message: `Excellent news! ${companyName} has shortlisted you for the ${internshipTitle} position. You're one step closer to securing this internship!`
+            };
+
+        case 'hired':
+            return {
+                type: 'application',
+                title: 'Congratulations - You\'re Hired!',
+                message: `🎉 Amazing news! ${companyName} has offered you the ${internshipTitle} position. Congratulations on securing this internship!`
+            };
+
+        case 'rejected':
+            return {
+                type: 'application',
+                title: 'Application Update',
+                message: `Thank you for your interest in the ${internshipTitle} position at ${companyName}. While you weren't selected this time, we encourage you to keep applying to other opportunities.`
+            };
+
+        default:
+            return {
+                type: 'application',
+                title: 'Application Status Update',
+                message: `Your application status for ${internshipTitle} at ${companyName} has been updated. Please check your applications page for details.`
+            };
     }
 };
 

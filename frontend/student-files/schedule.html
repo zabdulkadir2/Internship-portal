@@ -21,23 +21,8 @@
     <link rel="stylesheet" href="../student-styles/schedule.css" />
   </head>
   <body>
-    <!-- Navbar Section - Reused for consistency -->
-    <nav class="nav-container">
-      <div class="logo">
-        <h1>CampusConnect</h1>
-      </div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="internship.html">Internships</a></li>
-        <li><a href="mentors.html">Mentors</a></li>
-        <li><a href="applications.html">My Applications</a></li>
-        <li><a href="#my-schedule" class="active">My Schedule</a></li>
-        <li><a href="session.html">My Sessions</a></li>
-        <li><a href="student-profile.html">Profile</a></li>
-        <li><a href="notifications.html">Notifications</a></li>
-        <li><a href="#" id="logout-btn">Logout</a></li>
-      </ul>
-    </nav>
+    <!-- Shared Navbar Component -->
+    <div id="navbar-placeholder"></div>
 
     <!-- Page Header / Hero Section -->
     <section class="page-hero">
@@ -53,70 +38,52 @@
       </div>
     </section>
 
-    <!-- Upcoming Events Section -->
-    <section class="upcoming-events-section">
-      <h2>Upcoming Events</h2>
-      <div class="events-list-grid">
-        <!-- Event Card 1: Mentor Session -->
-        <div class="event-card">
-          <p class="event-date-time">July 20, 2025 — 3:00 PM GMT</p>
-          <h3 class="event-title">👤 Mentor Session with Ama</h3>
-          <p class="event-details">📍 Google Meet</p>
-          <p class="event-status status-confirmed">🟢 Confirmed</p>
-          <div class="event-actions">
-            <a href="#" class="btn btn-primary join-now-btn">Join Now</a>
-            <button class="action-button reschedule-btn">Reschedule</button>
-          </div>
+    <!-- Schedule Controls Section -->
+    <section class="schedule-controls-section" style="background-color: #ffffff; padding: 2rem; text-align: center;">
+      <div class="controls-container" style="max-width: 800px; margin: 0 auto;">
+        <div class="schedule-filters" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+          <select class="filter-select" id="event-type-filter" style="padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px;">
+            <option value="">All Events</option>
+            <option value="interview">Interviews</option>
+            <option value="mentor">Mentor Sessions</option>
+            <option value="deadline">Application Deadlines</option>
+            <option value="workshop">Workshops</option>
+          </select>
+          <select class="filter-select" id="time-range-filter" style="padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px;">
+            <option value="all">All Time</option>
+            <option value="today">Today</option>
+            <option value="week">This Week</option>
+            <option value="month">This Month</option>
+          </select>
+          <button class="btn btn-secondary" id="refresh-schedule-btn" style="padding: 8px 16px;">
+            <i class="fas fa-sync-alt"></i> Refresh
+          </button>
         </div>
-
-        <!-- Event Card 2: Interview -->
-        <div class="event-card">
-          <p class="event-date-time">July 22, 2025 — 10:00 AM GMT</p>
-          <h3 class="event-title">💬 Interview with Tech Innovations Inc.</h3>
-          <p class="event-details">📍 Virtual Interview Room</p>
-          <p class="event-status status-pending">⏳ Pending Confirmation</p>
-          <div class="event-actions">
-            <button class="action-button view-details-btn">View Details</button>
+        <div class="schedule-stats" style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem;">
+          <div class="stat-item" style="text-align: center;">
+            <span class="stat-number" id="total-events" style="font-size: 1.5rem; font-weight: 600; color: #1e3a8a;">-</span>
+            <span class="stat-label" style="display: block; color: #6b7280; font-size: 0.875rem;">Total Events</span>
           </div>
-        </div>
-
-        <!-- Event Card 3: Workshop -->
-        <div class="event-card">
-          <p class="event-date-time">July 25, 2025 — 1:00 PM GMT</p>
-          <h3 class="event-title">📝 Resume Building Workshop</h3>
-          <p class="event-details">📍 Campus Lecture Hall 3</p>
-          <p class="event-status status-confirmed">🟢 Confirmed</p>
-          <div class="event-actions">
-            <button class="action-button view-details-btn">View Details</button>
+          <div class="stat-item" style="text-align: center;">
+            <span class="stat-number" id="upcoming-interviews" style="font-size: 1.5rem; font-weight: 600; color: #8b5cf6;">-</span>
+            <span class="stat-label" style="display: block; color: #6b7280; font-size: 0.875rem;">Interviews</span>
           </div>
-        </div>
-
-        <!-- Event Card 4: Application Deadline -->
-        <div class="event-card">
-          <p class="event-date-time">July 28, 2025 — 5:00 PM GMT</p>
-          <h3 class="event-title">
-            📅 Application Deadline: Global Solutions Ltd.
-          </h3>
-          <p class="event-details">Action: Submit your application!</p>
-          <p class="event-status status-deadline">🔴 Deadline Soon</p>
-          <div class="event-actions">
-            <a href="internship.html" class="btn btn-secondary">Apply Now</a>
-          </div>
-        </div>
-
-        <!-- Event Card 5: Follow-up Session -->
-        <div class="event-card">
-          <p class="event-date-time">August 1, 2025 — 11:00 AM GMT</p>
-          <h3 class="event-title">👤 Mentor Follow-up with Kwame</h3>
-          <p class="event-details">📍 Zoom Call</p>
-          <p class="event-status status-confirmed">🟢 Confirmed</p>
-          <div class="event-actions">
-            <a href="#" class="btn btn-primary join-now-btn">Join Now</a>
+          <div class="stat-item" style="text-align: center;">
+            <span class="stat-number" id="urgent-deadlines" style="font-size: 1.5rem; font-weight: 600; color: #ef4444;">-</span>
+            <span class="stat-label" style="display: block; color: #6b7280; font-size: 0.875rem;">Urgent Deadlines</span>
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- Upcoming Events Section -->
+    <section class="upcoming-events-section">
+      <h2>My Schedule</h2>
+      <div class="events-list-grid">
+        <!-- Events will be populated dynamically by JavaScript -->
+      </div>
       <div class="section-footer-link">
-        <a href="#" class="btn btn-secondary">View All Past Events</a>
+        <a href="#" class="btn btn-secondary" id="view-past-events-btn">View Past Events</a>
       </div>
     </section>
 
@@ -145,27 +112,321 @@
         </div>
       </div>
     </footer>
-    <!-- Authentication and Logout Script -->
-    <script type="module">
-      import { requireAuth, initLogout } from '../../public/js/auth-utils.js';
+    <!-- Dynamic Schedule Script -->
+    <script type="module" src="js/schedule.js?v=2"></script>
 
-      // Initialize page
-      const initPage = async () => {
-        try {
-          // Ensure user is authenticated
-          await requireAuth();
+    <style>
+      /* Additional styles for dynamic schedule features */
+      .events-loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 3rem;
+        color: #6b7280;
+      }
 
-          // Initialize logout functionality
-          initLogout();
+      .loading-container {
+        text-align: center;
+      }
 
-          console.log('Page initialized successfully');
-        } catch (error) {
-          console.error('Page initialization error:', error);
+      .loading-spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid #f3f4f6;
+        border-top: 4px solid #3b82f6;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 16px auto;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      .empty-state {
+        text-align: center;
+        padding: 3rem 2rem;
+        color: #6b7280;
+      }
+
+      .empty-state h3 {
+        color: #374151;
+        margin-bottom: 1rem;
+      }
+
+      .empty-state p {
+        margin-bottom: 2rem;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .days-remaining {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #ef4444;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Modal styles */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .modal-container {
+        background: white;
+        border-radius: 12px;
+        max-width: 600px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 32px;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .modal-header h2 {
+        margin: 0;
+        font-size: 1.5rem;
+        color: #1f2937;
+      }
+
+      .modal-close {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #6b7280;
+        padding: 0;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        transition: background-color 0.2s;
+      }
+
+      .modal-close:hover {
+        background-color: #f3f4f6;
+        color: #374151;
+      }
+
+      .modal-content {
+        padding: 32px;
+      }
+
+      .modal-footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+        padding: 24px 32px;
+        border-top: 1px solid #e5e7eb;
+        background-color: #f9fafb;
+      }
+
+      .event-detail-section h3 {
+        color: #1e3a8a;
+        margin-bottom: 1rem;
+      }
+
+      .event-detail-section p {
+        margin-bottom: 0.75rem;
+      }
+
+      .notes-section, .description-section {
+        margin-top: 1.5rem;
+        padding: 1rem;
+        background-color: #f8fafc;
+        border-radius: 8px;
+        border-left: 4px solid #3b82f6;
+      }
+
+      /* Status-specific styles */
+      .status-cancelled { background-color: #fee2e2; color: #991b1b; }
+      .status-completed { background-color: #dcfce7; color: #166534; }
+
+      /* Interview-specific styles */
+      .interview-alert {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem;
+        border-radius: 6px;
+        background: rgba(59, 130, 246, 0.1);
+        border: 1px solid #bfdbfe;
+        font-size: 0.875rem;
+      }
+
+      .event-card .interview-alert {
+        margin-bottom: 1rem;
+      }
+
+      .status-ready-to-join {
+        background-color: #fef3c7;
+        color: #b45309;
+        border: 1px solid #fcd34d;
+      }
+
+      .status-ready-to-join::before {
+        content: "🟡";
+        margin-right: 0.5rem;
+      }
+
+      /* Enhanced button styles for interviews */
+      .btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      .join-now-btn {
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+      }
+
+      /* Modal enhancements */
+      .interview-header {
+        text-align: center;
+        padding: 1rem;
+        background: #f8fafc;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+        border: 1px solid #e2e8f0;
+      }
+
+      .detail-grid {
+        display: grid;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .detail-item strong {
+        color: #1e3a8a;
+        display: block;
+        margin-bottom: 0.25rem;
+      }
+
+      .interviewer-section,
+      .notes-section,
+      .preparation-section,
+      .company-section {
+        border-radius: 6px;
+        margin-bottom: 1.5rem;
+      }
+
+      .interviewer-section h4,
+      .notes-section h4,
+      .preparation-section h4,
+      .company-section h4 {
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      /* Form styles for reschedule modal */
+      .form-group {
+        margin-bottom: 1rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: #374151;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 8px 12px;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        transition: border-color 0.2s;
+      }
+
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      }
+
+      .form-actions {
+        display: flex;
+        gap: 12px;
+        justify-content: flex-end;
+        margin-top: 1.5rem;
+      }
+
+      .notice {
+        background: #fef3c7;
+        padding: 1rem;
+        border-radius: 6px;
+        border-left: 4px solid #f59e0b;
+        margin-bottom: 1rem;
+      }
+
+      .notice p {
+        margin: 0;
+        color: #b45309;
+        font-size: 0.875rem;
+      }
+
+      /* Responsive filters */
+      @media (max-width: 768px) {
+        .schedule-filters {
+          flex-direction: column;
+          align-items: center;
         }
-      };
 
-      // Initialize when DOM is loaded
-      document.addEventListener('DOMContentLoaded', initPage);
-    </script>
+        .schedule-stats {
+          flex-direction: column;
+          gap: 1rem !important;
+        }
+
+        .modal-container {
+          max-width: 95vw;
+          margin: 1rem;
+        }
+
+        .form-actions {
+          flex-direction: column;
+        }
+
+        .detail-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+    </style>
+
+    <!-- Shared Navbar Component -->
+    <script type="module" src="../../public/js/shared-navbar.js"></script>
   </body>
 </html>

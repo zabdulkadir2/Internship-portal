@@ -20,23 +20,8 @@
     <link rel="stylesheet" href="../student-styles/student-profile.css" />
   </head>
   <body>
-    <!-- Navbar Section - Reused for consistency -->
-    <nav class="nav-container">
-      <div class="logo">
-        <h1>CampusConnect</h1>
-      </div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="internship.html">Internships</a></li>
-        <li><a href="mentors.html">Mentors</a></li>
-        <li><a href="applications.html">My Applications</a></li>
-        <li><a href="schedule.html">My Schedule</a></li>
-        <li><a href="session.html">My Sessions</a></li>
-        <li><a href="#student-profile" class="active">Profile</a></li>
-        <li><a href="notifications.html">Notifications</a></li>
-        <li><a href="#" id="logout-btn">Logout</a></li>
-      </ul>
-    </nav>
+    <!-- Shared Navbar Component -->
+    <div id="navbar-placeholder"></div>
 
     <div class="profile-page-container">
       <!-- Loading State -->
@@ -204,6 +189,9 @@
       </div>
     </footer>
     <!-- JavaScript Module -->
+    <!-- Shared Navbar Component -->
+    <script type="module" src="../../public/js/shared-navbar.js"></script>
+
     <script type="module" src="js/student-profile.js"></script>
   </body>
 </html>

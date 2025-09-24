@@ -31,8 +31,7 @@ const initPage = async () => {
             return;
         }
 
-        // Initialize logout functionality
-        initLogout();
+        // Note: Logout now handled by shared navbar
 
         // Setup loading indicator
         setupLoadingIndicator();

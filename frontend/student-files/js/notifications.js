@@ -30,8 +30,7 @@ const initPage = async () => {
             return;
         }
 
-        // Initialize logout functionality
-        initLogout();
+        // Note: Logout now handled by shared navbar
 
         // Setup event handlers
         setupEventHandlers();
@@ -93,8 +92,7 @@ const loadFirestoreNotifications = async () => {
     try {
         const q = query(
             collection(db, 'notifications'),
-            where('recipientId', '==', currentUser.uid),
-            orderBy('createdAt', 'desc')
+            where('recipientId', '==', currentUser.uid)
         );
 
         const querySnapshot = await getDocs(q);
@@ -108,12 +106,16 @@ const loadFirestoreNotifications = async () => {
             });
         });
 
+        // Sort by date (newest first) since we removed orderBy from query
+        firestoreNotifications.sort((a, b) => b.createdAt - a.createdAt);
+
         allNotifications = firestoreNotifications;
         console.log('Loaded Firestore notifications:', firestoreNotifications.length);
 
     } catch (error) {
         console.error('Error loading Firestore notifications:', error);
-        // Continue with mock data if Firestore fails
+        // Continue without notifications if Firestore fails
+        allNotifications = [];
     }
 };
 
@@ -147,65 +149,44 @@ const generateShortlistNotifications = async () => {
             shortlistNotifications.push(notification);
         }
 
-        // Add demo notifications if no real data exists
-        if (allNotifications.length === 0 && shortlistNotifications.length === 0) {
-            shortlistNotifications.push(...generateDemoNotifications());
-        }
+        // Remove dummy data - notifications now come from real application status changes
 
         allNotifications = [...allNotifications, ...shortlistNotifications];
 
     } catch (error) {
         console.error('Error generating shortlist notifications:', error);
-        // Add demo notifications as fallback
-        if (allNotifications.length === 0) {
-            allNotifications.push(...generateDemoNotifications());
-        }
+        // Real notifications will be created by application status changes
     }
 };
 
-// Generate demo notifications for testing
-const generateDemoNotifications = () => {
-    return [
-        {
-            id: 'demo_1',
-            type: 'shortlist',
-            title: 'You\'ve been shortlisted!',
-            message: 'Congratulations! Tech Innovations Inc. has shortlisted you for the Frontend Developer Intern position.',
-            companyName: 'Tech Innovations Inc.',
-            createdAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000), // 2 days ago
+// Notification creation function for real-time application updates
+const createApplicationNotification = async (notificationData) => {
+    try {
+        const notification = {
+            recipientId: notificationData.recipientId,
+            type: notificationData.type,
+            title: notificationData.title,
+            message: notificationData.message,
+            companyName: notificationData.companyName,
+            internshipTitle: notificationData.internshipTitle,
+            applicationId: notificationData.applicationId,
+            actionUrl: 'applications.html',
             read: false,
-            actionUrl: 'applications.html'
-        },
-        {
-            id: 'demo_2',
-            type: 'application',
-            title: 'Application Status Update',
-            message: 'Your application for Data Analyst Internship at Insightful Solutions is now under review.',
-            companyName: 'Insightful Solutions',
-            createdAt: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000), // 5 days ago
-            read: true,
-            actionUrl: 'applications.html'
-        },
-        {
-            id: 'demo_3',
-            type: 'interview',
-            title: 'Interview Invitation',
-            message: 'You have been invited for an interview at Creative Minds Studio. Please check your email for details.',
-            companyName: 'Creative Minds Studio',
-            createdAt: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000), // 7 days ago
-            read: false,
-            actionUrl: 'schedule.html'
-        },
-        {
-            id: 'demo_4',
-            type: 'system',
-            title: 'Platform Update',
-            message: 'New features have been added to CampusConnect! You can now track your application progress in real-time.',
-            createdAt: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000), // 10 days ago
-            read: true
-        }
-    ];
+            createdAt: serverTimestamp()
+        };
+
+        await addDoc(collection(db, 'notifications'), notification);
+        console.log('Notification created:', notification);
+
+        return true;
+    } catch (error) {
+        console.error('Error creating notification:', error);
+        return false;
+    }
 };
+
+// Make function available globally for use by applications.js
+window.createApplicationNotification = createApplicationNotification;
 
 // Apply filters
 const applyFilters = () => {
