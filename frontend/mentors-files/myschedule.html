@@ -30,28 +30,27 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="request.html">Student Requests</a></li>
         <li><a href="mentees.html">My Mentees</a></li>
-        <li><a href="#my-schedule"  class="active">My Schedule</a></li>
+        <li><a href="myschedule.html" class="active">My Schedule</a></li>
         <li><a href="mentor-profile.html">Profile</a></li>
         <li><a href="#">Logout</a></li>
       </ul>
     </nav>
 
-    <!-- Page Header / Hero Section - Mirrored from student's schedule page -->
+    <!-- Page Header / Hero Section -->
     <section class="page-hero">
       <div class="page-hero-block">
         <div class="page-hero-text">
-          <h2>My Schedule</h2>
+          <h2>My Mentoring Schedule</h2>
           <p>
-            Review your upcoming mentorship sessions and meetings with students.
+            Manage your upcoming mentorship sessions, review student requests, and organize your mentoring calendar.
           </p>
         </div>
-        <!-- Hero image removed as requested -->
       </div>
     </section>
 
-    <!-- Upcoming Sessions Section - Mirrored from student's upcoming-events-section -->
+    <!-- Upcoming Sessions Section -->
     <section class="upcoming-sessions-section">
-      <h2>Upcoming Sessions & Appointments</h2>
+      <h2>Upcoming Mentoring Sessions</h2>
       <div class="session-cards-grid">
         <!-- Session Card 1: Mentor Session -->
         <div class="session-card">
@@ -122,13 +121,13 @@
           class="no-sessions-icon"
         />
         <p class="no-sessions-message">
-          You have no upcoming sessions scheduled.
+          You have no upcoming mentoring sessions scheduled.
         </p>
         <p class="no-sessions-subtext">
-          Once a student books time with you, it will appear here.
+          Once students book sessions with you or you accept session requests, they will appear here.
         </p>
         <div class="section-footer-link">
-          <a href="#" class="btn btn-primary">Schedule a Session</a>
+          <a href="request.html" class="btn btn-primary">View Session Requests</a>
         </div>
       </div>
     </section>
@@ -158,18 +157,10 @@
         </div>
       </div>
     </footer>
-    <!-- Authentication and Logout Script -->
-    <script type="module">
-      import { requireAuth, initLogout } from '../../public/js/auth-utils.js';
-      const initPage = async () => {
-        try {
-          await requireAuth();
-          initLogout();
-        } catch (error) {
-          console.error('Page initialization error:', error);
-        }
-      };
-      document.addEventListener('DOMContentLoaded', initPage);
-    </script>
+    <!-- Schedule Functionality -->
+    <script type="module" src="js/myschedule.js"></script>
+
+    <!-- Mentor Navbar Component -->
+    <script type="module" src="js/mentor-navbar.js"></script>
   </body>
 </html>

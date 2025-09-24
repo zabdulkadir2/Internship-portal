@@ -19,6 +19,703 @@
     />
     <!-- Link to the dedicated CSS file for this page -->
     <link rel="stylesheet" href="../mentors-styles/request.css" />
+    <style>
+      /* Loading States CSS */
+      .requests-loading {
+        margin: 20px 0;
+      }
+
+      .loading-request-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 24px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .loading-request-card {
+        background: #f8f9fa;
+        padding: 24px;
+        border-radius: 12px;
+        border: 1px solid #e9ecef;
+      }
+
+      .loading-request-header {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+
+      .loading-student-profile {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(90deg, #e9ecef 25%, #f8f9fa 50%, #e9ecef 75%);
+        background-size: 200% 100%;
+        animation: loading-shimmer 1.5s infinite;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      .loading-student-info {
+        flex-grow: 1;
+      }
+
+      .loading-student-name {
+        height: 20px;
+        width: 70%;
+        background: linear-gradient(90deg, #e9ecef 25%, #f8f9fa 50%, #e9ecef 75%);
+        background-size: 200% 100%;
+        animation: loading-shimmer 1.5s infinite;
+        border-radius: 4px;
+        margin-bottom: 8px;
+      }
+
+      .loading-student-university {
+        height: 16px;
+        width: 85%;
+        background: linear-gradient(90deg, #e9ecef 25%, #f8f9fa 50%, #e9ecef 75%);
+        background-size: 200% 100%;
+        animation: loading-shimmer 1.5s infinite;
+        border-radius: 4px;
+        margin-bottom: 8px;
+      }
+
+      .loading-student-interest {
+        height: 16px;
+        width: 60%;
+        background: linear-gradient(90deg, #e9ecef 25%, #f8f9fa 50%, #e9ecef 75%);
+        background-size: 200% 100%;
+        animation: loading-shimmer 1.5s infinite;
+        border-radius: 4px;
+      }
+
+      .loading-message-summary {
+        height: 80px;
+        background: linear-gradient(90deg, #e9ecef 25%, #f8f9fa 50%, #e9ecef 75%);
+        background-size: 200% 100%;
+        animation: loading-shimmer 1.5s infinite;
+        border-radius: 4px;
+        margin-bottom: 16px;
+      }
+
+      .loading-submitted-date {
+        height: 16px;
+        width: 40%;
+        background: linear-gradient(90deg, #e9ecef 25%, #f8f9fa 50%, #e9ecef 75%);
+        background-size: 200% 100%;
+        animation: loading-shimmer 1.5s infinite;
+        border-radius: 4px;
+        margin-bottom: 12px;
+      }
+
+      .loading-status-badge {
+        height: 24px;
+        width: 80px;
+        background: linear-gradient(90deg, #e9ecef 25%, #f8f9fa 50%, #e9ecef 75%);
+        background-size: 200% 100%;
+        animation: loading-shimmer 1.5s infinite;
+        border-radius: 12px;
+        margin-bottom: 16px;
+      }
+
+      .loading-request-actions {
+        display: flex;
+        gap: 12px;
+      }
+
+      .loading-button {
+        height: 38px;
+        width: 90px;
+        background: linear-gradient(90deg, #e9ecef 25%, #f8f9fa 50%, #e9ecef 75%);
+        background-size: 200% 100%;
+        animation: loading-shimmer 1.5s infinite;
+        border-radius: 6px;
+      }
+
+      @keyframes loading-shimmer {
+        0% { background-position: -200% 0; }
+        100% { background-position: 200% 0; }
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .loading-request-grid {
+          grid-template-columns: 1fr;
+          padding: 0 16px;
+        }
+
+        .loading-request-actions {
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .loading-button {
+          width: 100%;
+        }
+      }
+
+      /* Request Details Modal Styles */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+        backdrop-filter: blur(2px);
+      }
+
+      .modal-content {
+        background: white;
+        border-radius: 12px;
+        max-width: 700px;
+        width: 90%;
+        max-height: 85vh;
+        overflow-y: auto;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        animation: modalAppear 0.3s ease;
+      }
+
+      .request-details-modal {
+        max-width: 800px;
+      }
+
+      @keyframes modalAppear {
+        from {
+          opacity: 0;
+          transform: translateY(-20px) scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 24px 0;
+        border-bottom: 1px solid #e9ecef;
+        margin-bottom: 20px;
+      }
+
+      .modal-header h2 {
+        margin: 0;
+        color: #2d3748;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .modal-header h2 i {
+        color: #0066cc;
+      }
+
+      .modal-close {
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: #6c757d;
+        cursor: pointer;
+        padding: 0;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: background-color 0.2s;
+      }
+
+      .modal-close:hover {
+        background-color: #f8f9fa;
+        color: #495057;
+      }
+
+      .modal-body {
+        padding: 0 24px 20px;
+      }
+
+      .student-profile-section {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 30px;
+        padding: 20px;
+        background: #f8f9fa;
+        border-radius: 10px;
+        border-left: 4px solid #0066cc;
+      }
+
+      .student-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #e9ecef;
+      }
+
+      .student-info h3 {
+        margin: 0 0 8px 0;
+        color: #2d3748;
+        font-size: 1.3rem;
+      }
+
+      .student-info p {
+        margin: 4px 0;
+        color: #6c757d;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .student-info i {
+        width: 16px;
+        color: #0066cc;
+      }
+
+      .request-details-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+
+      .detail-card {
+        background: #f8f9fa;
+        padding: 16px;
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+      }
+
+      .detail-card h4 {
+        margin: 0 0 8px 0;
+        color: #495057;
+        font-size: 0.9rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .detail-card h4 i {
+        color: #0066cc;
+        width: 16px;
+      }
+
+      .detail-card p {
+        margin: 0;
+        color: #2d3748;
+        font-weight: 500;
+      }
+
+      .message-section {
+        margin-bottom: 24px;
+      }
+
+      .message-section h4 {
+        margin: 0 0 12px 0;
+        color: #2d3748;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .message-section h4 i {
+        color: #0066cc;
+      }
+
+      .message-content {
+        background: #f8f9fa;
+        padding: 16px;
+        border-radius: 8px;
+        border-left: 4px solid #0066cc;
+        font-style: italic;
+        color: #495057;
+        line-height: 1.5;
+      }
+
+      .status-section {
+        padding: 16px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      .status-section h4 {
+        margin: 0 0 8px 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 1.1rem;
+      }
+
+      .status-section p {
+        margin: 4px 0;
+        opacity: 0.9;
+      }
+
+      .status-pending {
+        background: #fff3cd;
+        color: #856404;
+        border: 1px solid #ffeaa7;
+      }
+
+      .status-confirmed {
+        background: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+
+      .status-declined {
+        background: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f1b0b7;
+      }
+
+      .modal-footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+        padding: 20px 24px 24px;
+        border-top: 1px solid #e9ecef;
+      }
+
+      .btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .btn-primary {
+        background: #0066cc;
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: #0056b3;
+      }
+
+      .btn-secondary {
+        background: #6c757d;
+        color: white;
+      }
+
+      .btn-secondary:hover {
+        background: #5a6268;
+      }
+
+      .btn-danger {
+        background: #dc3545;
+        color: white;
+      }
+
+      .btn-danger:hover {
+        background: #c82333;
+      }
+
+      /* Accept and Reject Modal Styles */
+      .accept-modal {
+        max-width: 600px;
+      }
+
+      .reject-modal {
+        max-width: 500px;
+      }
+
+      .modal-body form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .form-group label {
+        font-weight: 600;
+        color: #2d3748;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .form-group label i {
+        color: #0066cc;
+        width: 16px;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        padding: 12px 16px;
+        border: 2px solid #e9ecef;
+        border-radius: 8px;
+        font-size: 14px;
+        transition: border-color 0.2s, box-shadow 0.2s;
+        font-family: inherit;
+      }
+
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: #0066cc;
+        box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+      }
+
+      .form-group textarea {
+        resize: vertical;
+        min-height: 100px;
+        line-height: 1.5;
+      }
+
+      .form-group .input-help {
+        font-size: 12px;
+        color: #6c757d;
+        margin-top: 4px;
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .form-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+        margin-top: 8px;
+        padding-top: 20px;
+        border-top: 1px solid #e9ecef;
+      }
+
+      /* Accept Modal Specific Styles */
+      .accept-modal .modal-header {
+        background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+        color: #155724;
+        border-radius: 12px 12px 0 0;
+      }
+
+      .accept-modal .modal-header h2 i {
+        color: #28a745;
+      }
+
+      .accept-confirmation {
+        background: #d4edda;
+        color: #155724;
+        padding: 16px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        border: 1px solid #c3e6cb;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .accept-confirmation i {
+        font-size: 20px;
+        color: #28a745;
+      }
+
+      .btn-success {
+        background: #28a745;
+        color: white;
+        border: none;
+      }
+
+      .btn-success:hover {
+        background: #218838;
+      }
+
+      /* Reject Modal Specific Styles */
+      .reject-modal .modal-header {
+        background: linear-gradient(135deg, #f8d7da 0%, #f1b0b7 100%);
+        color: #721c24;
+        border-radius: 12px 12px 0 0;
+      }
+
+      .reject-modal .modal-header h2 i {
+        color: #dc3545;
+      }
+
+      .reject-warning {
+        background: #f8d7da;
+        color: #721c24;
+        padding: 16px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        border: 1px solid #f1b0b7;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .reject-warning i {
+        font-size: 20px;
+        color: #dc3545;
+        margin-top: 2px;
+      }
+
+      .reject-warning div h4 {
+        margin: 0 0 4px 0;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .reject-warning div p {
+        margin: 0;
+        font-size: 13px;
+        opacity: 0.9;
+      }
+
+      .reason-buttons {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+
+      .reason-option {
+        padding: 12px 16px;
+        border: 2px solid #e9ecef;
+        border-radius: 8px;
+        background: white;
+        cursor: pointer;
+        font-size: 14px;
+        text-align: center;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .reason-option:hover {
+        border-color: #0066cc;
+        background: #f8f9fa;
+      }
+
+      .reason-option.selected {
+        border-color: #dc3545;
+        background: #f8d7da;
+        color: #721c24;
+      }
+
+      .reason-option i {
+        font-size: 16px;
+      }
+
+      /* Form validation styles */
+      .form-group input:invalid,
+      .form-group select:invalid {
+        border-color: #dc3545;
+      }
+
+      .form-group input:valid,
+      .form-group select:valid {
+        border-color: #28a745;
+      }
+
+      /* Loading state for form submission */
+      .btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      .btn.loading {
+        position: relative;
+      }
+
+      .btn.loading::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 16px;
+        height: 16px;
+        border: 2px solid transparent;
+        border-top: 2px solid currentColor;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      .btn.loading span {
+        opacity: 0;
+      }
+
+      @keyframes spin {
+        0% { transform: translate(-50%, -50%) rotate(0deg); }
+        100% { transform: translate(-50%, -50%) rotate(360deg); }
+      }
+
+      /* Responsive modal */
+      @media (max-width: 640px) {
+        .modal-content {
+          width: 95%;
+          margin: 20px;
+          max-height: 90vh;
+        }
+
+        .student-profile-section {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .request-details-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .modal-header,
+        .modal-body,
+        .modal-footer {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+
+        .modal-footer,
+        .form-actions {
+          flex-direction: column;
+        }
+
+        .btn {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+
+        .reason-buttons {
+          grid-template-columns: 1fr;
+        }
+
+        .accept-modal,
+        .reject-modal {
+          max-width: none;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- Navbar Section -->
@@ -30,7 +727,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="#student-requests" class="active">Student Requests</a></li>
         <li><a href="mentees.html">My Mentees</a></li>
-        <li><a href="schedule.html">My Schedule</a></li>
+        <li><a href="myschedule.html">My Schedule</a></li>
         <li><a href="mentor-profile.html">Profile</a></li>
         <li><a href="#">Logout</a></li>
       </ul>
@@ -79,139 +776,80 @@
 
     <!-- Requests List -->
     <section class="requests-list-section">
-      <div class="request-cards-grid">
-        <!-- Example Request Card 1 (Pending) -->
-        <div class="request-card">
-          <div class="request-header">
-            <img
-              src="../assets/images/jane.jpg"
-              alt="Student Profile"
-              class="student-profile-img"
-            />
-            <div class="student-info">
-              <h3 class="student-name">Jane Doe</h3>
-              <p class="student-university">KNUST – Computer Science</p>
-              <p class="student-interest">
-                Area of Interest: Frontend Development
-              </p>
+      <!-- Loading State for Requests -->
+      <div id="requests-loading" class="requests-loading" style="display: none;">
+        <div class="loading-request-grid">
+          <div class="loading-request-card">
+            <div class="loading-request-header">
+              <div class="loading-student-profile"></div>
+              <div class="loading-student-info">
+                <div class="loading-student-name"></div>
+                <div class="loading-student-university"></div>
+                <div class="loading-student-interest"></div>
+              </div>
+            </div>
+            <div class="loading-message-summary"></div>
+            <div class="loading-submitted-date"></div>
+            <div class="loading-status-badge"></div>
+            <div class="loading-request-actions">
+              <div class="loading-button"></div>
+              <div class="loading-button"></div>
+              <div class="loading-button"></div>
             </div>
           </div>
-          <p class="message-summary">
-            "Hi, I'm looking for guidance on building responsive web interfaces
-            and understanding modern JavaScript frameworks. Your profile on
-            React caught my eye..."
-          </p>
-          <p class="submitted-on">Submitted On: July 10, 2025</p>
-          <span class="status-badge status-pending">Pending</span>
-          <div class="request-actions">
-            <button class="btn btn-primary">Accept</button>
-            <button class="btn btn-secondary reject-btn">Reject</button>
+          <div class="loading-request-card">
+            <div class="loading-request-header">
+              <div class="loading-student-profile"></div>
+              <div class="loading-student-info">
+                <div class="loading-student-name"></div>
+                <div class="loading-student-university"></div>
+                <div class="loading-student-interest"></div>
+              </div>
+            </div>
+            <div class="loading-message-summary"></div>
+            <div class="loading-submitted-date"></div>
+            <div class="loading-status-badge"></div>
+            <div class="loading-request-actions">
+              <div class="loading-button"></div>
+              <div class="loading-button"></div>
+              <div class="loading-button"></div>
+            </div>
+          </div>
+          <div class="loading-request-card">
+            <div class="loading-request-header">
+              <div class="loading-student-profile"></div>
+              <div class="loading-student-info">
+                <div class="loading-student-name"></div>
+                <div class="loading-student-university"></div>
+                <div class="loading-student-interest"></div>
+              </div>
+            </div>
+            <div class="loading-message-summary"></div>
+            <div class="loading-submitted-date"></div>
+            <div class="loading-status-badge"></div>
+            <div class="loading-request-actions">
+              <div class="loading-button"></div>
+              <div class="loading-button"></div>
+              <div class="loading-button"></div>
+            </div>
           </div>
         </div>
+      </div>
 
-        <!-- Example Request Card 2 (Accepted) -->
-        <div class="request-card">
-          <div class="request-header">
-            <img
-              src="../assets/images/john.jpg"
-              alt="Student Profile"
-              class="student-profile-img"
-            />
-            <div class="student-info">
-              <h3 class="student-name">John Smith</h3>
-              <p class="student-university">
-                University of Ghana – Business Analytics
-              </p>
-              <p class="student-interest">Area of Interest: Data Science</p>
-            </div>
-          </div>
-          <p class="message-summary">
-            "Hello, I'm a final-year student interested in machine learning
-            applications in finance. I saw your work on predictive modeling and
-            would love to learn more..."
-          </p>
-          <p class="submitted-on">Submitted On: July 08, 2025</p>
-          <span class="status-badge status-accepted">Accepted</span>
-          <div class="request-actions">
-            <button class="btn btn-primary disabled-btn" disabled>
-              Accepted
-            </button>
-            <button class="btn btn-secondary reject-btn disabled-btn" disabled>
-              Reject
-            </button>
-          </div>
-        </div>
-
-        <!-- Example Request Card 3 (Rejected) -->
-        <div class="request-card">
-          <div class="request-header">
-            <img
-              src="../assets/images/emily.jpg"
-              alt="Student Profile"
-              class="student-profile-img"
-            />
-            <div class="student-info">
-              <h3 class="student-name">Emily White</h3>
-              <p class="student-university">UCC – Environmental Science</p>
-              <p class="student-interest">
-                Area of Interest: Sustainable Practices
-              </p>
-            </div>
-          </div>
-          <p class="message-summary">
-            "Good day, I'm passionate about environmental conservation and
-            seeking advice on career paths in sustainability. Your background in
-            green tech is inspiring..."
-          </p>
-          <p class="submitted-on">Submitted On: July 05, 2025</p>
-          <span class="status-badge status-rejected">Rejected</span>
-          <div class="request-actions">
-            <button class="btn btn-primary disabled-btn" disabled>
-              Accept
-            </button>
-            <button class="btn btn-secondary reject-btn disabled-btn" disabled>
-              Rejected
-            </button>
-          </div>
-        </div>
-
-        <!-- Example Request Card 4 (Pending) -->
-        <div class="request-card">
-          <div class="request-header">
-            <img
-              src="../assets/images/adams.jpg"
-              alt="Student Profile"
-              class="student-profile-img"
-            />
-            <div class="student-info">
-              <h3 class="student-name">Michael Adams</h3>
-              <p class="student-university">KNUST – Mechanical Engineering</p>
-              <p class="student-interest">Area of Interest: Robotics</p>
-            </div>
-          </div>
-          <p class="message-summary">
-            "Hi, I'm working on a robotics project and need guidance on actuator
-            selection and control systems. Your expertise in automation would be
-            invaluable..."
-          </p>
-          <p class="submitted-on">Submitted On: July 12, 2025</p>
-          <span class="status-badge status-pending">Pending</span>
-          <div class="request-actions">
-            <button class="btn btn-primary">Accept</button>
-            <button class="btn btn-secondary reject-btn">Reject</button>
-          </div>
-        </div>
+      <!-- Dynamic Requests Grid -->
+      <div class="request-cards-grid" id="requests-container">
+        <!-- Requests will be populated dynamically -->
       </div>
 
       <!-- Load More Button -->
       <div class="load-more-container">
-        <button class="btn btn-primary load-more-btn">
+        <button class="btn btn-primary load-more-btn" style="display: none;">
           Load More Requests
         </button>
       </div>
 
-      <!-- No Requests State (Initially hidden, can be shown via JS) -->
-      <div class="no-requests-state" style="display: none">
+      <!-- No Requests State -->
+      <div class="no-requests-state" style="display: none;">
         <img
           src="https://placehold.co/150x150/F9FAFB/CBD5E1?text=No+Requests"
           alt="No requests icon"
@@ -219,7 +857,7 @@
         />
         <p class="no-requests-message">No student requests at the moment.</p>
         <p class="no-requests-subtext">
-          You’ll be notified when a new request comes in.
+          You'll be notified when a new request comes in.
         </p>
       </div>
     </section>
@@ -249,18 +887,10 @@
         </div>
       </div>
     </footer>
-    <!-- Authentication and Logout Script -->
-    <script type="module">
-      import { requireAuth, initLogout } from '../../public/js/auth-utils.js';
-      const initPage = async () => {
-        try {
-          await requireAuth();
-          initLogout();
-        } catch (error) {
-          console.error('Page initialization error:', error);
-        }
-      };
-      document.addEventListener('DOMContentLoaded', initPage);
-    </script>
+    <!-- Session Requests Functionality -->
+    <script type="module" src="js/request.js"></script>
+
+    <!-- Mentor Navbar Component -->
+    <script type="module" src="js/mentor-navbar.js"></script>
   </body>
 </html>
